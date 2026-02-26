@@ -196,7 +196,7 @@
         "SCIM deactivates GitHub accounts when users are deleted from the identity provider.",
         "SCIM automates user provisioning when new users are added to the identity provider."
       ],
-      "explanation": ""
+      "explanation": "SCIM automatically updates a user's account on GitHub whenever their profile attributes change in the identity provider. When a user is removed or deacticated in IdP, SCIM deactivates (soft provisions) their GitHub account and disables access. SCIM provisions new GitHub Enterprise Cloud accounts automatically when users are added in the identity provider"      
     },
     {
       "id": 9,
