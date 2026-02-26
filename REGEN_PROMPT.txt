@@ -1,0 +1,56 @@
+REGEN_PROMPT.txt
+================
+
+Purpose:
+Recreate the GH100-FlashCard application using the stable FULL-FIX baseline.
+Use this prompt whenever regenerating the app to avoid file-mixing errors.
+
+--- COPY FROM BELOW ---
+
+Create a complete static GitHub Pages PWA flashcard app (no build tools) from my attached DOCX.
+
+INPUT
+- File: GH-100 GitHub Admin Cert Exam QnA.docx
+- Correct answers are the options highlighted in yellow.
+
+OUTPUT
+- Provide a ZIP containing ONLY these files at repo root:
+  index.html
+  styles.css
+  app.js
+  cards.json
+  service-worker.js
+  manifest.json
+  icons/icon-192.png
+  icons/icon-512.png
+  README.md
+
+STRICT RULES (DO NOT VIOLATE)
+- index.html MUST contain HTML only (no JSON).
+- app.js MUST contain JavaScript only (no JSON).
+- cards.json MUST contain data-only JSON (no JavaScript, no comments).
+- All paths must be relative so it works under https://<user>.github.io/<repo>/
+
+APP FEATURES (match FULL-FIX baseline)
+- Mobile-friendly dark UI with flip-card animation.
+- Bottom controls layout:
+  Prev / Flip (or Reveal) / Submit (quiz mode) / Next
+  ABOVE: “I got it / I missed”.
+- Toggles:
+  Shuffle questions
+  Shuffle answers (reshuffle on navigation)
+  Only missed
+  Quiz mode
+- Quiz mode behaviour:
+  - Single-answer: auto-submit on tap
+  - Multi-answer: require Submit button
+  - Show correct / incorrect feedback
+- Track progress in localStorage (correct / wrong counts).
+- “Only missed” shows cards with wrong > 0.
+
+PWA / DEPLOYMENT
+- Include service-worker with SKIP_WAITING support.
+- Include update banner: “New version available” + Refresh button.
+- Bump CACHE_NAME in service-worker.js on every regeneration.
+
+--- COPY UNTIL ABOVE ---
