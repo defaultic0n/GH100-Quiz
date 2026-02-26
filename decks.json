@@ -1,23 +1,31 @@
 {
+  "meta": {
+    "version": "2b",
+    "decks": 3,
+    "defaultDeckId": "base"
+  },
   "defaultDeckId": "base",
   "decks": [
     {
       "id": "base",
       "name": "Main Deck",
       "file": "cards.json",
-      "description": "Questions parsed from DOCX (yellow highlight = correct)."
+      "description": "Core GH-100 questions",
+      "version": "2b"
     },
     {
-      "id": "hard25",
-      "name": "Hard Deck (25)",
+      "id": "hard",
+      "name": "Hard Deck",
       "file": "hard.json",
-      "description": "25 hard questions (separate file)."
-    }
+      "description": "Hard / advanced questions",
+      "version": "2b"
+    },
     {
-      "id": "hard25",
-      "name": "Actual4Test",
+      "id": "actual",
+      "name": "Actual Test Deck",
       "file": "Actual4Test_cards.json",
-      "description": "25 hard questions (separate file)."
+      "description": "Questions parsed from Actual4Test.txt",
+      "version": "2b"
     }
   ]
 }
