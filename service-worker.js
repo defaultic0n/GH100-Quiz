@@ -1,10 +1,12 @@
-const CACHE_NAME = 'gh100-flashcards-fullfix-v1';
+const CACHE_NAME = 'gh100-flashcards-multideck-v2';
 const ASSETS = [
   './',
   './index.html',
   './styles.css',
   './app.js',
+  './decks.json',
   './cards.json',
+  './hard.json',
   './manifest.json',
   './icons/icon-192.png',
   './icons/icon-512.png'

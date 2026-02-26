@@ -1,7 +1,33 @@
-/* GH-100 Flashcards PWA (offline-capable) */
+/* GH-100 Flashcards PWA (Multi-deck) */
 const $ = (id) => document.getElementById(id);
 
+function applyMobileIconButtons() {
+  const flip = document.getElementById('btnFlip');
+  const submit = document.getElementById('btnSubmit');
+  const isMobile = window.innerWidth <= 420;
+  if (!flip || !submit) return;
+
+  // preserve original desktop labels
+  if (!flip.dataset.desktopText) flip.dataset.desktopText = flip.textContent || 'Flip';
+
+  if (isMobile) {
+    flip.textContent = '👁';
+    submit.textContent = '✅';
+    flip.setAttribute('aria-label', 'Reveal');
+    submit.setAttribute('aria-label', 'Submit');
+  } else {
+    // do not force text here; other logic may set Flip/Reveal based on mode
+    submit.textContent = 'Submit';
+    flip.removeAttribute('aria-label');
+    submit.removeAttribute('aria-label');
+  }
+}
+window.addEventListener('resize', applyMobileIconButtons);
+
 const state = {
+  decksMeta: null,
+  deckId: null,
+  deckName: '',
   all: [],
   view: [],
   idx: 0,
@@ -18,8 +44,10 @@ const state = {
   lastCardId: null,
 };
 
-const STORAGE_KEY = 'gh100_flashcards_progress_v1';
-const PREF_KEY = 'gh100_flashcards_prefs_v_fullfix';
+const STORAGE_KEY = 'gh100_flashcards_progress_v2';
+const PREF_KEY = 'gh100_flashcards_prefs_v_multideck';
+
+function progressKey(cardId){ return `${state.deckId}:${cardId}`; }
 
 function loadProgress(){
   try{ state.progress = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }catch{ state.progress = {}; }
@@ -33,6 +61,7 @@ function loadPrefs(){
     state.shuffleQuestions = !!p.shuffleQuestions;
     state.shuffleAnswers = !!p.shuffleAnswers;
     state.quizMode = !!p.quizMode;
+    state.deckId = p.deckId || null;
   }catch{}
   $('toggleMissed').checked = state.onlyMissed;
   $('toggleShuffle').checked = state.shuffleQuestions;
@@ -44,13 +73,16 @@ function savePrefs(){
     onlyMissed: state.onlyMissed,
     shuffleQuestions: state.shuffleQuestions,
     shuffleAnswers: state.shuffleAnswers,
-    quizMode: state.quizMode
+    quizMode: state.quizMode,
+    deckId: state.deckId
   }));
 }
 
-function tally(){
+function tallyForCurrentDeck(){
   let correct = 0, wrong = 0;
-  for(const v of Object.values(state.progress)){
+  const prefix = `${state.deckId}:`;
+  for(const [k,v] of Object.entries(state.progress)){
+    if(!k.startsWith(prefix)) continue;
     correct += (v.correct||0);
     wrong += (v.wrong||0);
   }
@@ -120,32 +152,6 @@ function requiredCount(card){
   return 1;
 }
 
-function applyFilters(){
-  const q = state.search.trim().toLowerCase();
-  let cards = [...state.all];
-
-  if(state.onlyMissed){
-    cards = cards.filter(c => (state.progress[c.id]?.wrong || 0) > 0);
-  }
-  if(q){
-    cards = cards.filter(c => {
-      const front = (c.question + ' ' + (c.options||[]).map(o=>o.text).join(' ')).toLowerCase();
-      const back = ((c.answers||[]).join(' ') + ' ' + (c.explanation||'')).toLowerCase();
-      return front.includes(q) || back.includes(q);
-    });
-  }
-  if(state.shuffleQuestions){
-    fisherYates(cards);
-  }
-
-  state.view = cards;
-  if(state.idx >= state.view.length) state.idx = 0;
-  clearInteraction();
-  state.optionOrder = {};
-  state.lastCardId = null;
-  render();
-}
-
 function formatFrontFlashcard(card){
   const opts = getDisplayOptions(card);
   const options = opts.map(o => `<li>${escapeHtml(o.text)}</li>`).join('');
@@ -153,7 +159,7 @@ function formatFrontFlashcard(card){
     <div class="badge">Q</div>
     <h2>${escapeHtml(card.question)}</h2>
     <ul>${options}</ul>
-    <div class="muted">Tap Flip to reveal highlighted answer(s).</div>
+    <div class="muted">Tap Flip to reveal answer(s).</div>
   `;
 }
 
@@ -190,7 +196,7 @@ function formatFrontQuiz(card){
 
 function formatBack(card){
   const answers = (card.answers||[]).map(a => `<li><strong>${escapeHtml(a)}</strong></li>`).join('');
-  const expl = card.explanation ? `<div class="muted">${escapeHtml(card.explanation)}</div>` : `<div class="muted">No explanation provided in source.</div>`;
+  const expl = card.explanation ? `<div class="muted">${escapeHtml(card.explanation)}</div>` : `<div class="muted">No explanation provided.</div>`;
   return `
     <div class="badge">A</div>
     <h2>Correct answer(s)</h2>
@@ -206,23 +212,25 @@ function updateButtonsForMode(){
 
   if(state.quizMode){
     submit.style.display = 'inline-block';
-    flip.textContent = 'Reveal';
+    // desktop label; mobile will be overridden by icons
+    if(window.innerWidth > 420) flip.textContent = 'Reveal';
     flip.disabled = !state.checked;
     if(marking) marking.style.display = 'none';
   } else {
     submit.style.display = 'none';
-    flip.textContent = 'Flip';
+    if(window.innerWidth > 420) flip.textContent = 'Flip';
     flip.disabled = false;
     if(marking) marking.style.display = 'flex';
   }
+  applyMobileIconButtons();
 }
 
 function render(){
   const total = state.view.length;
   const card = state.view[state.idx];
-
+  $('statDeck').textContent = state.deckName || 'Deck';
   $('statIndex').textContent = total ? `${state.idx+1}/${total}` : '0/0';
-  const t = tally();
+  const t = tallyForCurrentDeck();
   $('statScore').textContent = `${t.correct} correct • ${t.wrong} missed`;
 
   updateButtonsForMode();
@@ -236,7 +244,6 @@ function render(){
   }
 
   maybeReshuffleForCard(card);
-
   $('front').innerHTML = state.quizMode ? formatFrontQuiz(card) : formatFrontFlashcard(card);
   $('back').innerHTML = formatBack(card);
   setFlipped(false);
@@ -247,13 +254,11 @@ function render(){
       btn.addEventListener('click', () => {
         const i = Number(btn.dataset.idx);
         if(Number.isNaN(i) || state.checked) return;
-
         if(need === 1){
           state.selected = new Set([i]);
           submitQuiz();
           return;
         }
-
         if(state.selected.has(i)) state.selected.delete(i);
         else {
           if(state.selected.size >= need){
@@ -266,6 +271,28 @@ function render(){
       });
     });
   }
+}
+
+function applyFilters(){
+  const q = state.search.trim().toLowerCase();
+  let cards = [...state.all];
+  if(state.onlyMissed){
+    cards = cards.filter(c => (state.progress[progressKey(c.id)]?.wrong || 0) > 0);
+  }
+  if(q){
+    cards = cards.filter(c => {
+      const front = (c.question + ' ' + (c.options||[]).map(o=>o.text).join(' ')).toLowerCase();
+      const back = ((c.answers||[]).join(' ') + ' ' + (c.explanation||'')).toLowerCase();
+      return front.includes(q) || back.includes(q);
+    });
+  }
+  if(state.shuffleQuestions) fisherYates(cards);
+  state.view = cards;
+  if(state.idx >= state.view.length) state.idx = 0;
+  clearInteraction();
+  state.optionOrder = {};
+  state.lastCardId = null;
+  render();
 }
 
 function next(){
@@ -284,16 +311,20 @@ function prev(){
 function mark(kind){
   const card = state.view[state.idx];
   if(!card) return;
-  state.progress[card.id] = state.progress[card.id] || {correct:0, wrong:0};
-  state.progress[card.id][kind] = (state.progress[card.id][kind]||0) + 1;
+  const k = progressKey(card.id);
+  state.progress[k] = state.progress[k] || {correct:0, wrong:0};
+  state.progress[k][kind] = (state.progress[k][kind]||0) + 1;
   saveProgress();
   if(state.onlyMissed) applyFilters();
   else next();
 }
 
 function resetProgress(){
-  localStorage.removeItem(STORAGE_KEY);
-  state.progress = {};
+  const prefix = `${state.deckId}:`;
+  for(const k of Object.keys(state.progress)){
+    if(k.startsWith(prefix)) delete state.progress[k];
+  }
+  saveProgress();
   applyFilters();
 }
 
@@ -306,21 +337,19 @@ function setsEqual(a,b){
 function submitQuiz(){
   const card = state.view[state.idx];
   if(!card) return;
-
   const need = requiredCount(card);
   if(state.selected.size !== need){
     setFeedback(`<strong>Pick ${need}</strong> option(s) before submitting.`);
     return;
   }
-
   const correct = new Set(correctDisplayIndices(card));
   const ok = setsEqual(new Set([...state.selected]), correct);
-
   state.checked = true;
 
-  state.progress[card.id] = state.progress[card.id] || {correct:0, wrong:0};
-  if(ok) state.progress[card.id].correct = (state.progress[card.id].correct||0) + 1;
-  else state.progress[card.id].wrong = (state.progress[card.id].wrong||0) + 1;
+  const k = progressKey(card.id);
+  state.progress[k] = state.progress[k] || {correct:0, wrong:0};
+  if(ok) state.progress[k].correct = (state.progress[k].correct||0) + 1;
+  else state.progress[k].wrong = (state.progress[k].wrong||0) + 1;
   saveProgress();
 
   const answers = (card.answers||[]).map(a=>escapeHtml(a)).join('<br/>');
@@ -329,56 +358,70 @@ function submitQuiz(){
   } else {
     setFeedback(`<strong>Incorrect ❌</strong><div class="hint" style="margin-top:6px">Correct answer(s):<br/>${answers || '—'}</div>`);
   }
-
   updateButtonsForMode();
   render();
 }
 
-/* --- Update banner + Service Worker update flow --- */
 function showUpdateBanner(reg){
   const banner = $('updateBanner');
   const btn = $('btnUpdate');
   if(!banner || !btn) return;
   banner.classList.remove('hidden');
   btn.onclick = () => {
-    if(reg.waiting){
-      reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-    }
+    if(reg.waiting) reg.waiting.postMessage({ type: 'SKIP_WAITING' });
   };
 }
 
 function setupServiceWorker(){
   if(!('serviceWorker' in navigator)) return;
-
   navigator.serviceWorker.register('service-worker.js').then(reg => {
-    if(reg.waiting && navigator.serviceWorker.controller){
-      showUpdateBanner(reg);
-    }
-
+    if(reg.waiting && navigator.serviceWorker.controller) showUpdateBanner(reg);
     reg.addEventListener('updatefound', () => {
-      const newWorker = reg.installing;
-      if(!newWorker) return;
-      newWorker.addEventListener('statechange', () => {
-        if(newWorker.state === 'installed' && navigator.serviceWorker.controller){
-          showUpdateBanner(reg);
-        }
+      const nw = reg.installing;
+      if(!nw) return;
+      nw.addEventListener('statechange', () => {
+        if(nw.state === 'installed' && navigator.serviceWorker.controller) showUpdateBanner(reg);
       });
     });
   }).catch(()=>{});
+  navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
+}
 
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    window.location.reload();
+async function loadDecksMeta(){
+  const meta = await (await fetch('decks.json')).json();
+  state.decksMeta = meta;
+  if(!state.deckId) state.deckId = meta.defaultDeckId || meta.decks?.[0]?.id || 'base';
+
+  const sel = $('deckSelect');
+  sel.innerHTML = '';
+  (meta.decks || []).forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d.id;
+    opt.textContent = d.name;
+    sel.appendChild(opt);
   });
+  sel.value = state.deckId;
+  sel.addEventListener('change', async (e)=>{ await switchDeck(e.target.value); });
+}
+
+async function switchDeck(deckId){
+  state.deckId = deckId;
+  savePrefs();
+  const d = (state.decksMeta.decks || []).find(x => x.id === deckId);
+  state.deckName = d?.name || 'Deck';
+  const deckData = await (await fetch(d.file)).json();
+  state.all = deckData.cards || [];
+  state.idx = 0;
+  state.search = '';
+  $('searchBox').value = '';
+  applyFilters();
 }
 
 async function boot(){
   loadProgress();
   loadPrefs();
-
-  const res = await fetch('cards.json');
-  const data = await res.json();
-  state.all = data.cards || [];
-  state.all.forEach((c,i)=>{ if(typeof c.id!=='number') c.id = i+1; });
+  await loadDecksMeta();
+  await switchDeck(state.deckId);
 
   $('btnNext').addEventListener('click', next);
   $('btnPrev').addEventListener('click', prev);
@@ -398,10 +441,9 @@ async function boot(){
     render();
   });
   $('toggleMissed').addEventListener('change', (e)=>{ state.onlyMissed = e.target.checked; savePrefs(); applyFilters(); });
-  $('toggleQuiz').addEventListener('change', (e)=>{ state.quizMode = e.target.checked; savePrefs(); clearInteraction(); render(); updateButtonsForMode(); });
+  $('toggleQuiz').addEventListener('change', (e)=>{ state.quizMode = e.target.checked; savePrefs(); clearInteraction(); render(); });
 
   $('btnReset').addEventListener('click', resetProgress);
-
   $('searchBox').addEventListener('input', (e)=>{ state.search = e.target.value; applyFilters(); });
   $('btnClearSearch').addEventListener('click', ()=>{ $('searchBox').value=''; state.search=''; applyFilters(); });
 
@@ -412,7 +454,7 @@ async function boot(){
     if(e.key===' ') { e.preventDefault(); if(!state.quizMode) setFlipped(!state.flipped); }
   });
 
-  applyFilters();
+  applyMobileIconButtons();
   setupServiceWorker();
 }
 

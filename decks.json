@@ -1,0 +1,17 @@
+{
+  "defaultDeckId": "base",
+  "decks": [
+    {
+      "id": "base",
+      "name": "Main Deck",
+      "file": "cards.json",
+      "description": "Questions parsed from DOCX (yellow highlight = correct)."
+    },
+    {
+      "id": "hard25",
+      "name": "Hard Deck (25)",
+      "file": "hard.json",
+      "description": "25 hard questions in a separate deck."
+    }
+  ]
+}
