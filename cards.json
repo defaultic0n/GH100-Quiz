@@ -3,6 +3,67 @@
   "cards": [
     {
       "id": 1,
+      "question": "You have subscribed to GitHub Premium Support, and you need to submit a support ticket. GitHub Premium Support can help you with:",
+      "options": [
+        {
+          "text": "writing scripts",
+          "isCorrect": false
+        },
+        {
+          "text": "installing GitHub Enterprise Server",
+          "isCorrect": true
+        },
+        {
+          "text": "setting up hardware",
+          "isCorrect": false
+        },
+        {
+          "text": "integrating with third-party applications",
+          "isCorrect": false
+        },
+        {
+          "text": "Explaination: GitHub Premium Support include assistance with installing and using Github Enterprise Server, ensuring your environment is configured correctly and any installation issues are resolved.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "installing GitHub Enterprise Server"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "You need to contact GitHub Premium Support. What are valid reasons for submitting a support ticket? Choose two",
+      "options": [
+        {
+          "text": "License renewal",
+          "isCorrect": false
+        },
+        {
+          "text": "Hardware setup issues or errors",
+          "isCorrect": false
+        },
+        {
+          "text": "Business impact from security issues within your organisation",
+          "isCorrect": true
+        },
+        {
+          "text": "Outages on GitHub.com affecting core Git functionality",
+          "isCorrect": true
+        },
+        {
+          "text": "Explaination: Business-impact security issues (for example, a critical vulnerability affecting your organization_ are classified as High-priority tickets and are covered under your Premium Support SLA. Outages on GitHub.com that disrupt core Git or web application functionality trigger Urgent-priority responses under Premium Support’s SLA.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Business impact from security issues within your organisation",
+        "Outages on GitHub.com affecting core Git functionality"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 3,
       "question": "Which of the following is a key benefit of using GitHub Marketplace Apps in an enterprise?",
       "options": [
         {
@@ -28,7 +89,7 @@
       "explanation": ""
     },
     {
-      "id": 2,
+      "id": 4,
       "question": "You need to create a support bundle for your GitHub Enterprise Server instance with the hostname ghe.avocado.corp. What command should you use to create a support bundle?",
       "options": [
         {
@@ -54,7 +115,7 @@
       "explanation": ""
     },
     {
-      "id": 3,
+      "id": 5,
       "question": "What do you need to successfully generate a support bundle on a GitHub Enterprise Server?",
       "options": [
         {
@@ -68,10 +129,6 @@
         {
           "text": "Administrator SSH access to the appliance",
           "isCorrect": true
-        },
-        {
-          "text": "A GitHub App with read:org permissions",
-          "isCorrect": false
         }
       ],
       "answers": [
@@ -80,7 +137,7 @@
       "explanation": ""
     },
     {
-      "id": 4,
+      "id": 7,
       "question": "A financial services company is evaluating GitHub account types. Which of the following is a key distinction between GitHub Enterprise Managed Users and Personal Accounts?",
       "options": [
         {
@@ -106,7 +163,7 @@
       "explanation": ""
     },
     {
-      "id": 5,
+      "id": 8,
       "question": "Which THREE of the following accurately describe how the SCIM protocol enhances user management in GitHub Enterprise Cloud?",
       "options": [
         {
@@ -142,7 +199,7 @@
       "explanation": ""
     },
     {
-      "id": 6,
+      "id": 9,
       "question": "When comparing a partner identity provider integration with a non-partner identity management solution for GitHub Enterprise Managed Users, which statement is Correct?",
       "options": [
         {
@@ -168,7 +225,7 @@
       "explanation": ""
     },
     {
-      "id": 7,
+      "id": 10,
       "question": "When comparing Group SCIM to Team Sync for identity management in GitHub Enterprise, which statement is correct?",
       "options": [
         {
@@ -194,7 +251,7 @@
       "explanation": ""
     },
     {
-      "id": 8,
+      "id": 11,
       "question": "Why is a GitHub app preferred over a PAT for machine authentication?",
       "options": [
         {
@@ -220,8 +277,8 @@
       "explanation": ""
     },
     {
-      "id": 9,
-      "question": "You are planning GitHub account management for a healthcare organization with strict compliance requirements. Which THREEE of the following statements accurately describe GitHub Enterprise Managed Users (EMU) accounts?",
+      "id": 12,
+      "question": "You are planning GitHub account management for a healthcare organization with strict compliance requirements. Which THREE of the following statements accurately describe GitHub Enterprise Managed Users (EMU) accounts?",
       "options": [
         {
           "text": "EMU accounts can be used for both personal and enterprise repositories",
@@ -256,7 +313,7 @@
       "explanation": ""
     },
     {
-      "id": 10,
+      "id": 13,
       "question": "A GitHub Enterprise administrator is planning to implement SAML SSO across their company. Which of the following correctly distinguishes enterprise-wide SAML SSO from organization-level SAML SSO?",
       "options": [
         {
@@ -282,7 +339,7 @@
       "explanation": ""
     },
     {
-      "id": 11,
+      "id": 14,
       "question": "What distinguishes Enterprise Managed Users (EMUs) from standard GitHub accounts?",
       "options": [
         {
@@ -308,7 +365,7 @@
       "explanation": ""
     },
     {
-      "id": 12,
+      "id": 15,
       "question": "Your organization is implementing team synchronization. Which of the following should you prioritize during the setup process?",
       "options": [
         {
@@ -334,7 +391,7 @@
       "explanation": ""
     },
     {
-      "id": 13,
+      "id": 16,
       "question": "What makes GitHub Apps a more secure choice for automation over OAuth Apps?",
       "options": [
         {
@@ -360,7 +417,7 @@
       "explanation": ""
     },
     {
-      "id": 14,
+      "id": 17,
       "question": "Why would a GitHub App be favoured over a machine account for automation tasks?",
       "options": [
         {
@@ -386,7 +443,7 @@
       "explanation": ""
     },
     {
-      "id": 15,
+      "id": 18,
       "question": "When comparing fine-grained Personal Access Token (PATs) with classic PATs, which of the following statements is accurate?",
       "options": [
         {
@@ -412,7 +469,7 @@
       "explanation": ""
     },
     {
-      "id": 16,
+      "id": 19,
       "question": "What is the new capability of GitHub’s billing dashboard?",
       "options": [
         {
@@ -438,7 +495,7 @@
       "explanation": ""
     },
     {
-      "id": 17,
+      "id": 20,
       "question": "What is a key characteristic of GitHub Enterprise Server (GHES) compared to GitHub Enterprise Cloud (GHEC)?",
       "options": [
         {
@@ -464,7 +521,7 @@
       "explanation": ""
     },
     {
-      "id": 18,
+      "id": 21,
       "question": "You organization wants to reduce costs. Which of the following actions should you take?",
       "options": [
         {
@@ -490,7 +547,7 @@
       "explanation": ""
     },
     {
-      "id": 19,
+      "id": 22,
       "question": "How does metered billing work in GitHub Enterprise Cloud with Enterprise Managed Users (EMU)?",
       "options": [
         {
@@ -516,7 +573,7 @@
       "explanation": ""
     },
     {
-      "id": 20,
+      "id": 23,
       "question": "A team member is unable to push to a repository due to a 403-error related to branch protection. What should the GitHub Enterprise administrator do first?",
       "options": [
         {
@@ -542,7 +599,7 @@
       "explanation": ""
     },
     {
-      "id": 21,
+      "id": 24,
       "question": "Which of the following is true about outside collaborators in a GitHub organization?",
       "options": [
         {
@@ -568,7 +625,7 @@
       "explanation": ""
     },
     {
-      "id": 22,
+      "id": 25,
       "question": "Which of the following is a benefit of creating a new GitHub organization?",
       "options": [
         {
@@ -590,6 +647,473 @@
       ],
       "answers": [
         "Clear separation of repos, projects, teams, billing, and organization-specific policies"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 26,
+      "question": "Which of the following is the responsibility of an Organization Owner in GitHub? (Choose three)",
+      "options": [
+        {
+          "text": "View and a manage organization billing information",
+          "isCorrect": true
+        },
+        {
+          "text": "Create repositories without approval from other members",
+          "isCorrect": true
+        },
+        {
+          "text": "Manage organization settings, such as configuration and default permissions",
+          "isCorrect": true
+        },
+        {
+          "text": "Access repositories only if explicitly granted by a team maintainer",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "View and a manage organization billing information",
+        "Create repositories without approval from other members",
+        "Manage organization settings, such as configuration and default permissions"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 27,
+      "question": "This is a test question to validate the flashcard apps. It should randomize the answer everything the app display this question. Which two are correct?",
+      "options": [
+        {
+          "text": "This is A",
+          "isCorrect": false
+        },
+        {
+          "text": "This is B",
+          "isCorrect": true
+        },
+        {
+          "text": "This is C",
+          "isCorrect": false
+        },
+        {
+          "text": "This is D",
+          "isCorrect": false
+        },
+        {
+          "text": "All above",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "This is B",
+        "All above"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 28,
+      "question": "Which of the following action can a user with Write permissions perform in a GitHub repository?",
+      "options": [
+        {
+          "text": "Manage repository settings, such as labels and GitHub Pages",
+          "isCorrect": false
+        },
+        {
+          "text": "Push code to non-protected branches",
+          "isCorrect": true
+        },
+        {
+          "text": "Configure branch protection rules",
+          "isCorrect": false
+        },
+        {
+          "text": "Delete the repository",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Push code to non-protected branches"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 29,
+      "question": "Which of the following is a key benefit of setting default read permissions across organizations?",
+      "options": [
+        {
+          "text": "Suites environments where all users need write access",
+          "isCorrect": false
+        },
+        {
+          "text": "Improve collaboration by allowing users to modify content directly",
+          "isCorrect": false
+        },
+        {
+          "text": "Increase efficiency in content creation and updates",
+          "isCorrect": false
+        },
+        {
+          "text": "Enhances security by minimizing unintended modifications",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Enhances security by minimizing unintended modifications"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 30,
+      "question": "Which of the following is the responsibility of a Team Maintainer in a GitHub organization? (Choose two.)",
+      "options": [
+        {
+          "text": "Modifying organizational-wide settings",
+          "isCorrect": false
+        },
+        {
+          "text": "Managing nested sub-teams",
+          "isCorrect": true
+        },
+        {
+          "text": "Adding or removing team members",
+          "isCorrect": true
+        },
+        {
+          "text": "Deleting repositories assigned to the team",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Managing nested sub-teams",
+        "Adding or removing team members"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 31,
+      "question": "You are managing a repository in your organization’s GitHub account. A team member asks you to confirm who has access to the repository and their permission levels. Which tool should you use to review and manage repository access?",
+      "options": [
+        {
+          "text": "GitHub Pages Settings",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Action Logs",
+          "isCorrect": false
+        },
+        {
+          "text": "Repository Setting > Manage Access",
+          "isCorrect": true
+        },
+        {
+          "text": "Branch Protection Rules",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Repository Setting > Manage Access"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 32,
+      "question": "When a user becomes a member of multiple GitHub organizations, which THREE of the following are important considerations for administrators? (choose three)",
+      "options": [
+        {
+          "text": "The user will automatically have the same role across all organizations",
+          "isCorrect": false
+        },
+        {
+          "text": "The user’s repository access and/or team membership needs to be managed separately for each organization",
+          "isCorrect": true
+        },
+        {
+          "text": "The user will need to authorize credentials separately for each SAML-enabled organization",
+          "isCorrect": true
+        },
+        {
+          "text": "The user will have different permission levels in each organization",
+          "isCorrect": true
+        },
+        {
+          "text": "The user’s profile information becomes private to non-organization members",
+          "isCorrect": false
+        },
+        {
+          "text": "The user’s personal repositories will become accessible to all organizations",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "The user’s repository access and/or team membership needs to be managed separately for each organization",
+        "The user will need to authorize credentials separately for each SAML-enabled organization",
+        "The user will have different permission levels in each organization"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 33,
+      "question": "Q31. A token was used to access an organization's resource via API. What fields in the audit log help determine who used it?",
+      "options": [
+        {
+          "text": "The token's permissions and the geographic region of access",
+          "isCorrect": false
+        },
+        {
+          "text": "The token expiration date",
+          "isCorrect": false
+        },
+        {
+          "text": "The GitHub Actions runner name",
+          "isCorrect": false
+        },
+        {
+          "text": "The token ID, requesting IP address, and associated user",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "The token ID, requesting IP address, and associated user"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 34,
+      "question": "Q32. What will happen if Dependabot discovers a vulnerable transitive dependency in a repository?",
+      "options": [
+        {
+          "text": "It creates a pull request to update the direct dependency to a version that resolves the vulnerability",
+          "isCorrect": true
+        },
+        {
+          "text": "It opens a pull request to update the affected package directly, regardless of compatibility",
+          "isCorrect": false
+        },
+        {
+          "text": "It automatically removes the package from the repository",
+          "isCorrect": false
+        },
+        {
+          "text": "It sends an email to the repository owner but does not alter code",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It creates a pull request to update the direct dependency to a version that resolves the vulnerability"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 35,
+      "question": "Q33. Which GitHub feature is responsible for tracking dependencies and known vulnerabilities from an advisory database?",
+      "options": [
+        {
+          "text": "Repository Insights",
+          "isCorrect": false
+        },
+        {
+          "text": "Dependency Graph",
+          "isCorrect": true
+        },
+        {
+          "text": "Security Policy",
+          "isCorrect": false
+        },
+        {
+          "text": "CodeQL",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Dependency Graph"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 36,
+      "question": "Q34. Which audit log events are exposed by the GraphQL API? (Choose three)",
+      "options": [
+        {
+          "text": "Changes in permissions",
+          "isCorrect": true
+        },
+        {
+          "text": "Promoting users to administrators",
+          "isCorrect": true
+        },
+        {
+          "text": "Pushes to repositories",
+          "isCorrect": false
+        },
+        {
+          "text": "Changes to permissions of a GitHub App",
+          "isCorrect": true
+        },
+        {
+          "text": "Cloning of repositories",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Changes in permissions",
+        "Promoting users to administrators",
+        "Changes to permissions of a GitHub App"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 37,
+      "question": "Q35. When a token is used to perform actions across different GitHub resources, how is this reflected in audit logs?",
+      "options": [
+        {
+          "text": "Each API action made with the token generates a separate audit log entry",
+          "isCorrect": true
+        },
+        {
+          "text": "Only the first repository accessed is recorded",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub creates a ZIP archive of all token activity",
+          "isCorrect": false
+        },
+        {
+          "text": "The audit log stores only the token name",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Each API action made with the token generates a separate audit log entry"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 38,
+      "question": "Q36. Which practice helps avoid service disruption when consuming GitHub APIs at scale?",
+      "options": [
+        {
+          "text": "Designing your application to work within GitHub's rate limits",
+          "isCorrect": true
+        },
+        {
+          "text": "Using multiple tokens to bypass limits",
+          "isCorrect": false
+        },
+        {
+          "text": "Caching all API responses permanently",
+          "isCorrect": false
+        },
+        {
+          "text": "Ignoring secondary rate limits",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Designing your application to work within GitHub's rate limits"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 39,
+      "question": "Q37. How does GitHub handle secrets found via secret scanning in a public repository?",
+      "options": [
+        {
+          "text": "It alerts the service provider (e.g., AWS, Stripe)",
+          "isCorrect": true
+        },
+        {
+          "text": "It immediately blocks the commit",
+          "isCorrect": false
+        },
+        {
+          "text": "It deletes the secret from the repository",
+          "isCorrect": false
+        },
+        {
+          "text": "It notifies administrators via webhook",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It alerts the service provider (e.g., AWS, Stripe)"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 40,
+      "question": "Q38. Which steps should you take to ensure enterprise policies align with security requirements? (Choose two)",
+      "options": [
+        {
+          "text": "Maintain clear documentation of existing and updated policies",
+          "isCorrect": true
+        },
+        {
+          "text": "Implement changes first and consult later",
+          "isCorrect": false
+        },
+        {
+          "text": "Implement without stakeholder involvement",
+          "isCorrect": false
+        },
+        {
+          "text": "Regularly assess and adjust policies based on evolving risks",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Maintain clear documentation of existing and updated policies",
+        "Regularly assess and adjust policies based on evolving risks"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 41,
+      "question": "Q39. Which correctly describes the difference between enterprise-level and organization-level action control in GitHub?",
+      "options": [
+        {
+          "text": "Organization policies override enterprise policies",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise policies define mandatory settings for organizations",
+          "isCorrect": true
+        },
+        {
+          "text": "Enterprise policies apply only to public repositories",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise policies can only enable actions",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Enterprise policies define mandatory settings for organizations"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 42,
+      "question": "Q40. What is the potential consequence of enabling multiple rulesets that apply to the same branch in a repository?",
+      "options": [
+        {
+          "text": "Only organization-level rulesets are enforced",
+          "isCorrect": false
+        },
+        {
+          "text": "All applicable rulesets will be evaluated and their combined rules enforced",
+          "isCorrect": true
+        },
+        {
+          "text": "Only the most recently created ruleset is enforced",
+          "isCorrect": false
+        },
+        {
+          "text": "Rulesets override each other unpredictably",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "All applicable rulesets will be evaluated and their combined rules enforced"
       ],
       "explanation": ""
     }
