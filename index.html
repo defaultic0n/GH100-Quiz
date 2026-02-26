@@ -9,68 +9,31 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">GH-100 Flashcards</div>
-    <div class="stats">
-      <span id="statDeck">Main Deck</span>
-      <span class="dot">•</span>
-      <span id="statIndex">0/0</span>
-      <span class="dot">•</span>
-      <span id="statScore">0 correct</span>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="cardwrap" aria-live="polite">
-      <div class="card" id="card">
-        <div class="face front" id="front"></div>
-        <div class="face back" id="back"></div>
-      </div>
-    </section>
-
-    <section class="feedback" id="feedback" aria-live="polite"></section>
-
-    <section class="toolbar">
-      <label class="toggle">
-        Deck
-        <select id="deckSelect" class="select"></select>
-      </label>
-      <label class="toggle"><input type="checkbox" id="toggleShuffle" /> Shuffle questions</label>
-      <label class="toggle"><input type="checkbox" id="toggleShuffleAnswers" /> Shuffle answers</label>
-      <label class="toggle"><input type="checkbox" id="toggleMissed" /> Only missed</label>
-      <label class="toggle"><input type="checkbox" id="toggleQuiz" /> Quiz mode</label>
-      <button class="btn" id="btnReset">Reset progress</button>
-    </section>
-
-    <section class="search">
-      <input id="searchBox" placeholder="Search questions or answers…" />
-      <button class="btn" id="btnClearSearch">Clear</button>
-    </section>
-
-    <footer class="footer">
-      <div class="small">Tip: Add to Home Screen for an app-like experience.</div>
-    </footer>
-  </main>
-
-  <section class="bottomstack">
-    <section class="controls">
-      <button class="btn" id="btnPrev" aria-label="Previous">◀</button>
-      <button class="btn primary" id="btnFlip">Flip</button>
-      <button class="btn primary" id="btnSubmit" style="display:none">Submit</button>
-      <button class="btn" id="btnNext" aria-label="Next">▶</button>
-    </section>
-
-    <section class="marking">
-      <button class="btn good" id="btnCorrect">I got it ✓</button>
-      <button class="btn bad" id="btnWrong">I missed ✕</button>
-    </section>
-  </section>
-
-  <div id="updateBanner" class="update-banner hidden" role="status" aria-live="polite">
-    <span>🔄 New version available</span>
-    <button id="btnUpdate" type="button">Refresh</button>
+<header class="topbar">
+  <div class="brand">GH-100 Flashcards</div>
+  <div class="stats">
+    <span id="statDeck">Deck</span> • <span id="statIndex">0/0</span> • <span id="statScore">0 correct</span>
   </div>
-
-  <script src="app.js"></script>
+</header>
+<main class="container">
+  <section class="cardwrap"><div class="card" id="card"><div class="face front" id="front"></div><div class="face back" id="back"></div></div></section>
+  <section id="feedback" class="feedback"></section>
+  <section class="toolbar">
+    <label class="toggle"><input type="checkbox" id="toggleShuffle"/> Shuffle questions</label>
+    <label class="toggle"><input type="checkbox" id="toggleShuffleAnswers"/> Shuffle answers</label>
+    <label class="toggle"><input type="checkbox" id="toggleMissed"/> Only missed</label>
+    <label class="toggle"><input type="checkbox" id="toggleQuiz"/> Quiz mode</label>
+    <button class="btn" id="btnReset">Reset progress</button>
+  </section>
+</main>
+<section class="bottomstack">
+  <section class="controls">
+    <button class="btn" id="btnPrev">◀</button>
+    <button class="btn primary" id="btnFlip">Flip</button>
+    <button class="btn primary" id="btnSubmit" style="display:none">Submit</button>
+    <button class="btn" id="btnNext">▶</button>
+  </section>
+</section>
+<script src="app.js"></script>
 </body>
 </html>
