@@ -1,0 +1,597 @@
+{
+  "title": "GH-100 GitHub Admin Flashcards",
+  "cards": [
+    {
+      "id": 1,
+      "question": "Which of the following is a key benefit of using GitHub Marketplace Apps in an enterprise?",
+      "options": [
+        {
+          "text": "They guarantee no downtime during enterprise GitHub maintenance windows",
+          "isCorrect": false
+        },
+        {
+          "text": "They often include integrations with external services, reducing the need for custom code",
+          "isCorrect": true
+        },
+        {
+          "text": "Apps eliminate the need for GitHub Actions entirely",
+          "isCorrect": false
+        },
+        {
+          "text": "All apps come pre-approved by GitHub’s internal security team",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "They often include integrations with external services, reducing the need for custom code"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "You need to create a support bundle for your GitHub Enterprise Server instance with the hostname ghe.avocado.corp. What command should you use to create a support bundle?",
+      "options": [
+        {
+          "text": "ssh -p 122 [email protected]--‘ghe-support-bundle-o’>support-bundle.tgz",
+          "isCorrect": true
+        },
+        {
+          "text": "ssh -p 122 [email protected]--‘ghe-diagnostics’>support-bundle.tgz",
+          "isCorrect": false
+        },
+        {
+          "text": "curl -u admin https://ghe.avocado.corp/diagnostics/support-bundle.tgz-o",
+          "isCorrect": false
+        },
+        {
+          "text": "ssh -p 122 [email protected]--‘ghe-config generate-support-bundle’>support-bundle.tgz",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "ssh -p 122 [email protected]--‘ghe-support-bundle-o’>support-bundle.tgz"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "What do you need to successfully generate a support bundle on a GitHub Enterprise Server?",
+      "options": [
+        {
+          "text": "Approval from GitHub Support",
+          "isCorrect": false
+        },
+        {
+          "text": "A custom GitHub Action in the root repo",
+          "isCorrect": false
+        },
+        {
+          "text": "Administrator SSH access to the appliance",
+          "isCorrect": true
+        },
+        {
+          "text": "A GitHub App with read:org permissions",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Administrator SSH access to the appliance"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "A financial services company is evaluating GitHub account types. Which of the following is a key distinction between GitHub Enterprise Managed Users and Personal Accounts?",
+      "options": [
+        {
+          "text": "Enterprise Managed Users can collaborate across both personal and enterprise repositories",
+          "isCorrect": false
+        },
+        {
+          "text": "Personal Accounts are owned by users and can be used for both personal and professional work",
+          "isCorrect": true
+        },
+        {
+          "text": "Personal Accounts provide stricter control over repositories and user activity",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise Managed Users require the organization to manage their own authentication server",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Personal Accounts are owned by users and can be used for both personal and professional work"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "Which THREE of the following accurately describe how the SCIM protocol enhances user management in GitHub Enterprise Cloud?",
+      "options": [
+        {
+          "text": "SCIM synchronizes changes to user attributes from the identity provider to GitHub",
+          "isCorrect": true
+        },
+        {
+          "text": "SCIM deactivates GitHub accounts when users are deleted from the identity provider.",
+          "isCorrect": true
+        },
+        {
+          "text": "SCIM automatically deletes organization repositories when administrators are removed.",
+          "isCorrect": false
+        },
+        {
+          "text": "SCIM automates user provisioning when new users are added to the identity provider.",
+          "isCorrect": true
+        },
+        {
+          "text": "SCIM generates authentication tokens for accessing GitHub's REST API.",
+          "isCorrect": false
+        },
+        {
+          "text": "SCIM configures repository permissions based on user roles within the organization.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "SCIM synchronizes changes to user attributes from the identity provider to GitHub",
+        "SCIM deactivates GitHub accounts when users are deleted from the identity provider.",
+        "SCIM automates user provisioning when new users are added to the identity provider."
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "When comparing a partner identity provider integration with a non-partner identity management solution for GitHub Enterprise Managed Users, which statement is Correct?",
+      "options": [
+        {
+          "text": "The non-partner identity provider integrations can utilize OIDC for authentication",
+          "isCorrect": false
+        },
+        {
+          "text": "The non-partner identity provider integrations require manual configuration of SAML 2.0 details.",
+          "isCorrect": true
+        },
+        {
+          "text": "The partner identity provider integrations support fewer GitHub-supported authentication methods",
+          "isCorrect": false
+        },
+        {
+          "text": "The partner identity provider integrations rely on the partner to support the application on the partner IdP",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "The non-partner identity provider integrations require manual configuration of SAML 2.0 details."
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "When comparing Group SCIM to Team Sync for identity management in GitHub Enterprise, which statement is correct?",
+      "options": [
+        {
+          "text": "Group SCIM requires less initial configuration than Team Sync",
+          "isCorrect": false
+        },
+        {
+          "text": "Team Sync supports more identity providers than Group SCIM",
+          "isCorrect": false
+        },
+        {
+          "text": "Team Sync provides more automated user deprovisioning than Group SCIM",
+          "isCorrect": false
+        },
+        {
+          "text": "Group SCIM enables centralized user and group management through the IdP",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Group SCIM enables centralized user and group management through the IdP"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "Why is a GitHub app preferred over a PAT for machine authentication?",
+      "options": [
+        {
+          "text": "GitHub Apps are required to pass SAML assertions",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub App have time-limited installation tokens with scoped access",
+          "isCorrect": true
+        },
+        {
+          "text": "PATs cannot be used in GitHub Actions",
+          "isCorrect": false
+        },
+        {
+          "text": "PATs support fewer GitHub APIs than Apps",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "GitHub App have time-limited installation tokens with scoped access"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "You are planning GitHub account management for a healthcare organization with strict compliance requirements. Which THREEE of the following statements accurately describe GitHub Enterprise Managed Users (EMU) accounts?",
+      "options": [
+        {
+          "text": "EMU accounts can be used for both personal and enterprise repositories",
+          "isCorrect": false
+        },
+        {
+          "text": "EMU accounts are managed through an identity provider such as Azure AD",
+          "isCorrect": true
+        },
+        {
+          "text": "EMU accounts allow users to create and manage their own credentials",
+          "isCorrect": false
+        },
+        {
+          "text": "EMU accounts restrict users to enterprise-related activities only",
+          "isCorrect": true
+        },
+        {
+          "text": "EMU accounts are created and managed by individual users",
+          "isCorrect": false
+        },
+        {
+          "text": "EMU accounts are owned by the organization and cannot be unlinked",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "EMU accounts are managed through an identity provider such as Azure AD",
+        "EMU accounts restrict users to enterprise-related activities only",
+        "EMU accounts are owned by the organization and cannot be unlinked"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "A GitHub Enterprise administrator is planning to implement SAML SSO across their company. Which of the following correctly distinguishes enterprise-wide SAML SSO from organization-level SAML SSO?",
+      "options": [
+        {
+          "text": "Enterprise-wide SAML SSO requires less initial administrative overhead than organization-level implementation",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise-wide SAML SSO allows different organizations to user different authentication methods",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise-wide SAML SSO immediately removes users who fail to authenticate via the IdP",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise-wide SAML SSO ensures users authenticate through the same IdP across all organizations",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Enterprise-wide SAML SSO ensures users authenticate through the same IdP across all organizations"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "What distinguishes Enterprise Managed Users (EMUs) from standard GitHub accounts?",
+      "options": [
+        {
+          "text": "EMUs are fully controlled by an IdP and cannot log in with personal credentials",
+          "isCorrect": true
+        },
+        {
+          "text": "EMUs can only be created using email invites",
+          "isCorrect": false
+        },
+        {
+          "text": "EMUs are managed in GitHub and use GitHub authentication",
+          "isCorrect": false
+        },
+        {
+          "text": "EMUs are only available for GitHub Enterprise Server",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "EMUs are fully controlled by an IdP and cannot log in with personal credentials"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 12,
+      "question": "Your organization is implementing team synchronization. Which of the following should you prioritize during the setup process?",
+      "options": [
+        {
+          "text": "Disabling the audit log stream",
+          "isCorrect": false
+        },
+        {
+          "text": "Setting an infrequent sync schedule to reduce performance impact",
+          "isCorrect": false
+        },
+        {
+          "text": "Allowing manual updates to team memberships",
+          "isCorrect": false
+        },
+        {
+          "text": "Clearly define how identity provider groups will align with GitHub teams and roles",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Clearly define how identity provider groups will align with GitHub teams and roles"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "What makes GitHub Apps a more secure choice for automation over OAuth Apps?",
+      "options": [
+        {
+          "text": "GitHub Apps always require two-factor authentication",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Apps can only be installed by organization owners",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Apps are limited to read-only access and cannot write to repositories",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub apps authenticate as an app with fine-grained permissions, not as a user",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "GitHub apps authenticate as an app with fine-grained permissions, not as a user"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 14,
+      "question": "Why would a GitHub App be favoured over a machine account for automation tasks?",
+      "options": [
+        {
+          "text": "Machine accounts are required for webhook delivery",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Apps provide a higher rate limit ceiling than using a personal access token on a machine account, when they use an install token and are owned by a GitHub Enterprise Cloud licensed enterprise",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub Apps are limited to a single repository",
+          "isCorrect": false
+        },
+        {
+          "text": "Machine accounts are easier to audit than GitHub Apps",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "GitHub Apps provide a higher rate limit ceiling than using a personal access token on a machine account, when they use an install token and are owned by a GitHub Enterprise Cloud licensed enterprise"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 15,
+      "question": "When comparing fine-grained Personal Access Token (PATs) with classic PATs, which of the following statements is accurate?",
+      "options": [
+        {
+          "text": "Fine-grained PATs automatically renew while classic PATs require manual renewal",
+          "isCorrect": false
+        },
+        {
+          "text": "Fine-grained PATs permissions can be scoped to specific repositories",
+          "isCorrect": true
+        },
+        {
+          "text": "Classic PATs offer more permission controls that fine-grained PATs",
+          "isCorrect": false
+        },
+        {
+          "text": "Classic PATs can be restricted to specific organizations, but fine-grained PATs cannot",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Fine-grained PATs permissions can be scoped to specific repositories"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 16,
+      "question": "What is the new capability of GitHub’s billing dashboard?",
+      "options": [
+        {
+          "text": "Automatically removes unused users from billing",
+          "isCorrect": false
+        },
+        {
+          "text": "Enables tracking of GitHub Copilot usage by user",
+          "isCorrect": true
+        },
+        {
+          "text": "Allows self-service plan upgrades",
+          "isCorrect": false
+        },
+        {
+          "text": "Offers real-time Slack alerts for billing overages",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Enables tracking of GitHub Copilot usage by user"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 17,
+      "question": "What is a key characteristic of GitHub Enterprise Server (GHES) compared to GitHub Enterprise Cloud (GHEC)?",
+      "options": [
+        {
+          "text": "GHES is hosted by GitHub and offers automatic scaling, while GHES requires self-hosting",
+          "isCorrect": false
+        },
+        {
+          "text": "GHES offers data residency options in regions that GHES does not support",
+          "isCorrect": false
+        },
+        {
+          "text": "GHES allows enterprises to have complete control over their hosting environment, including data storage and network security policies",
+          "isCorrect": true
+        },
+        {
+          "text": "GHES users cannot integrate with external identity provider for authentication",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "GHES allows enterprises to have complete control over their hosting environment, including data storage and network security policies"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 18,
+      "question": "You organization wants to reduce costs. Which of the following actions should you take?",
+      "options": [
+        {
+          "text": "Grant all users admin permissions",
+          "isCorrect": false
+        },
+        {
+          "text": "Remove all outside collaborators",
+          "isCorrect": false
+        },
+        {
+          "text": "Regularly audit for inactive users",
+          "isCorrect": true
+        },
+        {
+          "text": "Disable SAML SSO for members",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Regularly audit for inactive users"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 19,
+      "question": "How does metered billing work in GitHub Enterprise Cloud with Enterprise Managed Users (EMU)?",
+      "options": [
+        {
+          "text": "Billing is based on number of total users in the enterprise",
+          "isCorrect": true
+        },
+        {
+          "text": "Billing is based on owners and members of GitHub organizations",
+          "isCorrect": false
+        },
+        {
+          "text": "Billing is based on total users in the enterprise that are not dormant",
+          "isCorrect": false
+        },
+        {
+          "text": "Billing is based on the number of users created in Azure AD",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Billing is based on number of total users in the enterprise"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 20,
+      "question": "A team member is unable to push to a repository due to a 403-error related to branch protection. What should the GitHub Enterprise administrator do first?",
+      "options": [
+        {
+          "text": "Remove the user from the team and re-add them",
+          "isCorrect": false
+        },
+        {
+          "text": "Check the user’s permissions and rulesets applied to the branch",
+          "isCorrect": true
+        },
+        {
+          "text": "Raised a GitHub Support request for permissions issues",
+          "isCorrect": false
+        },
+        {
+          "text": "Revert the branch to an earlier state",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Check the user’s permissions and rulesets applied to the branch"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 21,
+      "question": "Which of the following is true about outside collaborators in a GitHub organization?",
+      "options": [
+        {
+          "text": "They are granted explicit access to specific repositories",
+          "isCorrect": true
+        },
+        {
+          "text": "They inherit organization-wide policies, such as SSO requirements",
+          "isCorrect": false
+        },
+        {
+          "text": "They have access to all private repositories by default",
+          "isCorrect": false
+        },
+        {
+          "text": "They appear in the organization’s internal member list",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "They are granted explicit access to specific repositories"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 22,
+      "question": "Which of the following is a benefit of creating a new GitHub organization?",
+      "options": [
+        {
+          "text": "Automatic inheritance of policies from other organizations",
+          "isCorrect": false
+        },
+        {
+          "text": "Reduced administrative overhead",
+          "isCorrect": false
+        },
+        {
+          "text": "Clear separation of repos, projects, teams, billing, and organization-specific policies",
+          "isCorrect": true
+        },
+        {
+          "text": "Simplified collaboration across all organizations",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Clear separation of repos, projects, teams, billing, and organization-specific policies"
+      ],
+      "explanation": ""
+    }
+  ]
+}

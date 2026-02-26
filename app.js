@@ -1,0 +1,6 @@
+const $=id=>document.getElementById(id);
+let all=[],view=[],i=0,hard=false;
+async function load(){const d=await (await fetch('cards.json')).json();all=d.cards||[];apply();}
+function apply(){view=hard?all.filter(c=>c.question&&c.question.toLowerCase().endsWith('[hard]')):all;i=0;render();}
+function render(){if(!view.length){$('front').innerHTML='No cards';$('back').innerHTML='';return;}const c=view[i];$('statDeck').textContent=hard?'Hard':'All';$('statIndex').textContent=`${i+1}/${view.length}`;$('front').innerHTML=`<h3>${c.question}</h3><ul>${c.options.map(o=>`<li>${o.text}</li>`).join('')}</ul>`;$('back').innerHTML=`<b>Answer</b><ul>${(c.answers||[]).map(a=>`<li>${a}</li>`).join('')}</ul>`;}
+$('deckAll').onchange=e=>{hard=false;apply();};$('deckHard').onchange=e=>{hard=true;apply();};$('btnNext').onclick=()=>{if(view.length){i=(i+1)%view.length;render();}};$('btnPrev').onclick=()=>{if(view.length){i=(i-1+view.length)%view.length;render();}};$('btnFlip').onclick=()=>{$('card').classList.toggle('flipped');};load();
