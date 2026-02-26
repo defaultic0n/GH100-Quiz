@@ -1,0 +1,829 @@
+{
+  "title": "GH-100 GitHub Admin Flashcards",
+  "cards": [
+    {
+      "id": 1,
+      "question": "You need to contact GitHub Premium Support. What are valid reasons for submitting a support ticket? (Each answer presents a complete solution. Choose two.)",
+      "options": [
+        {
+          "text": "license renewal",
+          "isCorrect": true
+        },
+        {
+          "text": "hardware setup issues or errors",
+          "isCorrect": false
+        },
+        {
+          "text": "business impact from security issues within your organization",
+          "isCorrect": true
+        },
+        {
+          "text": "outages on GitHub.com affecting core Git functionality",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "business impact from security issues within your organization",
+        "license renewal",
+        "business impact from security issues within your organization",
+        "outages on GitHub.com affecting core Git functionality"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is a key benefit of using GitHub Marketplace Apps in an enterprise?",
+      "options": [
+        {
+          "text": "They guarantee no downtime during enterprise GitHub maintenance windows",
+          "isCorrect": true
+        },
+        {
+          "text": "They often include integrations with external services, reducing the need for custom code",
+          "isCorrect": true
+        },
+        {
+          "text": "Apps eliminate the need for GitHub Actions entirely",
+          "isCorrect": true
+        },
+        {
+          "text": "All apps come pre-approved by GitHub's internal security team",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Apps eliminate the need for GitHub Actions entirely",
+        "They guarantee no downtime during enterprise GitHub maintenance windows",
+        "They often include integrations with external services, reducing the need for custom code"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 3,
+      "question": "What do you need to successfully generate a support bundle on a GitHub Enterprise Server?",
+      "options": [
+        {
+          "text": "Approval from GitHub Support",
+          "isCorrect": true
+        },
+        {
+          "text": "A custom GitHub Action in the root repo",
+          "isCorrect": false
+        },
+        {
+          "text": "Administrator SSH access to the appliance",
+          "isCorrect": true
+        },
+        {
+          "text": "A GitHub App with read:org permissions",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Administrator SSH access to the appliance",
+        "Approval from GitHub Support",
+        "Administrator SSH access to the appliance"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 4,
+      "question": "A financial services company is evaluating GitHub account types. Which of the following is a key distinction between GitHub Enterprise Managed Users and Personal Accounts?",
+      "options": [
+        {
+          "text": "Enterprise Managed Users can collaborate across both personal and enterprise repositories.",
+          "isCorrect": true
+        },
+        {
+          "text": "Personal Accounts are owned by users and can be used for both personal and professional work.",
+          "isCorrect": true
+        },
+        {
+          "text": "Personal Accounts provide stricter control over repositories and user activity.",
+          "isCorrect": true
+        },
+        {
+          "text": "Enterprise Managed Users require the organization to manage their own authentication server.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Personal Accounts provide stricter control over repositories and user activity.",
+        "Enterprise Managed Users can collaborate across both personal and enterprise repositories.",
+        "Personal Accounts are owned by users and can be used for both personal and professional work."
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 5,
+      "question": "Which THREE of the following accurately describe how the SCIM protocol enhances user management in GitHub Enterprise Cloud? (Choose three.)",
+      "options": [
+        {
+          "text": "SCIM synchronizes changes to user attributes from the identity provider to GitHub.",
+          "isCorrect": true
+        },
+        {
+          "text": "SCIM deactivates GitHub accounts when users are deleted from the identity provider.",
+          "isCorrect": true
+        },
+        {
+          "text": "SCIM automatically deletes organization repositories when administrators are removed.",
+          "isCorrect": true
+        },
+        {
+          "text": "SCIM automates user provisioning when new users are added to the identity provider.",
+          "isCorrect": true
+        },
+        {
+          "text": "SCIM generates authentication tokens for accessing GitHub's REST API.",
+          "isCorrect": false
+        },
+        {
+          "text": "SCIM configures repository permissions based on user roles within the organization.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "SCIM automatically deletes organization repositories when administrators are removed.",
+        "SCIM synchronizes changes to user attributes from the identity provider to GitHub.",
+        "SCIM synchronizes changes to user attributes from the identity provider to GitHub.",
+        "SCIM deactivates GitHub accounts when users are deleted from the identity provider.",
+        "SCIM automates user provisioning when new users are added to the identity provider."
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "When comparing a partner identity provider integration with a non-partner identity management solution for GitHub Enterprise Managed Users, which statement is Correct?",
+      "options": [
+        {
+          "text": "The non-partner identity provider integrations can utilize OIDC for authentication.",
+          "isCorrect": true
+        },
+        {
+          "text": "The non-partner identity provider integrations require manual configuration of SAML 2.0 details.",
+          "isCorrect": true
+        },
+        {
+          "text": "The partner identity provider integrations support fewer GitHub-supported authentication methods.",
+          "isCorrect": true
+        },
+        {
+          "text": "The partner identity provider integrations rely on the partner to support the application on the partner IdP.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "The partner identity provider integrations support fewer GitHub-supported authentication methods.",
+        "The non-partner identity provider integrations can utilize OIDC for authentication.",
+        "The non-partner identity provider integrations require manual configuration of SAML 2.0 details."
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "How is CodeQL different from other static analysis tools?",
+      "options": [
+        {
+          "text": "It removes insecure code automatically",
+          "isCorrect": true
+        },
+        {
+          "text": "It allows querying of code semantics using a database-like language.",
+          "isCorrect": true
+        },
+        {
+          "text": "It only works for open-source projects.",
+          "isCorrect": false
+        },
+        {
+          "text": "It runs analysis only after a security breach.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It removes insecure code automatically",
+        "It allows querying of code semantics using a database-like language."
+      ],
+      "explanation": "CodeQL differs from traditional static analysis tools by ingesting your code into a queryable database and letting you write QL queries - its own database-style language - to express semantic checks and find patterns across the codebase."
+    },
+    {
+      "id": 8,
+      "question": "What is the key benefit of using a GitHub security advisory within a repository?",
+      "options": [
+        {
+          "text": "It automatically reverts commits that introduced the vulnerability.",
+          "isCorrect": true
+        },
+        {
+          "text": "It allows maintainers to privately disclose, discuss, and publish vulnerabilities.",
+          "isCorrect": true
+        },
+        {
+          "text": "It flags all forks of the repository as vulnerable.",
+          "isCorrect": false
+        },
+        {
+          "text": "It prevents users from cloning the repository until issues are resolved.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It automatically reverts commits that introduced the vulnerability.",
+        "It allows maintainers to privately disclose, discuss, and publish vulnerabilities."
+      ],
+      "explanation": "GitHub security advisories let maintainers privately disclose, discuss fixes, and then publish vulnerabilities in a controlled manner within the repository."
+    },
+    {
+      "id": 9,
+      "question": "Which product's usage is not included in GitHub Enterprise Cloud's monthly metered billing report?",
+      "options": [
+        {
+          "text": "Git LFS bandwidth",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub Actions minutes",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Discussions engagement",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub Packages storage",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Git LFS bandwidth",
+        "GitHub Discussions engagement"
+      ],
+      "explanation": "GitHubDiscussions engagement isn't a metered product and doesn't appear in the ''Product billing'' list, so its usage isn't included in the monthly metered billing report."
+    },
+    {
+      "id": 10,
+      "question": "Which of the following GitHub token types supports fine-grained repository permissions AND is recommended for CI/CD automation?",
+      "options": [
+        {
+          "text": "Personal Access Tokens (PATs)",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub App Installation Access Tokens",
+          "isCorrect": true
+        },
+        {
+          "text": "Device Tokens",
+          "isCorrect": false
+        },
+        {
+          "text": "OAuth tokens",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Personal Access Tokens (PATs)",
+        "GitHub App Installation Access Tokens"
+      ],
+      "explanation": "GitHub App Installation Access Tokens are privileged to the exact permissions you grant the App - down to individual repositories - and rotate automatically, making them the recommended choice for CI/CD automation workflows that demand least-privilege, fine-grained access."
+    },
+    {
+      "id": 11,
+      "question": "Why would a GitHub App be favored over a machine account for automation tasks?",
+      "options": [
+        {
+          "text": "Machine accounts are required for webhook delivery.",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub Apps provide a higher rate limit ceiling than using a personal access token on a machine account, when they use an install token and are owned by a GitHub Enterprise Cloud licensed enterprise.",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub Apps are limited to a single repository.",
+          "isCorrect": false
+        },
+        {
+          "text": "Machine accounts are easier to audit than GitHub Apps.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Machine accounts are required for webhook delivery.",
+        "GitHub Apps provide a higher rate limit ceiling than using a personal access token on a machine account, when they use an install token and are owned by a GitHub Enterprise Cloud licensed enterprise."
+      ],
+      "explanation": "GitHub Apps authenticate with short-lived installation tokens scoped to fine-grained permissions and, when owned by a GitHub Enterprise Cloud organization, enjoy a higher rate limit (15,000 requests/hour) compared to a machine account's personal access token."
+    },
+    {
+      "id": 12,
+      "question": "Which of the following is a key benefit of using GitHub Marketplace Apps in an enterprise?",
+      "options": [
+        {
+          "text": "They guarantee no downtime during enterprise GitHub maintenance windows",
+          "isCorrect": true
+        },
+        {
+          "text": "They often include integrations with external services, reducing the need for custom code",
+          "isCorrect": true
+        },
+        {
+          "text": "Apps eliminate the need for GitHub Actions entirely",
+          "isCorrect": false
+        },
+        {
+          "text": "All apps come pre-approved by GitHub's internal security team",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "They guarantee no downtime during enterprise GitHub maintenance windows",
+        "They often include integrations with external services, reducing the need for custom code"
+      ],
+      "explanation": "GitHub Marketplace Apps come with built-in integrations to external services - so you can plug in things like CI servers, code-quality scanners, or deployment tools without writing and maintaining custom connectors."
+    },
+    {
+      "id": 13,
+      "question": "You are using GitHub-hosted runners and need to securely deploy to an internal system. The security team requires that these runners use IP address ranges that would not be shared with other companies. Which of the following approaches would meet their requirements?",
+      "options": [
+        {
+          "text": "GitHub-hosted larger runners with Azure private networking",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub-hosted standard runners, using the IP addresses provided in 'actions' from https://api.github.com/meta",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub-hosted standard runners, using the IP addresses provided in 'api' from https://api.github.com/meta",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub-hosted larger runners with static IP addresses",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "GitHub-hosted larger runners with Azure private networking",
+        "GitHub-hosted larger runners with static IP addresses"
+      ],
+      "explanation": "GitHub's larger runners let you reserve dedicated static IP addresses for your workflows - so you can allow-list those IPs in your firewall and be sure they aren't shared with any other tenant."
+    },
+    {
+      "id": 14,
+      "question": "A GitHub Enterprise administrator is planning to implement SAML SSO across their company. Which of the following correctly distinguishes enterprise-wide SAML SSO from organization-level SAML SSO?",
+      "options": [
+        {
+          "text": "Enterprise-wide SAML SSO requires less initial administrative overhead than organization-level implementation.",
+          "isCorrect": true
+        },
+        {
+          "text": "Enterprise-wide SAML SSO allows different organizations to use different authentication methods.",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise-wide SAML SSO immediately removes users who fail to authenticate via the IdP.",
+          "isCorrect": true
+        },
+        {
+          "text": "Enterprise-wide SAML SSO ensures users authenticate through the same IdP across all organizations.",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Enterprise-wide SAML SSO immediately removes users who fail to authenticate via the IdP.",
+        "Enterprise-wide SAML SSO requires less initial administrative overhead than organization-level implementation.",
+        "Enterprise-wide SAML SSO ensures users authenticate through the same IdP across all organizations."
+      ],
+      "explanation": "Enterprise-wide SAML SSO enforces a single IdP across all member organizations---its configuration overrides any per-organization SAML settings, so everyone must authenticate through the same provider."
+    },
+    {
+      "id": 15,
+      "question": "When comparing fine-grained Personal Access Tokens (PATs) with classic PATs, which of the following statements is accurate?",
+      "options": [
+        {
+          "text": "Fine-grained PATs automatically renew while classic PATs require manual renewal.",
+          "isCorrect": true
+        },
+        {
+          "text": "Fine-grained PATs permissions can be scoped to specific repositories.",
+          "isCorrect": true
+        },
+        {
+          "text": "Classic PATs offer more permission controls than fine-grained PATs.",
+          "isCorrect": true
+        },
+        {
+          "text": "Classic PATs can be restricted to specific organizations, but fine-grained PATs cannot.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Classic PATs offer more permission controls than fine-grained PATs.",
+        "Fine-grained PATs automatically renew while classic PATs require manual renewal.",
+        "Fine-grained PATs permissions can be scoped to specific repositories."
+      ],
+      "explanation": "Fine-grained personal access tokens let you scope permissions down to individual repositories, whereas classic PATs grant access across every repo the user can reach."
+    },
+    {
+      "id": 16,
+      "question": "Our organization is updating its enterprise policies. Which of the following steps should you take to ensure alignment with security requirements?",
+      "options": [
+        {
+          "text": "Maintain clear documentation of existing policies and policy changes.",
+          "isCorrect": true
+        },
+        {
+          "text": "Implement the new enterprise policies across the organization first and then consult with the security team to identify- any necessary adjustments or retrofits",
+          "isCorrect": true
+        },
+        {
+          "text": "Implement changes without consulting stakeholders.",
+          "isCorrect": true
+        },
+        {
+          "text": "Regularly assess and adjust policies based on evolving risks.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Implement changes without consulting stakeholders.",
+        "Maintain clear documentation of existing policies and policy changes.",
+        "Maintain clear documentation of existing policies and policy changes.",
+        "Implement the new enterprise policies across the organization first and then consult with the security team to identify- any necessary adjustments or retrofits"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 17,
+      "question": "You are an administrator and need to enforce a policy on forking private and internal repositories. Which options are available for configuring the policy at the enterprise level? (Each answer presents a complete solution. Choose three.)",
+      "options": [
+        {
+          "text": "Allow organization owners to administer the setting at the organization level.",
+          "isCorrect": true
+        },
+        {
+          "text": "Allow people who have access to private and internal repositories to fork these repositories.",
+          "isCorrect": true
+        },
+        {
+          "text": "Allow specific people or teams to fork private and internal repositories.",
+          "isCorrect": true
+        },
+        {
+          "text": "Disallow repository owners from administering the setting at the repository level.",
+          "isCorrect": false
+        },
+        {
+          "text": "Disallow forking of private and internal repositories.",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Allow specific people or teams to fork private and internal repositories.",
+        "Allow organization owners to administer the setting at the organization level.",
+        "Allow organization owners to administer the setting at the organization level.",
+        "Allow people who have access to private and internal repositories to fork these repositories.",
+        "Disallow forking of private and internal repositories."
+      ],
+      "explanation": "You can configure the enterprise policy to allow organization owners to administer the forking setting at the organization level, giving them control over how repos fork within their orgs."
+    },
+    {
+      "id": 18,
+      "question": "What will happen if Dependabot discovers a vulnerable transitive dependency in a repository?",
+      "options": [
+        {
+          "text": "It creates a pull request to update the direct dependency to a version that resolves the vulnerability.",
+          "isCorrect": true
+        },
+        {
+          "text": "It opens a pull request to update the affected package directly, regardless of version compatibility.",
+          "isCorrect": false
+        },
+        {
+          "text": "It automatically removes the package from the repository.",
+          "isCorrect": true
+        },
+        {
+          "text": "It sends an email to the repository owner but does not alter code.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It automatically removes the package from the repository.",
+        "It creates a pull request to update the direct dependency to a version that resolves the vulnerability.",
+        "It creates a pull request to update the direct dependency to a version that resolves the vulnerability."
+      ],
+      "explanation": "Dependabot will automatically open a pull request that updates the direct dependency to a version which, in turn, resolves (or removes) the vulnerable transitive dependency---ensuring the fix is applied via your declared dependencies."
+    },
+    {
+      "id": 19,
+      "question": "What is the key benefit of using GitHub security advisory within a repository?",
+      "options": [
+        {
+          "text": "It automatically revers commits that introduced the vulnerability",
+          "isCorrect": true
+        },
+        {
+          "text": "It flags all forks of the repository as vulnerable",
+          "isCorrect": false
+        },
+        {
+          "text": "It allows maintainers to privately disclose, discuss, and publish vulnerabilities",
+          "isCorrect": true
+        },
+        {
+          "text": "It prevents users from cloning the repository until issues are resolved",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It automatically revers commits that introduced the vulnerability",
+        "It allows maintainers to privately disclose, discuss, and publish vulnerabilities"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 20,
+      "question": "Which factor affects the GitHub Actions pricing for GitHub-hosted runners on GitHub Enterprise Cloud?",
+      "options": [
+        {
+          "text": "Number of workflows defined in .github/workflows/",
+          "isCorrect": true
+        },
+        {
+          "text": "Operating system used in the runner environment",
+          "isCorrect": true
+        },
+        {
+          "text": "Total number of repositories using Actions",
+          "isCorrect": false
+        },
+        {
+          "text": "Number of contributors to the repository Explanation:Incorrect. Contributor count does not impact billing for Actions",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Number of workflows defined in .github/workflows/",
+        "Operating system used in the runner environment"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 21,
+      "question": "When a user becomes a member of multiple GitHub organizations, which THREE of the following are important considerations for administrators? (Choose three)",
+      "options": [
+        {
+          "text": "The user will automatically have the same role across all organizations",
+          "isCorrect": true
+        },
+        {
+          "text": "The user will need to authorise credentials separately for each SAML-enabled organization",
+          "isCorrect": true
+        },
+        {
+          "text": "The user\u2019s provide information becomes private to non-organization members",
+          "isCorrect": false
+        },
+        {
+          "text": "The user\u2019s personal repositories will become accessible to all organizations",
+          "isCorrect": false
+        },
+        {
+          "text": "The user\u2019s repositories access and/or team membership needs to be managed separately for each organization",
+          "isCorrect": true
+        },
+        {
+          "text": "The user will have different permissions levels in each organization",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "The user will automatically have the same role across all organizations",
+        "The user will need to authorise credentials separately for each SAML-enabled organization",
+        "The user\u2019s repositories access and/or team membership needs to be managed separately for each organization",
+        "The user will have different permissions levels in each organization"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 22,
+      "question": "What will happen if Dependabot discovers a vulnerability transitive dependency in a repository?",
+      "options": [
+        {
+          "text": "It creates a pull request to update the direct dependency to a version that resolves the vulnerability",
+          "isCorrect": true
+        },
+        {
+          "text": "It automatically removes the package from the repository",
+          "isCorrect": false
+        },
+        {
+          "text": "It sends an email to the repository owner but does not alter code",
+          "isCorrect": false
+        },
+        {
+          "text": "It opens a pull request to update the affected package directly, regardless of version compatibility",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It creates a pull request to update the direct dependency to a version that resolves the vulnerability",
+        "It creates a pull request to update the direct dependency to a version that resolves the vulnerability"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 23,
+      "question": "Which of the following accurately contrasts a GitHub App and a GitHub Action?",
+      "options": [
+        {
+          "text": "GitHub Actions can only be used to respond to events within a single repository while GitHub Apps can respond to events from multiple repositories",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub Aps can only be used inside .github/workflows",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Apps run only on GitHub-provided virtual machines, while GitHub Actions run only on customer-hosted machines",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Actions are limited to reading repository content only",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "GitHub Actions can only be used to respond to events within a single repository while GitHub Apps can respond to events from multiple repositories",
+        "GitHub Actions can only be used to respond to events within a single repository while GitHub Apps can respond to events from multiple repositories"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 24,
+      "question": "What additional capability does secret scanning offer for private repositories on GitHub Enterprise Cloud?",
+      "options": [
+        {
+          "text": "Allows custom pattern definitions for internal secret formats",
+          "isCorrect": true
+        },
+        {
+          "text": "Disables any code that contains a secret",
+          "isCorrect": false
+        },
+        {
+          "text": "Rewrites history to remove secrets",
+          "isCorrect": false
+        },
+        {
+          "text": "Revokes GitHub access token automatically",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Allows custom pattern definitions for internal secret formats",
+        "Allows custom pattern definitions for internal secret formats"
+      ],
+      "explanation": "Secret scanning in private repositories in GitHub Enterprise Cloud lets you define and user custom regular-expression patterns \u2013 so you can detect internal or proprietary secret formats beyond the default partner-provided types."
+    },
+    {
+      "id": 25,
+      "question": "Which product\u2019s usage is not included in GitHub Enterprise Cloud\u2019s monthly metered billing report?",
+      "options": [
+        {
+          "text": "Git LFS bandwidth",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub Actions minutes",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Discussions engagement",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub Packages storage",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Git LFS bandwidth",
+        "GitHub Discussions engagement"
+      ],
+      "explanation": "GitHub Discussion engagement isn\u2019t a metered product and doesn\u2019t appear in the \u201cProduct billing\u201d list, so its usage isn\u2019t included in the monthly metered billing report."
+    },
+    {
+      "id": 26,
+      "question": "What benefit does GitHub Advanced Security provide?",
+      "options": [
+        {
+          "text": "Helps enterprise administrator improve and maintain network security for their GitHub Enterprise Server instances",
+          "isCorrect": true
+        },
+        {
+          "text": "Help developers improve and maintain the security and quality of code",
+          "isCorrect": true
+        },
+        {
+          "text": "Helps organizations administrator analyze and configure permissions to the least privilege required",
+          "isCorrect": true
+        },
+        {
+          "text": "Helps organization administrators manage security tokens",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Helps organizations administrator analyze and configure permissions to the least privilege required",
+        "Helps enterprise administrator improve and maintain network security for their GitHub Enterprise Server instances",
+        "Help developers improve and maintain the security and quality of code"
+      ],
+      "explanation": "GitHub Advanced Security equips developers with build-in code scanning (CodeQL), secret scanning, dependency review, and other AppSec tools \u2013 helping them find, fix, and prevent security vulnerabilities while maintaining code quality"
+    },
+    {
+      "id": 27,
+      "question": "An organization wants to share a single API key required for their Actions workflows. They need to restrict its use to only a subset of repositories. Where should they configure the secrets to minimize maintenance?",
+      "options": [
+        {
+          "text": "Repository secrets",
+          "isCorrect": true
+        },
+        {
+          "text": "Environment secrets",
+          "isCorrect": false
+        },
+        {
+          "text": "Organization secrets",
+          "isCorrect": true
+        },
+        {
+          "text": "Development environment secrets",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Repository secrets",
+        "Organization secrets"
+      ],
+      "explanation": "By defining the API key as an organization secrets, you centralize management and can grant access only to the subset of repositories you choose \u2013 eliminating per-repo duplication while enforcing the desired scope"
+    },
+    {
+      "id": 28,
+      "question": "Our organization is updating its enterprise policies. Which of the following steps should you take to ensure alignment with security requirements?",
+      "options": [
+        {
+          "text": "Maintain clear documentation of existing policies and policy changes",
+          "isCorrect": true
+        },
+        {
+          "text": "Implement the new enterprise policies across the organization first and then consult with the security team to identify any necessary adjustments or retrofits",
+          "isCorrect": true
+        },
+        {
+          "text": "Implement changes without consulting stakeholders",
+          "isCorrect": false
+        },
+        {
+          "text": "Regularly access and adjust policies based on evolving risks",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Maintain clear documentation of existing policies and policy changes",
+        "Maintain clear documentation of existing policies and policy changes",
+        "Implement the new enterprise policies across the organization first and then consult with the security team to identify any necessary adjustments or retrofits"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 29,
+      "question": "Which of the following correctly describes the different between controlling actions at the enterprise level versus the organization level in GitHub?",
+      "options": [
+        {
+          "text": "Enterprise policies and organizations policies are independent, with organizations policies taking precedence for repositories within the organization",
+          "isCorrect": true
+        },
+        {
+          "text": "Enterprise policies configure mandatory settings for organizations",
+          "isCorrect": true
+        },
+        {
+          "text": "Enterprise policies apply only to public repositories, while organization policies apply to public, internal, and private repositories",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise policies can block specific actions, while organizations policies can only enable or disable actions entirely",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Enterprise policies and organizations policies are independent, with organizations policies taking precedence for repositories within the organization",
+        "Enterprise policies configure mandatory settings for organizations"
+      ],
+      "explanation": "Enterprise policies let you define and enforce mandatory setting across all member organizations \u2013 organization-level policies then operation within the options that the enterprise policies expose"
+    }
+  ]
+}
