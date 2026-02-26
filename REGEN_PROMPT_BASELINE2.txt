@@ -1,0 +1,98 @@
+REGEN_PROMPT_BASELINE2.txt
+========================
+
+Purpose
+- Rebuild **GH100-FlashCard — Baseline No. 2** (Multi-deck + mobile bottom row icons + 2-row toolbar icons).
+
+Baseline characteristics (for reference)
+- Multi-deck via `decks.json` loading `cards.json` (main) + `hard.json` (hard deck).
+- Mobile bottom controls are forced into ONE row and use icons:
+  ◀  👁  ✅  ▶
+- Mobile toolbar (Shuffle Q/A, Only missed, Quiz, Reset) is in 2 rows and uses icons:
+  🔀Q  🔀A  ❌
+  📝  ♻️
+- PWA with update banner + service worker SKIP_WAITING.
+- GitHub Pages compatible (project site under /<repo>/, relative paths only).
+
+--- COPY PROMPT BELOW ---
+
+Recreate the complete static GitHub Pages PWA flashcard app: **GH100-FlashCard — Baseline No. 2**.
+
+INPUTS
+1) Main deck source file: GH-100 GitHub Admin Cert Exam QnA.docx
+   - Correct answer option(s) are highlighted in yellow.
+2) Hard deck: the 25 hard questions previously provided.
+   - If answers are letters (A/B/C/D), convert them to:
+     - options[] objects: { text, isCorrect }
+     - answers[] containing the full correct option text.
+
+OUTPUT
+- Provide a single ZIP that I can upload to GitHub repo root.
+- ZIP MUST contain these files at root:
+  index.html
+  styles.css
+  app.js
+  decks.json
+  cards.json
+  hard.json
+  service-worker.js
+  manifest.json
+  README.md
+  icons/icon-192.png
+  icons/icon-512.png
+
+NON-NEGOTIABLE RULES
+- index.html MUST be HTML only.
+- app.js MUST be JavaScript only.
+- decks.json / cards.json / hard.json MUST be DATA-ONLY JSON (no JS, no comments).
+- All paths must be relative so it works under https://<user>.github.io/<repo>/.
+
+DECK SYSTEM
+- decks.json format:
+  {
+    "defaultDeckId": "base",
+    "decks": [
+      {"id":"base","name":"Main Deck","file":"cards.json","description":"..."},
+      {"id":"hard25","name":"Hard Deck (25)","file":"hard.json","description":"..."}
+    ]
+  }
+- UI must include a deck dropdown selector: <select id="deckSelect">.
+- Switching decks loads the deck file and updates the header deck label.
+
+APP FEATURES
+- Dark UI, flip card animation.
+- Bottom controls:
+  Prev / Flip(or Reveal) / Submit (quiz mode) / Next.
+- Toggles:
+  Shuffle questions
+  Shuffle answers (reshuffle options per card)
+  Only missed (wrong > 0)
+  Quiz mode
+  Reset progress (current deck only)
+- Quiz mode:
+  - Single-answer: auto-submit on tap
+  - Multi-answer: require Submit button
+  - Show correct/incorrect feedback
+
+MOBILE UI REQUIREMENTS (BASELINE NO. 2)
+1) Bottom controls MUST stay in ONE row on mobile (<=420px).
+   - On mobile, replace button labels with icons:
+     - Flip/Reveal button => 👁 (aria-label stays Reveal/Flip)
+     - Submit button => ✅ (aria-label Submit)
+
+2) Toolbar controls MUST be arranged in TWO rows on mobile (<=420px).
+   - Use a CSS grid for the tool controls area: 3 columns.
+   - Replace labels on mobile with icons:
+     - Shuffle questions => 🔀Q
+     - Shuffle answers  => 🔀A
+     - Only missed      => ❌
+     - Quiz mode        => 📝
+     - Reset progress   => ♻️
+
+PWA / CACHING
+- Include service worker with SKIP_WAITING support.
+- Show update banner: “New version available” + Refresh.
+- Bump CACHE_NAME every time you regenerate (e.g., gh100-flashcards-baseline2-v2).
+- Precache at least: index.html, styles.css, app.js, decks.json, cards.json, hard.json, manifest.json, icons.
+
+--- COPY PROMPT UNTIL ABOVE ---
