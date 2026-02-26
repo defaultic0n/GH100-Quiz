@@ -1,0 +1,6 @@
+Convert attached <NEW_TXT_FILE> 
+into a new deck JSON matching my schema (options[] objects with text/isCorrect, answers[] derived from isCorrect, explanation supported). 
+Add this deck to decks.json (valid JSON, unique id), 
+bump meta.version to <newVersion>, 
+generate VALIDATION_<newVersion>.json, 
+and bundle decks.json + new deck JSON into a ZIP.
