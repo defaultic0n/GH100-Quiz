@@ -13,5 +13,11 @@
       "file": "hard.json",
       "description": "25 hard questions (separate file)."
     }
+    {
+      "id": "hard25",
+      "name": "Actual4Test",
+      "file": "Actual4Test_cards.json",
+      "description": "25 hard questions (separate file)."
+    }
   ]
 }
