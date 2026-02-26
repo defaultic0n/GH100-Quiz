@@ -1,15 +1,11 @@
-# GH100-FlashCard (Multi-Deck) + Mobile One-Row Buttons
+# GH100-FlashCard — Baseline No. 2
 
-This build supports multiple decks via `decks.json` and fixes the mobile bottom control row by using icons on small screens.
+Features:
+- Multi-deck loading via decks.json (cards.json + hard.json)
+- Mobile bottom controls forced into a single row using icons (👁 + ✅)
+- Mobile toolbar controls (Shuffle Q/A, Only missed, Quiz, Reset) displayed in 2 rows using icons
+- PWA service worker cache name: gh100-flashcards-baseline2-v1
 
-## Decks
-- Main Deck: cards.json
-- Hard Deck (25): hard.json
-
-## Mobile button labels
-- Reveal/Flip button shows 👁 on screens <= 420px
-- Submit button shows ✅ on screens <= 420px
-
-Cache name: gh100-flashcards-multideck-v2
-Main deck cards: 41
-Hard deck cards: 25
+Deck sizes:
+- Main deck: 41 cards
+- Hard deck: 25 cards
