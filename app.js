@@ -411,30 +411,67 @@ function setupServiceWorker(){
   navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
 }
 
+async function fetchDeckConfig(){
+  const files = ['decks.auto.json','decks.json'];
+  for(const f of files){
+    try{
+      const r = await fetch(f, { cache: 'no-store' });
+      if(r.ok) return await r.json();
+    }catch{}
+  }
+  throw new Error('No deck config found');
+}
+
+async function loadDecksSafe(){
+  const config = await fetchDeckConfig();
+  const loaded = [];
+
+  for(const deck of (config.decks || [])){
+    try{
+      const r = await fetch(deck.file, { cache: 'no-store' });
+      if(!r.ok) continue;
+      const data = await r.json();
+      if(Array.isArray(data.cards) && data.cards.length){
+        loaded.push({ ...deck, _data: data });
+      }
+    }catch{}
+  }
+
+  return {
+    defaultDeckId: config.defaultDeckId || loaded[0]?.id || 'base',
+    decks: loaded
+  };
+}
+
 async function loadDecksMeta(){
-  const meta = await (await fetch('decks.json')).json();
+  const meta = await loadDecksSafe();
   state.decksMeta = meta;
-  if(!state.deckId) state.deckId = meta.defaultDeckId || meta.decks?.[0]?.id || 'base';
+
+  if(!state.deckId) state.deckId = meta.defaultDeckId;
 
   const sel = $('deckSelect');
   sel.innerHTML = '';
-  (meta.decks || []).forEach(d => {
+
+  meta.decks.forEach(d => {
     const opt = document.createElement('option');
     opt.value = d.id;
     opt.textContent = d.name;
     sel.appendChild(opt);
   });
+
   sel.value = state.deckId;
-  sel.addEventListener('change', async (e)=>{ await switchDeck(e.target.value); });
+  sel.onchange = e => switchDeck(e.target.value);
 }
 
 async function switchDeck(deckId){
   state.deckId = deckId;
   savePrefs();
-  const d = (state.decksMeta.decks || []).find(x => x.id === deckId);
-  state.deckName = d?.name || 'Deck';
-  const deckData = await (await fetch(d.file)).json();
-  state.all = deckData.cards || [];
+
+  const d = state.decksMeta.decks.find(x => x.id === deckId);
+  if(!d) return;
+
+  state.deckName = d.name;
+  state.all = d._data.cards;
   state.idx = 0;
   state.search = '';
   $('searchBox').value = '';
