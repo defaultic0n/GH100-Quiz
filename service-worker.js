@@ -1,12 +1,16 @@
-const CACHE_NAME = 'gh100-flashcards-baseline2-v1';
+const CACHE_NAME = 'gh100-flashcards-baseline2e-v2'; // ✅ bump version
+
 const ASSETS = [
   './',
   './index.html',
   './styles.css',
   './app.js',
+  './decks.auto.json',   // ✅ REQUIRED
   './decks.json',
   './cards.json',
   './hard.json',
+  './Actual4Test_cards.json',
+  './QnAfromMultiSite_cards.json',
   './manifest.json',
   './icons/icon-192.png',
   './icons/icon-512.png'
