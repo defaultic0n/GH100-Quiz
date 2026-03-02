@@ -21,10 +21,10 @@
       "name": "QnAfromMultiSite",
       "file": "QnAfromMultiSite_cards.json"
     },
-  {
+    {
       "id": "shapingpixel",
       "name": "ShapingPixel",
       "file": "ShapingPixel_cards.json"
-  }
+    }
   ]
 }
