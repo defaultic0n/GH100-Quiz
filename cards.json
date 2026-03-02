@@ -926,7 +926,7 @@
       "answers": [
         "Dependency Graph"
       ],
-      "explanation": ""
+      "explanation": "The Dependecy Graph continuously analyzes your repository's manifest and lock files to build an inventory of direct and transitive dpendencies and flags any that match entries in the GitHub Advisory Database, surfacing known vulnerabilities"
     },
     {
       "id": 36,
