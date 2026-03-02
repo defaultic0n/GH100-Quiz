@@ -466,7 +466,7 @@
       "answers": [
         "Fine-grained PATs permissions can be scoped to specific repositories"
       ],
-      "explanation": ""
+      "explanation": "Fine-grained personal access tokes let you scope permissions down to individual repositories, whereas classic PATs grant access across every repo the user can reach"
     },
     {
       "id": 19,
