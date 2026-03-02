@@ -34,5 +34,12 @@
       "description": "Questions parsed from ShapingPixel full content (1-19).",
       "version": "Baseline2c"
     }
+        {
+      "id": "multisite",
+      "name": "QnAfromMultiSite",
+      "file": "QnAfromMultiSite_cards.json",
+      "description": "Questions parsed from multisite full content (1-11).",
+      "version": "Baseline2c"
+    }
   ]
 }
