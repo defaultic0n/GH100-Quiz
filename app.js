@@ -118,13 +118,9 @@ function tallyForCurrentDeck(){
 }
 
 function escapeHtml(s){
- return String(s ?? '')
-  .replaceAll('&','&amp;')
-  .replaceAll('<','&lt;')
-  .replaceAll('>','&gt;')
-  .replaceAll('\"','&quot;')
-  .replaceAll(''','&#39;');
+  return (s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 }
+
 function setFeedback(html){
   const fb = $('feedback');
   fb.innerHTML = html ? `<div class="msg">${html}</div>` : '';
@@ -415,101 +411,21 @@ function setupServiceWorker(){
   navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
 }
 
-
-
-// === Baseline 2d: Safe deck loading (prevents one bad deck breaking the app) ===
-async function loadDecksSafe(){
- try{
-   const res = await fetch('decks.json', { cache: 'no-store' });
-   if(!res.ok) throw new Error('decks.json not found');
-   const config = await res.json();
-   const decks = Array.isArray(config.decks) ? config.decks : [];
-   const loaded = [];
-   for(const deck of decks){
-     if(!deck || !deck.id || !deck.file) {
-       console.warn('Skipping deck with missing id/file', deck);
-       continue;
-     }
-     try{
-       const r = await fetch(deck.file, { cache: 'no-store' });
-       if(!r.ok) throw new Error('deck file not found');
-       const data = await r.json();
-       const cards = Array.isArray(data.cards) ? data.cards : [];
-       if(cards.length === 0){
-         console.warn(`Deck "${deck.id}" has no cards, skipped`);
-         continue;
-       }
-       if(data.meta?.deckId && data.meta.deckId !== deck.id){
-         console.warn(`deckId mismatch: decks.json="${deck.id}" vs meta.deckId="${data.meta.deckId}"`);
-       }
-       loaded.push({ ...deck, _data: data });
-     }catch(e){
-       console.warn(`Failed to load deck "${deck.id}" (${deck.file})`, e);
-     }
-   }
-   return {
-     raw: config,
-     defaultDeckId: config.defaultDeckId || config.meta?.defaultDeckId || loaded[0]?.id || 'base',
-     decks: loaded
-   };
- }catch(e){
-   console.error('Failed to load decks.json', e);
-   return { raw: null, defaultDeckId: 'base', decks: [] };
- }
-}
-
 async function loadDecksMeta(){
-  const meta = await loadDecksSafe();
+  const meta = await (await fetch('decks.json')).json();
   state.decksMeta = meta;
-
-  // Determine initial deckId
   if(!state.deckId) state.deckId = meta.defaultDeckId || meta.decks?.[0]?.id || 'base';
 
   const sel = $('deckSelect');
   sel.innerHTML = '';
-
-  // Populate only valid, loaded decks
   (meta.decks || []).forEach(d => {
     const opt = document.createElement('option');
     opt.value = d.id;
-    opt.textContent = d.name || d.id;
+    opt.textContent = d.name;
     sel.appendChild(opt);
   });
-
-  // If preferred deck is missing, fall back
-  if(!(meta.decks || []).some(d => d.id === state.deckId)){
-    state.deckId = meta.decks?.[0]?.id || 'base';
-    savePrefs();
-  }
-
   sel.value = state.deckId;
   sel.addEventListener('change', async (e)=>{ await switchDeck(e.target.value); });
-}
-
-async function switchDeck(deckId){
-  state.deckId = deckId;
-  savePrefs();
-
-  const d = (state.decksMeta.decks || []).find(x => x.id === deckId);
-  if(!d){
-    console.warn('Deck not found:', deckId);
-    state.deckName = 'Deck';
-    state.all = [];
-    state.idx = 0;
-    applyFilters();
-    return;
-  }
-
-  state.deckName = d.name || 'Deck';
-
-  // Use preloaded deck data to avoid additional fetch + to reduce failure points
-  const deckData = d._data || {};
-  state.all = Array.isArray(deckData.cards) ? deckData.cards : [];
-
-  state.idx = 0;
-  state.search = '';
-  $('searchBox').value = '';
-  applyFilters();
 }
 
 async function switchDeck(deckId){
