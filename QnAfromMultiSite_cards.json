@@ -1,0 +1,299 @@
+{
+  "title": "GH-100 GitHub Admin – MultiSite QnA",
+  "meta": {
+    "deckId": "multisite",
+    "deckName": "MultiSite Deck",
+    "version": "Baseline2c",
+    "source": "QnAfromMultiSite.txt",
+    "notes": "Question 5 removed as duplicate"
+  },
+  "cards": [
+    {
+      "id": 1,
+      "question": "Which feature is unique to self-hosted runners?",
+      "options": [
+        {
+          "text": "Execute scripts before and after a job",
+          "isCorrect": true
+        },
+        {
+          "text": "Dynamic scaling",
+          "isCorrect": false
+        },
+        {
+          "text": "Automatic updates to the operating system",
+          "isCorrect": false
+        },
+        {
+          "text": "GPU support",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Execute scripts before and after a job"
+      ],
+      "explanation": "Self-hosted runners support custom pre-and post-job scripts via runner hooks, letting you run arbitrary scripts before a job starts and after it finishes - capabilities not available on GitHub-hosted runners."
+    },
+    {
+      "id": 2,
+      "question": "What need to be done to ensure that only specific repositories can access the runners in an organization runner group?",
+      "options": [
+        {
+          "text": "User GitHub's meta API to configure access",
+          "isCorrect": false
+        },
+        {
+          "text": "Add a label to the runner group",
+          "isCorrect": false
+        },
+        {
+          "text": "Configure repository access in the runner group settings",
+          "isCorrect": true
+        },
+        {
+          "text": "Configure the Actions Policies to 'Only selected repositories'",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Configure repository access in the runner group settings"
+      ],
+      "explanation": "In the organization’s runner group settings, switch the access from “All repositories” to “Selected repositories” and then explicitly choose which repos may use those runners."
+    },
+    {
+      "id": 3,
+      "question": "Which Git operation is not included in the Git activity audit log?",
+      "options": [
+        {
+          "text": "Delete branch",
+          "isCorrect": true
+        },
+        {
+          "text": "Fetch",
+          "isCorrect": false
+        },
+        {
+          "text": "Push",
+          "isCorrect": false
+        },
+        {
+          "text": "Clone",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Delete branch"
+      ],
+      "explanation": "Delete branch operations aren't tracked as Git-activity events; the Git activity audit log only records Git events such as clone, fetch (pull), and push"
+    },
+    {
+      "id": 4,
+      "question": "An organization wants to share a single API key required for their Actions workflows. They need to restrict its use to only a subset of repositories. Where should they configure the secrets to minimize maintenance?",
+      "options": [
+        {
+          "text": "Repository secrets",
+          "isCorrect": false
+        },
+        {
+          "text": "Environment secrets",
+          "isCorrect": false
+        },
+        {
+          "text": "Organization secrets",
+          "isCorrect": true
+        },
+        {
+          "text": "Development environment secrets",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Organization secrets"
+      ],
+      "explanation": "By defining the API key as an organization secret, you centralize management and can grant access only to the subset of repositories you choose - eliminating pre-repo duplication while enforcing the desire scope."
+    },
+    {
+      "id": 5,
+      "question": "What is the key benefit of using a GitHub security advisory within a repository?",
+      "options": [
+        {
+          "text": "It automatically reverts commits that introduced the vulnerability.",
+          "isCorrect": false
+        },
+        {
+          "text": "It allows maintainers to privately disclose, discuss, and publish vulnerabilities.",
+          "isCorrect": true
+        },
+        {
+          "text": "It flags all forks of the repository as vulnerable.",
+          "isCorrect": false
+        },
+        {
+          "text": "It prevents users from cloning the repository until issues are resolved.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It allows maintainers to privately disclose, discuss, and publish vulnerabilities."
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 6,
+      "question": "You want to ensure a secret is automatically available to only workflows in internal and private repositories in the organization. Where do you configure the required access policy?",
+      "options": [
+        {
+          "text": "Actions policies",
+          "isCorrect": false
+        },
+        {
+          "text": "Runner groups",
+          "isCorrect": false
+        },
+        {
+          "text": "Rulesets",
+          "isCorrect": false
+        },
+        {
+          "text": "Organization secret",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Organization secret"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 7,
+      "question": "Which of the following correctly describes the difference between controlling actions at the enterprise level versus the organization level in GitHub?",
+      "options": [
+        {
+          "text": "Enterprise policies and organization policies are independent, with organization policies taking precedence for repositories within the organization.",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise policies configure mandatory settings for organizations.",
+          "isCorrect": true
+        },
+        {
+          "text": "Enterprise policies apply only to public repositories, while organization policies apply to public, internal, and private repositories.",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise policies can block specific actions, while organization policies can only enable or disable actions entirely.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Enterprise policies configure mandatory settings for organizations."
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 8,
+      "question": "How does GitHub help enterprises meet compliance requirements?",
+      "options": [
+        {
+          "text": "GitHub provides configurable controls such as an audit log, SAML authentication, and enterprise rulesets",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub disables all external collaboration features",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub only allows those with repository owner (admin) permissions to write changes to repositories",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub automatically encrypts user passwords in plaintext for quick access.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "GitHub provides configurable controls such as an audit log, SAML authentication, and enterprise rulesets"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 9,
+      "question": "What are the possible GitHub account types? (Select three)",
+      "options": [
+        {
+          "text": "Company accounts",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise accounts",
+          "isCorrect": true
+        },
+        {
+          "text": "Share accounts",
+          "isCorrect": false
+        },
+        {
+          "text": "Organization accounts E.\tPersonal accounts",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Enterprise accounts",
+        "Organization accounts E.\tPersonal accounts"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 10,
+      "question": "Which of these GitHub features servers the purpose of an adaptable spreadsheet, task board and a roadmap that integrates with issues and pull requests on GitHub to plan and track you work effectively?",
+      "options": [
+        {
+          "text": "GitHub Copilot",
+          "isCorrect": false
+        },
+        {
+          "text": "GetHub Repository",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Organization",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Project",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "GitHub Project"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 11,
+      "question": "How does GitHub handle secrets found via secret scanning in a public repository?",
+      "options": [
+        {
+          "text": "It alerts the service provider (e.g., AWS, Stripe).",
+          "isCorrect": true
+        },
+        {
+          "text": "It immediately blocks the commit to protect the secret.",
+          "isCorrect": false
+        },
+        {
+          "text": "It deletes the secret from the repository automatically.",
+          "isCorrect": false
+        },
+        {
+          "text": "It notifies the admin via webhook.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It alerts the service provider (e.g., AWS, Stripe)."
+      ],
+      "explanation": "When secret scanning detects a supported credential in a public repository, GitHub notifies the issuing service provider so they can revoke or rotate the exposed secret."
+    }
+  ]
+}
