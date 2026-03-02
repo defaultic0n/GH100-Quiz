@@ -388,7 +388,7 @@
       "answers": [
         "Clearly define how identity provider groups will align with GitHub teams and roles"
       ],
-      "explanation": ""
+      "explanation": "Before you enable team synchonization, you should clearly define how groups in your identity provider will map to GitHub teams and roles - ensuring that when the sync runs, user land in the correct teams with the right permissions"
     },
     {
       "id": 16,
