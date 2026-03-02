@@ -1,9 +1,9 @@
 {
-  "title": "GH-100 GitHub Admin Flashcards",
+  "title": "GH-100 GitHub Admin – Actual4Test",
   "meta": {
-    "deckId": "actual",
-    "deckName": "Actual Test Deck",
-    "version": "2b",
+    "deckId": "actual4test",
+    "deckName": "Actual4Test Deck",
+    "version": "Baseline2c",
     "source": "Actual4Test.txt"
   },
   "cards": [
@@ -133,11 +133,7 @@
           "isCorrect": true
         },
         {
-          "text": "SCIM generates authentication tokens for accessing GitHub's REST API.",
-          "isCorrect": false
-        },
-        {
-          "text": "SCIM configures repository permissions based on user roles within the organization.",
+          "text": "SCIM generates authentication tokens for accessing GitHub's REST API. F.\tSCIM configures repository permissions based on user roles within the organization.",
           "isCorrect": false
         }
       ],
@@ -465,7 +461,7 @@
         "Allow people who have access to private and internal repositories to fork these repositories.",
         "Disallow forking of private and internal repositories."
       ],
-      "explanation": "You can configure the enterprise policy to allow organization owners to administer the forking setting at the organization level, giving them control over how repos fork within their orgs. You can choose to allow any user who already has access to a private or internal repo to fork it. You can also set the policy to never allow forking of private or internal repositories across all organizations."
+      "explanation": "You can configure the enterprise policy to allow organization owners to administer the forking setting at the organization level, giving them control over how repos fork within their orgs."
     },
     {
       "id": 18,
@@ -558,26 +554,21 @@
           "isCorrect": true
         },
         {
-          "text": "The user\u2019s provide information becomes private to non-organization members",
+          "text": "The user’s provide information becomes private to non-organization members",
           "isCorrect": false
         },
         {
-          "text": "The user\u2019s personal repositories will become accessible to all organizations",
+          "text": "The user’s personal repositories will become accessible to all organizations",
           "isCorrect": false
         },
         {
-          "text": "The user\u2019s repositories access and/or team membership needs to be managed separately for each organization",
-          "isCorrect": true
-        },
-        {
-          "text": "The user will have different permissions levels in each organization",
+          "text": "The user’s repositories access and/or team membership needs to be managed separately for each organization F.\tThe user will have different permissions levels in each organization",
           "isCorrect": true
         }
       ],
       "answers": [
         "The user will need to authorise credentials separately for each SAML-enabled organization",
-        "The user\u2019s repositories access and/or team membership needs to be managed separately for each organization",
-        "The user will have different permissions levels in each organization"
+        "The user’s repositories access and/or team membership needs to be managed separately for each organization F.\tThe user will have different permissions levels in each organization"
       ],
       "explanation": ""
     },
@@ -657,11 +648,11 @@
       "answers": [
         "Allows custom pattern definitions for internal secret formats"
       ],
-      "explanation": "Secret scanning in private repositories in GitHub Enterprise Cloud lets you define and user custom regular-expression patterns \u2013 so you can detect internal or proprietary secret formats beyond the default partner-provided types."
+      "explanation": "Secret scanning in private repositories in GitHub Enterprise Cloud lets you define and user custom regular-expression patterns – so you can detect internal or proprietary secret formats beyond the default partner-provided types."
     },
     {
       "id": 25,
-      "question": "Which product\u2019s usage is not included in GitHub Enterprise Cloud\u2019s monthly metered billing report?",
+      "question": "Which product’s usage is not included in GitHub Enterprise Cloud’s monthly metered billing report?",
       "options": [
         {
           "text": "Git LFS bandwidth",
@@ -683,7 +674,7 @@
       "answers": [
         "GitHub Discussions engagement"
       ],
-      "explanation": "GitHub Discussion engagement isn\u2019t a metered product and doesn\u2019t appear in the \u201cProduct billing\u201d list, so its usage isn\u2019t included in the monthly metered billing report."
+      "explanation": "GitHub Discussion engagement isn’t a metered product and doesn’t appear in the “Product billing” list, so its usage isn’t included in the monthly metered billing report."
     },
     {
       "id": 26,
@@ -709,7 +700,7 @@
       "answers": [
         "Help developers improve and maintain the security and quality of code"
       ],
-      "explanation": "GitHub Advanced Security equips developers with build-in code scanning (CodeQL), secret scanning, dependency review, and other AppSec tools \u2013 helping them find, fix, and prevent security vulnerabilities while maintaining code quality"
+      "explanation": "GitHub Advanced Security equips developers with build-in code scanning (CodeQL), secret scanning, dependency review, and other AppSec tools – helping them find, fix, and prevent security vulnerabilities while maintaining code quality"
     },
     {
       "id": 27,
@@ -735,7 +726,7 @@
       "answers": [
         "Organization secrets"
       ],
-      "explanation": "By defining the API key as an organization secrets, you centralize management and can grant access only to the subset of repositories you choose \u2013 eliminating per-repo duplication while enforcing the desired scope"
+      "explanation": "By defining the API key as an organization secrets, you centralize management and can grant access only to the subset of repositories you choose – eliminating per-repo duplication while enforcing the desired scope"
     },
     {
       "id": 28,
@@ -788,7 +779,273 @@
       "answers": [
         "Enterprise policies configure mandatory settings for organizations"
       ],
-      "explanation": "Enterprise policies let you define and enforce mandatory setting across all member organizations \u2013 organization-level policies then operation within the options that the enterprise policies expose"
+      "explanation": "Enterprise policies let you define and enforce mandatory setting across all member organizations – organization-level policies then operation within the options that the enterprise policies expose"
+    },
+    {
+      "id": 30,
+      "question": "What is the effect of enforcing a policy that restricts GitHub Actions to only those created by the enterprise?",
+      "options": [
+        {
+          "text": "Marketplace actions are allowed only with SSO enabled",
+          "isCorrect": false
+        },
+        {
+          "text": "Actions can only be triggered by organization members",
+          "isCorrect": false
+        },
+        {
+          "text": "Only actions created within the enterprise are allowed",
+          "isCorrect": true
+        },
+        {
+          "text": "All public actions are allowed",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Only actions created within the enterprise are allowed"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 31,
+      "question": "You are using GitHub-hosted runners and need to securely deploy to an internal system, The security team requires that these runners use IP address ranges that would not be shared with other companies. Which of the following approaches would meet their requirements?",
+      "options": [
+        {
+          "text": "GitHub-hosted larger runners with Azure private networking",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub-hosted standard runners, using the IP addresses provided in \"actions\" from http://api.github.com/meta",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub-hosted standard runners, using the IP addresses provided in \"api\" from https://api.github.com/meta",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub-hosted larger runners with static IP addresses",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "GitHub-hosted larger runners with static IP addresses"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 32,
+      "question": "Why would someone choose to configure a security policy?",
+      "options": [
+        {
+          "text": "To communicate corporate security and compliance policies for end users on a private repository",
+          "isCorrect": false
+        },
+        {
+          "text": "To provide information on an open source repository for open source collaborators and researchers that may need to report and disclose sensitive security findings to maintainers securely.",
+          "isCorrect": true
+        },
+        {
+          "text": "To prevent anyone from pushing to the repository without approval",
+          "isCorrect": false
+        },
+        {
+          "text": "To define which open source packages are permitted for use as part of that repository",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "To provide information on an open source repository for open source collaborators and researchers that may need to report and disclose sensitive security findings to maintainers securely."
+      ],
+      "explanation": "A security policy (the SECURITY.md file) lets maintainers of an open source repository provide clear private instructions for collaborators and external researches on how to report and disclose security vulnerabilities responsibly"
+    },
+    {
+      "id": 33,
+      "question": "Your enterprise has multiple organizations, and you want to ensure consistent security policies across all team. Which feature should you use?",
+      "options": [
+        {
+          "text": "Outside collaborators for all repositories",
+          "isCorrect": false
+        },
+        {
+          "text": "Organization-specific teams with custom policies",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise-level teams with inherited enterprise policies",
+          "isCorrect": true
+        },
+        {
+          "text": "Assigning admin permissions to all team members",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Enterprise-level teams with inherited enterprise policies"
+      ],
+      "explanation": "with enterprise-level and inherited enterprise policies, you can group members across all your organizations and enforce the same security settings globally - ensuring every team abides by the enterprise's mandatory policies"
+    },
+    {
+      "id": 34,
+      "question": "Which of the following is a benefit of creating new GitHub organization?",
+      "options": [
+        {
+          "text": "Automatic inheritance of policies from other organizations.",
+          "isCorrect": false
+        },
+        {
+          "text": "Reduced administrative overhead",
+          "isCorrect": false
+        },
+        {
+          "text": "Clear separation of repositories, projects, teams, billing , and organization-specific policies",
+          "isCorrect": true
+        },
+        {
+          "text": "Simplified collaboration across all organizations.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Clear separation of repositories, projects, teams, billing , and organization-specific policies"
+      ],
+      "explanation": "Organization give you a dedicated container for your shared work, letting you isolate repositories, project, teams, billing settings and policy configurations on an organization-by-organization basis."
+    },
+    {
+      "id": 35,
+      "question": "How does Dependabot determine which security update PRs to open?",
+      "options": [
+        {
+          "text": "It waits for manual triage of all CVEs",
+          "isCorrect": false
+        },
+        {
+          "text": "It uses the dependency graph and Dependabot alerts to open PRs for patched versions",
+          "isCorrect": true
+        },
+        {
+          "text": "It reads the GitHub Issues and automatically suggests fixes",
+          "isCorrect": false
+        },
+        {
+          "text": "It compares your codebase to the GitHub Trending list.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It uses the dependency graph and Dependabot alerts to open PRs for patched versions"
+      ],
+      "explanation": "Dependabot relies on your repository's enabled Dependency Graph and Dependabot Alerts to identify vulnerable dependencies; it then automatically opens pull requests to update to the patches versions that resolved those alerts."
+    },
+    {
+      "id": 36,
+      "question": "You need GitHub to automatically notify a third-party service any time a new repository is created. You want to avoid writing custom code. The vendor has told you that they have a tool in the GitHub Marketplace. Which type of tool do you need?",
+      "options": [
+        {
+          "text": "GitHub App",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub Copilot Extension",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Models",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Action",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "GitHub App"
+      ],
+      "explanation": "You need a GitHub App. Marketplace integrations that listen for events like repository created and send notifications are delivered as GitHub Apps, since they can subscribe to organization-level webhooks without you writing custom code."
+    },
+    {
+      "id": 37,
+      "question": "In a GitHub repository using Dependabot, which of the following best describes the purpose of the .github/dependabot.yml file?",
+      "options": [
+        {
+          "text": "It configures scheduling, package ecosystems and target directories for update checks",
+          "isCorrect": true
+        },
+        {
+          "text": "It list commit SHAs to exclude from automatic pull requests",
+          "isCorrect": false
+        },
+        {
+          "text": "It enables GitHub to scan for secrets in dependency files",
+          "isCorrect": false
+        },
+        {
+          "text": "It encrypts dependency versions before storing them in the repo.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It configures scheduling, package ecosystems and target directories for update checks"
+      ],
+      "explanation": "The .GitHub/dependabot.yml file defines Dependabot's package-ecosystem, the directories to inspect, and the update schedule (daily/weekly/monthly), controlling when and where Dependabot checks for new versions."
+    },
+    {
+      "id": 38,
+      "question": "When a user becomes a member of multiple GitHub organizations, which THREE of the following are important considerations for administrators? (choose three)",
+      "options": [
+        {
+          "text": "The user will automatically have the same role across all organizations",
+          "isCorrect": false
+        },
+        {
+          "text": "The user's repository access and/or team membership needs to be managed separately for each organization",
+          "isCorrect": true
+        },
+        {
+          "text": "The user will need to authorize credentials separately for each SAML-enabled organization",
+          "isCorrect": true
+        },
+        {
+          "text": "The user will have different permission levels in each organization",
+          "isCorrect": true
+        },
+        {
+          "text": "The user's profile information becomes private to non-organization members F.\tThe user's personal repositories will become accessible to all organizations",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "The user's repository access and/or team membership needs to be managed separately for each organization",
+        "The user will need to authorize credentials separately for each SAML-enabled organization",
+        "The user will have different permission levels in each organization"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 39,
+      "question": "What is the first step when sensitive data is accidently pushed to a public GitHub repository?",
+      "options": [
+        {
+          "text": "Revoke any exposed credentials immediately",
+          "isCorrect": true
+        },
+        {
+          "text": "Force push a commit removing the data",
+          "isCorrect": false
+        },
+        {
+          "text": "Open an issue to inform users",
+          "isCorrect": false
+        },
+        {
+          "text": "Delete the repository",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Revoke any exposed credentials immediately"
+      ],
+      "explanation": "Revoke and/or rotate the expose credentials immediately so they can no longer be used - this is the critical first step before you undertake any history-rewriting or cleanup"
     }
   ]
 }
