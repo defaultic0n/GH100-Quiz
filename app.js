@@ -226,6 +226,19 @@ function formatFrontQuiz(card){
   `;
 }
 
+function showStartupBanner(msg, timeout = 3000){
+  const banner = document.getElementById('startupBanner');
+  const text = document.getElementById('startupBannerText');
+  if(!banner || !text) return;
+
+  text.textContent = msg;
+  banner.classList.remove('hidden');
+
+  setTimeout(() => {
+    banner.classList.add('hidden');
+  }, timeout);
+}
+
 function formatBack(card){
   const answers = (card.answers||[]).map(a => `<li><strong>${escapeHtml(a)}</strong></li>`).join('');
   const expl = card.explanation ? `<div class="muted">${escapeHtml(card.explanation)}</div>` : `<div class="muted">No explanation provided.</div>`;
