@@ -984,7 +984,7 @@
       "answers": [
         "Each API action made with the token generates a separate audit log entry"
       ],
-      "explanation": ""
+      "explanation": "Each API call authenticated with a token generates its own audit-log event, so you'll see a distinct entry for every action performed across different resources, each annotated with the token's hashed ID, actor, and source IP"
     },
     {
       "id": 38,
