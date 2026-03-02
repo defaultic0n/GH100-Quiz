@@ -1010,7 +1010,7 @@
       "answers": [
         "Designing your application to work within GitHub's rate limits"
       ],
-      "explanation": ""
+      "explanation": "Designing your integration to stay within GitHub documented rate limits-by batching requests, using conditional requests, handling 429 responses with back-off, and monitoring the X-RateLimit-* headers - ensures you won't be temporarly throttled or cut off when you hit secodary limits"
     },
     {
       "id": 39,
