@@ -506,6 +506,7 @@ async function loadDecksMeta(){
 
   sel.value = state.deckId;
   sel.addEventListener('change', async (e)=>{ await switchDeck(e.target.value); });
+  showStartupBanner(`✅ ${state.decksMeta.decks.length} decks loaded`);
 }
 
 
