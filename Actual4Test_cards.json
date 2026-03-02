@@ -168,7 +168,7 @@
       "answers": [
         "The non-partner identity provider integrations require manual configuration of SAML 2.0 details."
       ],
-      "explanation": ""
+      "explanation": "Non‑partner identity provider integrations require you to enter SAML 2.0 configuration details by hand - such as the Sign‑on URL, Issuer, and X.509 certificate - whereas partner IdPs supply a pre‑configured application integration."
     },
     {
       "id": 7,
