@@ -1,10 +1,11 @@
-const CACHE_NAME = 'gh100-flashcards-baseline2-v1';
+const CACHE_NAME = 'gh100-flashcards-baseline2d-v1';
 const ASSETS = [
   './',
   './index.html',
   './styles.css',
   './app.js',
-  './decks.json',
+  './decks.auto.json',
+ './decks.json',
   './cards.json',
   './hard.json',
   './manifest.json',
