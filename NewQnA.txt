@@ -68,3 +68,44 @@ C.	Use enterprise-level teams that inherit enterprise policies
 D.	Assign admin permissions to all team members
 
 Answer: C
+
+9. When an enterprise enables and enforces SCIM (System for Cross-domain Identity Management) provisioning with its Identity Provider (IdP), what is the primary benefit regarding user accounts on GitHub?
+A.	Users can access GitHub resources without ever needing to sign-in
+B.	It automatically enables two-factor authentication (2FA_ for all users
+C.	It automates the creation, updating, and deactivation of user accounts on GitHub based on changes in the IdP
+D.	It prevents the user of Personal Access Tokens (PATs) entirely
+
+Answer: C
+Explanation: CSIM synchronizes account creation, updates and deactivation automatically, ensuring accurate access control. This reduces administrative work and strengthens overall security management.
+
+
+10. An enterprise needs to use specialized hardware (GCPUs) for specific CI/CD workloads. Which type of runner must the administrator configure and manage to support this requirement?
+A.	GitHub-hosted runners
+B.	macOS runners
+C.	Windows runners
+D.	Self-hosted runners
+
+Answer: D
+Explanation: Self-hosted runners are used when organizations need specific hardware or custom environments, such as GPUs for specialize workloads. 
+
+
+
+11. Which statement accurately describes a key characteristics of GitHub AE (GitHub Acquisition Engine)?
+A.	It allows the customer to install and manage the underlying operating system
+B.	It supports full customization of the server hardware
+C.	It is typically deployed on the customer's on-premises infrastructure
+D.	It is a managed cloud offering designed for organizations with strict compliance and regulatory requirements
+
+Answer: D
+Explanation: it provide secure isolation, advanced governance and adherence to regulatory standards.
+
+
+12. Which security feature on GitHub repositories helps developers and administrators automatically identify and receive alerts for vulnerable dependencies present in the repository's manifest files (like package.json or Gemfile)?
+A.	Dependabot alerts
+B.	Code scanning
+C.	Secret scanning
+D.	Audit Log APIs
+
+Answer: A
+Explanation: It alerts developers and suggests updated versions of affected libraries. Using Dependabot improves application security, support proactive maintenance, and helps teams meet modern DevSecOps best practices.
+
