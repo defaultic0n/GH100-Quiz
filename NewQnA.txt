@@ -1,0 +1,70 @@
+1. An IT development team is configuring branch protection in a GitHub repository. They enable multiple rulesets that apply to the same branch. What outcome should the team expect?
+A. 	Only rulesets defined at the organization level will be enforced over repository-level rulesets
+B.	All rulesets that apply will be checked, and their combined rules will be enforced
+C.	The most recently created ruleset will be the only one enforced
+D.	Ruleset will cancel each other out, causing uncertain enforcement behaviour
+
+Answer: B
+
+
+2. A softwre enginering team in a financial enterprise relies on Dependabot to keep dependencies secure. They want to understand how Dependabot decides which security update pull requests to open. What process does Dependabot follow?
+A.	Dependabot waits untill all CVSs are manually triage before opening a pull request
+B.	Dependabot leverages the dependency graph and alerts to open pull requests for patched versions
+C.	Dependabot scans GitHub Issues and automatically proposes fixes
+D.	Dependabot compares the codebase against the GitHub Trending list to decide updates
+
+Answer: B
+
+
+3. During a code deployment, an IT engineer accidentally pushed sensitive data into a public GitHub repository. What is the first action that should be taken to minimize risk?
+A.	Immediately revoke any exposed credentials
+B.	Perform a force push to remove the sensitive data from the commit history
+C.	Create an issue in the repository to notify users
+D.	Delete the repository from GitHub
+
+Answer: A
+
+
+4. An IT security team is reviewing howsecret scanning works in private repositories on GitHub Enterprise Cloud. They want to know what extra capability this feature provides to strengthen protection against internal data leaks. Which option explains this capability?
+A.	Allow costom pattern definitions for internal secret formats
+B.	Disables any code that contains a secrets
+C.	Rewrites history to remove secrets
+D.	Revokes GitHub access tokens automatically
+
+Answer: A
+
+
+5. An enterprise administrator is tasked with enforcing a policy around forking private and internal repositories across the organization. At the enterprise level, which THREE configuration choices are available to enforce this policy?
+A.	Permit organization owners to manage the setting at the organization level
+B.	Permit all users with access to private and internal repositories to fork them
+C.	Restict repository owners from managing the setting at the repository level
+D.	Restrict forking of private and internal repositories entirely
+
+Answer: A, C, D
+
+
+6. An IT audit team is reviewing the Git activity audit log in GitHub Enterprise Cloud to ensure compliance tracking. They want to know which Git operation is not captured in the audit log. Whic option reflects the missing operations?
+A.	Delete branch
+B.	Fetch
+C.	Push
+D.	Clone
+
+Answer: A
+
+
+7. A software engineering team is evaluating the benefits of GitHub Advances Security for their enterprise projects. They want to understand how this feature supports their development process. Which option best describes the benefit?
+A.	Assists organization administrators in analyzing and configuring permissions with least privilege access
+B.	Assists developers in improving and maintaining both the security and quality of their code
+C.	Assists enterprise administrator in enhancing and maintaining network security for GitHub Enterprise Server instances
+D.	Assists organization administrator in managing security tokens across the environment
+
+Answer: B
+
+
+8. An enterprise IT administrator manages multiple organization within GitHub Enterprise 
+A.	Add outside collaborators to every repository
+B.	Create organization-specific teams with custom policies
+C.	Use enterprise-level teams that inherit enterprise policies
+D.	Assign admin permissions to all team members
+
+Answer: C
