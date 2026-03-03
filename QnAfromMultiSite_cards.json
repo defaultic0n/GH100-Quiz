@@ -5,7 +5,7 @@
     "deckName": "MultiSite Deck",
     "version": "Baseline2c",
     "source": "QnAfromMultiSite.txt",
-    "notes": "Question 5 removed as duplicate"
+    "notes": "Question 5 removed as duplicate; Merged ShapingPixel.txt questions"
   },
   "cards": [
     {
@@ -294,6 +294,970 @@
         "It alerts the service provider (e.g., AWS, Stripe)."
       ],
       "explanation": "When secret scanning detects a supported credential in a public repository, GitHub notifies the issuing service provider so they can revoke or rotate the exposed secret."
+    },
+    {
+      "id": 12,
+      "question": "Which of the following correctly describes between controlling actions at the enterprise level versus the organization level in GitHub?",
+      "options": [
+        {
+          "text": "Enterprise policies and organization policies are independent, with organization policies taking precedence for repositories within the organization.",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise policies configure mandatory setting for organizations.",
+          "isCorrect": true
+        },
+        {
+          "text": "Enterprise policies can block specific actions, while organization policies can only enable or disable actions entirely.",
+          "isCorrect": false
+        },
+        {
+          "text": "Enterprise policies apply only to public repositories, while organization policies apply to public, internal and private repositories",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Enterprise policies configure mandatory setting for organizations."
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 13,
+      "question": "Which factor affects GitHub Actions pricing for GitHub-hosted runners on GitHub Enterprise Cloud?",
+      "options": [
+        {
+          "text": "Number of workflows defines in .gitHub/workflows/",
+          "isCorrect": false
+        },
+        {
+          "text": "Operating system used in the runner environment",
+          "isCorrect": true
+        },
+        {
+          "text": "Number of contributors to the repository",
+          "isCorrect": false
+        },
+        {
+          "text": "Total number of repositories using Actions",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Operating system used in the runner environment"
+      ],
+      "explanation": "Incorrect. Contributor count does not impact billing for Actions.\nD.\tTotal number of repositories using Actions\n\nAnswer: B"
+    },
+    {
+      "id": 14,
+      "question": "What is the effect of enforcing a policy that restricts GitHub Actions to only those created by the enterprise?",
+      "options": [
+        {
+          "text": "Only actions created within the enterprise are allowed",
+          "isCorrect": true
+        },
+        {
+          "text": "Marketplace actions are allowed only with SSO enabled",
+          "isCorrect": false
+        },
+        {
+          "text": "All public actions are allowed",
+          "isCorrect": false
+        },
+        {
+          "text": "Actions can only be triggered by organization members",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Only actions created within the enterprise are allowed"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 15,
+      "question": "Our organization is updating its enterprise policies. Which of the following steps should you take to ensure alignment with security requirements?",
+      "options": [
+        {
+          "text": "Maintain clear documentations of existing policies and policy changes",
+          "isCorrect": true
+        },
+        {
+          "text": "Regularly assess and adjust policies based on evolving risks",
+          "isCorrect": false
+        },
+        {
+          "text": "Implement changes without consulting stakeholders",
+          "isCorrect": false
+        },
+        {
+          "text": "Implement the new enterprise policies across the organization first and then consult with the security team to identify any necessary adjustments or retrofits",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Maintain clear documentations of existing policies and policy changes",
+        "Implement the new enterprise policies across the organization first and then consult with the security team to identify any necessary adjustments or retrofits"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 16,
+      "question": "What is the first step when sensitive data is accidentally pushed to a public GitHub repository?",
+      "options": [
+        {
+          "text": "Revoke any exposed credentials immediately",
+          "isCorrect": true
+        },
+        {
+          "text": "Force push a commit removing the data",
+          "isCorrect": false
+        },
+        {
+          "text": "Open an issue to inform uses",
+          "isCorrect": false
+        },
+        {
+          "text": "Delete the repository",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Revoke any exposed credentials immediately"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 17,
+      "question": "How does Dependabot determine which security update PRs to open?",
+      "options": [
+        {
+          "text": "It waits for manual triage of all CVEs",
+          "isCorrect": false
+        },
+        {
+          "text": "It users the dependency graph and Dependabot alerts to open PRs for patched version",
+          "isCorrect": true
+        },
+        {
+          "text": "It reads the GitHub Issues and automatically suggests fixes",
+          "isCorrect": false
+        },
+        {
+          "text": "It compares your codebase to the GitHub Trending list",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "It users the dependency graph and Dependabot alerts to open PRs for patched version"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 18,
+      "question": "Which of the following are valid ways to pass data to a reusable workflow in a separate repository?",
+      "options": [
+        {
+          "text": "Use environment variables to pass data directly to the reusable workflow",
+          "isCorrect": false
+        },
+        {
+          "text": "Define inputs in the reusable workflow and pass values from the calling workflow",
+          "isCorrect": true
+        },
+        {
+          "text": "Define the secrets in the caller repository and call the reusable workflow using the 'secret' keyword",
+          "isCorrect": true
+        },
+        {
+          "text": "Define the secrets in the reusable workflow's repository and reference the secret using the 'secrets' context",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Define inputs in the reusable workflow and pass values from the calling workflow",
+        "Define the secrets in the caller repository and call the reusable workflow using the 'secret' keyword"
+      ],
+      "explanation": ""
+    },
+    {
+      "id": 19,
+      "question": "Your enterprise needs to automate the removal of user access to GitHub when an employee leaves the company. Which technology should you implement alongside SAML SSO to achieve this?",
+      "options": [
+        {
+          "text": "RBAC (Role-Based Access Control)",
+          "isCorrect": false
+        },
+        {
+          "text": "Repository Rulesets",
+          "isCorrect": false
+        },
+        {
+          "text": "SCIM (System for Cross-domain Identity Management)",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub Connect",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "SCIM (System for Cross-domain Identity Management)"
+      ],
+      "explanation": "SCIM allows for the automated provisioning and deprovisioning of user accounts based on changes in your Identity Provider"
+    },
+    {
+      "id": 20,
+      "question": "An administrator needs to prevent developers from force-pushing to any 'main' branch across 50 different repositories within a single organization. What is the most efficient way to enforce this?",
+      "options": [
+        {
+          "text": "Manually enable Branch Protection on each repository",
+          "isCorrect": false
+        },
+        {
+          "text": "Configure a Repository Ruleset at the Organization level",
+          "isCorrect": true
+        },
+        {
+          "text": "Set the default repository visibility to Private",
+          "isCorrect": false
+        },
+        {
+          "text": "Create a GitHub Action to revert force-pushes",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Configure a Repository Ruleset at the Organization level"
+      ],
+      "explanation": "Organization-level rulesets allow you to target multiple repositories simultaneously based on naming patterns, ensuring scalability."
+    },
+    {
+      "id": 21,
+      "question": "Which GitHub feature is designed to block a commit from being pushed if it contains a plaintext API key?",
+      "options": [
+        {
+          "text": "CodeQL Static Analysis",
+          "isCorrect": false
+        },
+        {
+          "text": "Dependabot Alerts",
+          "isCorrect": false
+        },
+        {
+          "text": "Branch Protection Rules",
+          "isCorrect": false
+        },
+        {
+          "text": "Secret Scanning with Push Protection",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Secret Scanning with Push Protection"
+      ],
+      "explanation": "Push protection specifically intercepts the push attempt and blocks it if a supported secret is detected"
+    },
+    {
+      "id": 22,
+      "question": "A team requires a GitHub Actions runner that can access a database located within their restricted on-premises network. Which runner type should you recommend?",
+      "options": [
+        {
+          "text": "GitHub-hosted Ubuntu runner",
+          "isCorrect": false
+        },
+        {
+          "text": "Standard Runner Group",
+          "isCorrect": false
+        },
+        {
+          "text": "Self-hosted runner",
+          "isCorrect": true
+        },
+        {
+          "text": "GitHub-hosted Windows runner",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Self-hosted runner"
+      ],
+      "explanation": "Self-hosted runners are installed on your own infrastructure, allowing them to access local resources and private networks"
+    },
+    {
+      "id": 23,
+      "question": "You want to ensure that only the 'DevOps' team can use a specific set of high-performance self-hosted runners. How should you configure this?",
+      "options": [
+        {
+          "text": "Add the 'DevOps' team as Repository Admins",
+          "isCorrect": false
+        },
+        {
+          "text": "Assign a 'DevOps' label to the runners",
+          "isCorrect": false
+        },
+        {
+          "text": "Place the runners in a Runner Group and restrict access to the 'DevOps' team",
+          "isCorrect": true
+        },
+        {
+          "text": "Hardcode the runner name in the workflow YAML file",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Place the runners in a Runner Group and restrict access to the 'DevOps' team"
+      ],
+      "explanation": "Runner groups are the primary mechanism for controlling which organization or teams have access to specific runner."
+    },
+    {
+      "id": 24,
+      "question": "A user needs to view the billing information and manage seats for the Enterprise account but should not have access to any repository code. Which role is most appropriate?",
+      "options": [
+        {
+          "text": "Billing Manager",
+          "isCorrect": true
+        },
+        {
+          "text": "Enterprise Owner",
+          "isCorrect": false
+        },
+        {
+          "text": "Maintainer",
+          "isCorrect": false
+        },
+        {
+          "text": "Organization Owner",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Billing Manager"
+      ],
+      "explanation": "Billing Manager can manage financial settings and seats without being granted access to organization content or code"
+    },
+    {
+      "id": 25,
+      "question": "Where can an administrator find a record of every time a user's permissions were changed across the entire Enterprise?",
+      "options": [
+        {
+          "text": "The Insights dashboard",
+          "isCorrect": false
+        },
+        {
+          "text": "The Git Commit History",
+          "isCorrect": false
+        },
+        {
+          "text": "The Enterprise Audit Log",
+          "isCorrect": true
+        },
+        {
+          "text": "The Security Tab of a repository",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "The Enterprise Audit Log"
+      ],
+      "explanation": "The Enterprise Audit Log tracks administrative actions across all organizations within the enterprise account."
+    },
+    {
+      "id": 26,
+      "question": "What is the primary benefit of using GitHub Enterprise Managed Users (EMU)?",
+      "options": [
+        {
+          "text": "It removes the need for an Identity Provider (IdP)",
+          "isCorrect": false
+        },
+        {
+          "text": "The enterprise maintains full control over the accounts, and users cannot modify their own profiles",
+          "isCorrect": true
+        },
+        {
+          "text": "It allows users to user their personal GitHub accounts for work.",
+          "isCorrect": false
+        },
+        {
+          "text": "It makes all repositories public by default",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "The enterprise maintains full control over the accounts, and users cannot modify their own profiles"
+      ],
+      "explanation": "EMUs provide the highest level of administrative control, where account details are strictly dictated by the enterprise's IdP"
+    },
+    {
+      "id": 27,
+      "question": "Which GitHub feature should you use to share a standardized CI/CD workflow template across all repositories in your organization?",
+      "options": [
+        {
+          "text": "Git Submodules",
+          "isCorrect": false
+        },
+        {
+          "text": "Organization Secrets",
+          "isCorrect": false
+        },
+        {
+          "text": "Reusable Workflows",
+          "isCorrect": true
+        },
+        {
+          "text": "Personal Access Tokens",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Reusable Workflows"
+      ],
+      "explanation": "Reusable workflows allow you to define a workflow once and call it from many other workflow files, ensuring consistency."
+    },
+    {
+      "id": 28,
+      "question": "Your enterprise is using GitHub Enterprise Server (GHES). You want to take advantage of GitHub Actions but want GitHub to manage the runner infrastructure. What must you configure?",
+      "options": [
+        {
+          "text": "Repository-level Webhooks",
+          "isCorrect": false
+        },
+        {
+          "text": "The GitHub CLI on the server",
+          "isCorrect": false
+        },
+        {
+          "text": "A local SSH tunnel to a personal laptop",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub Connect with GitHub-hosted runners",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "GitHub Connect with GitHub-hosted runners"
+      ],
+      "explanation": "GitHub Connect allows GHES to communicate with GitHub.com, enabling the user of cloud-hosted runners for your on-prem instance."
+    },
+    {
+      "id": 29,
+      "question": "An enterprise wants to use their own OIDC provider to authenticate GitHub Actions with AWS without using long-lived cloud credentials. Which feature should the administrator configure?",
+      "options": [
+        {
+          "text": "GitHub App with Private Key",
+          "isCorrect": false
+        },
+        {
+          "text": "Self-hosted Runners with IAM Roles",
+          "isCorrect": false
+        },
+        {
+          "text": "Personal Access Tokens (Fine-grained)",
+          "isCorrect": false
+        },
+        {
+          "text": "OpenIO Connect (OIDC) with trust relationship",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "OpenIO Connect (OIDC) with trust relationship"
+      ],
+      "explanation": "OIDC allows GitHub Actions to receive a short-lived token from cloud provider, eliminating the need for permanent secrets"
+    },
+    {
+      "id": 30,
+      "question": "Which GitHub Enterprise feature allows an administrator to stream audit logs to an external provider like Splunk or Azure Sentinel for long-term retention?",
+      "options": [
+        {
+          "text": "GitHub Connect",
+          "isCorrect": false
+        },
+        {
+          "text": "JSON Export utility",
+          "isCorrect": false
+        },
+        {
+          "text": "Webhooks for Enterprise",
+          "isCorrect": false
+        },
+        {
+          "text": "Audit Log Streaming",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "Audit Log Streaming"
+      ],
+      "explanation": "Streaming allows for real-time delivery of audit events to third-party security information and event management (SIEM) tools."
+    },
+    {
+      "id": 31,
+      "question": "A developer needs to be able to manage repository settings but should not have the ability to delete the repository. What is the best way to achieve this?",
+      "options": [
+        {
+          "text": "Create a Custom Repository Role",
+          "isCorrect": true
+        },
+        {
+          "text": "Assign the 'Admin' role and use a Ruleset",
+          "isCorrect": false
+        },
+        {
+          "text": "Assign the 'Maintain' role",
+          "isCorrect": false
+        },
+        {
+          "text": "Make the user an Organization Owner",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Create a Custom Repository Role"
+      ],
+      "explanation": "Custom roles allow administrators to pick specific permissions, such as 'Manage Settings' while excluding 'Delete Repository'"
+    },
+    {
+      "id": 32,
+      "question": "In a GitHub Enterprise Managed Users (EMU) setup, where must user account information be updated to reflect a change in a user's last name?",
+      "options": [
+        {
+          "text": "In the GitHub User Profile settings",
+          "isCorrect": false
+        },
+        {
+          "text": "In the Identity Provider (IdP)",
+          "isCorrect": true
+        },
+        {
+          "text": "In the Enterprise Account settings",
+          "isCorrect": false
+        },
+        {
+          "text": "Via the GitHub Support portal",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "In the Identity Provider (IdP)"
+      ],
+      "explanation": "In an EMU environment, the IdP is the source of truth; changes are pushed to GitHub via SCIM"
+    },
+    {
+      "id": 33,
+      "question": "You want to ensure that all repositories in your organization automatically have 'Vulnerability patterns' detected in their code. Which feature should you enable globally?",
+      "options": [
+        {
+          "text": "Secret Scanning",
+          "isCorrect": false
+        },
+        {
+          "text": "Dependabot security updates",
+          "isCorrect": false
+        },
+        {
+          "text": "CodeQL analysis via Code Scanning",
+          "isCorrect": true
+        },
+        {
+          "text": "Branch Protection Rules",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "CodeQL analysis via Code Scanning"
+      ],
+      "explanation": "CodeQL is GitHub's semantic analysis engine that identifies security patterns and vulnerabilities across the codebase"
+    },
+    {
+      "id": 34,
+      "question": "An administrator wants to limit the number of parallel jobs that a specific self-hosted runner group can execute. Where is this configured?",
+      "options": [
+        {
+          "text": "Runner Group settings in UI",
+          "isCorrect": false
+        },
+        {
+          "text": "The config.sh script on the runner",
+          "isCorrect": false
+        },
+        {
+          "text": "Workflow file 'concurrency' key",
+          "isCorrect": true
+        },
+        {
+          "text": "Organization Billing Settings",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Workflow file 'concurrency' key"
+      ],
+      "explanation": "The 'concurrency' keyword in YAML ensures that only one job or workflow using the same concurrency group runs at a time"
+    },
+    {
+      "id": 35,
+      "question": "Which of the following is required to use GitHub Advanced Security (GHAS) features on a private repository?",
+      "options": [
+        {
+          "text": "A GitHub Pro personal account",
+          "isCorrect": false
+        },
+        {
+          "text": "The repository must be Public",
+          "isCorrect": false
+        },
+        {
+          "text": "A valid GHAS license for the Enterprise",
+          "isCorrect": true
+        },
+        {
+          "text": "An SSH key for every developer",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "A valid GHAS license for the Enterprise"
+      ],
+      "explanation": "GHAS is a paid add-on for private repositories in Enterprise accounts, though it is free for public repositories."
+    },
+    {
+      "id": 36,
+      "question": "When configuring a Reusable Workflow, which keyword is used in the 'child' workflow to allow it to be called by other workflows?",
+      "options": [
+        {
+          "text": "repository_dispatch",
+          "isCorrect": false
+        },
+        {
+          "text": "workflow_run",
+          "isCorrect": false
+        },
+        {
+          "text": "on:push",
+          "isCorrect": false
+        },
+        {
+          "text": "workflow_call",
+          "isCorrect": true
+        }
+      ],
+      "answers": [
+        "workflow_call"
+      ],
+      "explanation": "The 'workflow_call' trigger defines that a workflow is intended to be used as a reusable component by other 'caller' workflows."
+    },
+    {
+      "id": 37,
+      "question": "An administrator needs to ensure that all members of an organization have Two-Factor Authentication (2FA) enabled. Where is this enforced?",
+      "options": [
+        {
+          "text": "Organization Authentication settings",
+          "isCorrect": true
+        },
+        {
+          "text": "Repository Rulesets",
+          "isCorrect": false
+        },
+        {
+          "text": "The .GitHub/CONTRIBUTING.md file",
+          "isCorrect": false
+        },
+        {
+          "text": "SAML SSO configuration",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Organization Authentication settings"
+      ],
+      "explanation": "Administrators can require 2FA at the organization or enterprise level, which forces members to enable it or be removed"
+    },
+    {
+      "id": 38,
+      "question": "What happens to a user's access when they are removed from the Identity Provider (IdP) in a SCIM-enabled GitHub Enterprise?",
+      "options": [
+        {
+          "text": "The user becomes an 'outside collaborator'",
+          "isCorrect": false
+        },
+        {
+          "text": "The administrator must manually delete the user from GitHub",
+          "isCorrect": false
+        },
+        {
+          "text": "The user is automatically deprovisioned and loses access immediately",
+          "isCorrect": true
+        },
+        {
+          "text": "The user retrains access until their session expires",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "The user is automatically deprovisioned and loses access immediately"
+      ],
+      "explanation": "SCIM synchronizes state; when the IdP signals a user is gone, GitHub revokes their access and tokens"
+    },
+    {
+      "id": 39,
+      "question": "Which tool provides a 'dependency graph' that shows all the libraries your project relies on, even if they are indirect?",
+      "options": [
+        {
+          "text": "GitHub Copilot",
+          "isCorrect": false
+        },
+        {
+          "text": "Dependancy Graph",
+          "isCorrect": true
+        },
+        {
+          "text": "Git LFS (Large File Storage)",
+          "isCorrect": false
+        },
+        {
+          "text": "Secret Scanning",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Dependancy Graph"
+      ],
+      "explanation": "The Dependancy Graph identifies all upstream dependencies and downstream dependents of a repository"
+    },
+    {
+      "id": 40,
+      "question": "What is the primary purpose of 'Environment Secrets' in GitHub Actions?",
+      "options": [
+        {
+          "text": "To encrypt the source code of the repository",
+          "isCorrect": false
+        },
+        {
+          "text": "To hide the names of the developers from the audit log",
+          "isCorrect": false
+        },
+        {
+          "text": "To provide different secret values for 'Production' vs 'Staging' using the same variable name",
+          "isCorrect": true
+        },
+        {
+          "text": "To store large binary files used in CI",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "To provide different secret values for 'Production' vs 'Staging' using the same variable name"
+      ],
+      "explanation": "Environments allow you to scope secrets, so 'API_KEY' can have a different value depending on which environment the job is targeting"
+    },
+    {
+      "id": 41,
+      "question": "An administrator needs to restrict which Actions can be used in the Enterprise. They want to allow only Actions created by GitHub and verified partners. Where is this set?",
+      "options": [
+        {
+          "text": "Enterprise Policies > Actions settings",
+          "isCorrect": true
+        },
+        {
+          "text": "The IdP (Identity Provider) settings",
+          "isCorrect": false
+        },
+        {
+          "text": "Individual repository .gitignore files",
+          "isCorrect": false
+        },
+        {
+          "text": "The README.md of the organization",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Enterprise Policies > Actions settings"
+      ],
+      "explanation": "Enterprise-level Actions policies can restrict usage to specific subsets, such as verified creators or internal actions"
+    },
+    {
+      "id": 42,
+      "question": "Which command-line tool is the official way for admins to interact with GitHub Enterprise Server via a terminal?",
+      "options": [
+        {
+          "text": "cURL",
+          "isCorrect": false
+        },
+        {
+          "text": "GitHub CLI (gh)",
+          "isCorrect": true
+        },
+        {
+          "text": "Standard Git (git)",
+          "isCorrect": false
+        },
+        {
+          "text": "PowerShell",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "GitHub CLI (gh)"
+      ],
+      "explanation": "The GitHub CLI is the modern tool for managing issues, PRs, and some administrative tasks from the terminal"
+    },
+    {
+      "id": 43,
+      "question": "What is 'Forking Policy' used for in an Enterprise setting?",
+      "options": [
+        {
+          "text": "To automatically merge pull requests.",
+          "isCorrect": false
+        },
+        {
+          "text": "To control whether users can copy code to their personal accounts or outside the enterprise.",
+          "isCorrect": true
+        },
+        {
+          "text": "To manage the lunch schedule in the GitHub office.",
+          "isCorrect": false
+        },
+        {
+          "text": "To determine which Git version a developer must use.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "To control whether users can copy code to their personal accounts or outside the enterprise."
+      ],
+      "explanation": "Forking policies prevent data leakage by restricting where code can be forked, such as allowing only 'internal' forks"
+    },
+    {
+      "id": 44,
+      "question": "How can an administrator grant a contractor access to a single repository without adding them to the entire Organization?",
+      "options": [
+        {
+          "text": "Create a new Organization for every contractor.",
+          "isCorrect": false
+        },
+        {
+          "text": "Add them to the 'Owners' team.",
+          "isCorrect": false
+        },
+        {
+          "text": "Invite them as an Outside Collaborator.",
+          "isCorrect": true
+        },
+        {
+          "text": "Share the administrator's password.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Invite them as an Outside Collaborator."
+      ],
+      "explanation": "Outside collaborators are users who are not members of the organization but are granted to specific repositories"
+    },
+    {
+      "id": 45,
+      "question": "Which dashboard provides a high-level view of all security alerts across the entire Enterprise?",
+      "options": [
+        {
+          "text": "Network Graph",
+          "isCorrect": false
+        },
+        {
+          "text": "Security Overview",
+          "isCorrect": true
+        },
+        {
+          "text": "The Pulse tab",
+          "isCorrect": false
+        },
+        {
+          "text": "Contribution Activity",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Security Overview"
+      ],
+      "explanation": "The Security Overview provides a consolidated view of security alerts from Dependabot, CodeQL, and Secret Scanning"
+    },
+    {
+      "id": 46,
+      "question": "A team wants to use GitHub Actions to deploy to Production, but only after a senior manager clicks an 'Approve' button. What feature is needed?",
+      "options": [
+        {
+          "text": "A 'wait' command in the YAML file.",
+          "isCorrect": false
+        },
+        {
+          "text": "Organization Webhooks",
+          "isCorrect": false
+        },
+        {
+          "text": "Environment Protection Rules (Required Reviewers)",
+          "isCorrect": true
+        },
+        {
+          "text": "Branch Protection Rules",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Environment Protection Rules (Required Reviewers)"
+      ],
+      "explanation": "Environments can be configured to require manual approval from specific users or teams before a job can proceed"
+    },
+    {
+      "id": 47,
+      "question": "In GitHub Enterprise Server, what is the 'Management Console' used for?",
+      "options": [
+        {
+          "text": "Configuring underlying instance settings like SSL, networking, and license uploads.",
+          "isCorrect": true
+        },
+        {
+          "text": "Editing the code in a repository.",
+          "isCorrect": false
+        },
+        {
+          "text": "Managing user passwords.",
+          "isCorrect": false
+        },
+        {
+          "text": "Buying more storage space.",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Configuring underlying instance settings like SSL, networking, and license uploads."
+      ],
+      "explanation": "The Management Console is a separate port used for system-level administration of the GHES appliance itself"
+    },
+    {
+      "id": 48,
+      "question": "Which feature allows an enterprise to set a custom message that appears when a user tries to create a new repository?",
+      "options": [
+        {
+          "text": "GitHub Support ticket",
+          "isCorrect": false
+        },
+        {
+          "text": "A README.md template",
+          "isCorrect": false
+        },
+        {
+          "text": "Custom repository creation message",
+          "isCorrect": true
+        },
+        {
+          "text": "The MOTD (Message of the Day)",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Custom repository creation message"
+      ],
+      "explanation": "Enterprise owners can set a custom message to guide users toward internal compliance or documentation during repo creation"
     }
   ]
 }
