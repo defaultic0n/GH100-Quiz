@@ -109,3 +109,6 @@ D.	Audit Log APIs
 Answer: A
 Explanation: It alerts developers and suggests updated versions of affected libraries. Using Dependabot improves application security, support proactive maintenance, and helps teams meet modern DevSecOps best practices.
 
+
+
+
