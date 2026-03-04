@@ -71,7 +71,7 @@ Answer: C
 
 9. When an enterprise enables and enforces SCIM (System for Cross-domain Identity Management) provisioning with its Identity Provider (IdP), what is the primary benefit regarding user accounts on GitHub?
 A.	Users can access GitHub resources without ever needing to sign-in
-B.	It automatically enables two-factor authentication (2FA_ for all users
+B.	It automatically enables two-factor authentication (2FA) for all users
 C.	It automates the creation, updating, and deactivation of user accounts on GitHub based on changes in the IdP
 D.	It prevents the user of Personal Access Tokens (PATs) entirely
 
