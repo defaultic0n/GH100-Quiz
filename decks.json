@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "3.0-stable",
-    "decks": 6,
+    "decks": 5,
     "defaultDeckId": "base"
   },
   "defaultDeckId": "base",
@@ -10,42 +10,30 @@
       "id": "base",
       "name": "Main Deck",
       "file": "cards.json",
-      "description": "Core GH-100 questions",
       "version": "3.0-stable"
     },
     {
       "id": "hard",
       "name": "Hard Deck",
       "file": "hard.json",
-      "description": "Hard / advanced questions",
       "version": "3.0-stable"
     },
     {
       "id": "actual",
       "name": "Actual Test Deck",
       "file": "Actual4Test_cards.json",
-      "description": "Questions parsed from Actual4Test.txt",
-      "version": "3.0-stable"
-    },
-    {
-      "id": "shapingpixel",
-      "name": "ShapingPixel Deck",
-      "file": "ShapingPixel_cards.json",
-      "description": "Questions parsed from ShapingPixel.txt",
       "version": "3.0-stable"
     },
     {
       "id": "multisite",
       "name": "QnAfromMultiSite",
       "file": "QnAfromMultiSite_cards.json",
-      "description": "Questions parsed from multi-site sources",
       "version": "3.0-stable"
     },
     {
-      "id": "extra",
-      "name": "Extra Deck",
-      "file": "extra_cards.json",
-      "description": "Placeholder for future expansion",
+      "id": "shapingpixel",
+      "name": "ShapingPixel Deck",
+      "file": "ShapingPixel_cards.json",
       "version": "3.0-stable"
     }
   ]
