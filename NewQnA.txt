@@ -25,7 +25,7 @@ D.	Delete the repository from GitHub
 Answer: A
 
 
-4. An IT security team is reviewing howsecret scanning works in private repositories on GitHub Enterprise Cloud. They want to know what extra capability this feature provides to strengthen protection against internal data leaks. Which option explains this capability?
+4. An IT security team is reviewing how secret scanning works in private repositories on GitHub Enterprise Cloud. They want to know what extra capability this feature provides to strengthen protection against internal data leaks. Which option explains this capability?
 A.	Allow costom pattern definitions for internal secret formats
 B.	Disables any code that contains a secrets
 C.	Rewrites history to remove secrets
