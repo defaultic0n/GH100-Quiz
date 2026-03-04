@@ -1,30 +1,10 @@
 {
   "defaultDeckId": "base",
   "decks": [
-    {
-      "id": "base",
-      "name": "Main Deck",
-      "file": "cards.json"
-    },
-    {
-      "id": "hard",
-      "name": "Hard Deck",
-      "file": "hard.json"
-    },
-    {
-      "id": "actual",
-      "name": "Actual Test Deck",
-      "file": "Actual4Test_cards.json"
-    },
-    {
-      "id": "multisite",
-      "name": "QnAfromMultiSite",
-      "file": "QnAfromMultiSite_cards.json"
-    },
-    {
-      "id": "shapingpixel",
-      "name": "ShapingPixel Deck",
-      "file": "ShapingPixel_cards.json"
-    }
+    { "id": "base", "name": "Main Deck", "file": "cards.json" },
+    { "id": "hard", "name": "Hard Deck", "file": "hard.json" },
+    { "id": "actual", "name": "Actual Test Deck", "file": "Actual4Test_cards.json" },
+    { "id": "multisite", "name": "QnAfromMultiSite", "file": "QnAfromMultiSite_cards.json" },
+    { "id": "shapingpixel", "name": "ShapingPixel Deck", "file": "ShapingPixel_cards.json" }
   ]
 }
