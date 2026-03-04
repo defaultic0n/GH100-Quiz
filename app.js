@@ -432,15 +432,22 @@ function setupServiceWorker(){
 
 // === Baseline 2e: Auto-discover config + Safe deck loading ===
 async function fetchDeckConfig(){
-  const files = ['decks.auto.json','decks.json'];
-  let lastErr;
-  for(const f of files){
+  // Prefer the most complete/valid config.
+  // Fix: an old decks.auto.json (with fewer decks) was overriding decks.json.
+  const candidates = ['decks.json','decks.auto.json'];
+  const configs = [];
+  for(const f of candidates){
     try{
       const r = await fetch(f, { cache: 'no-store' });
-      if(r.ok) return await r.json();
-    }catch(e){ lastErr = e; }
+      if(!r.ok) continue;
+      const cfg = await r.json();
+      const decks = Array.isArray(cfg.decks) ? cfg.decks : [];
+      if(decks.length) configs.push({ file: f, cfg, count: decks.length });
+    }catch(e){ /* ignore */ }
   }
-  throw (lastErr || new Error('No deck config found'));
+  if(!configs.length) throw new Error('No deck config found');
+  configs.sort((a,b)=> (b.count - a.count) || (a.file === 'decks.json' ? -1 : 1));
+  return configs[0].cfg;
 }
 
 async function loadDecksSafe(){
@@ -458,7 +465,7 @@ async function loadDecksSafe(){
         const r = await fetch(deck.file, { cache: 'no-store' });
         if(!r.ok) throw new Error('deck file not found');
         const data = await r.json();
-        const cards = Array.isArray(data.cards) ? data.cards : [];
+        const cards = Array.isArray(data.cards) ? data.cards : (Array.isArray(data.questions) ? data.questions : []);
         if(cards.length === 0){
           console.warn(`Deck "${deck.id}" has no cards, skipped`);
           continue;
@@ -528,7 +535,7 @@ async function switchDeck(deckId){
 
   state.deckName = d.name || 'Deck';
   const deckData = d._data || {};
-  state.all = Array.isArray(deckData.cards) ? deckData.cards : [];
+  state.all = Array.isArray(deckData.cards) ? deckData.cards : (Array.isArray(deckData.questions) ? deckData.questions : []);
 
   state.idx = 0;
   state.search = '';
