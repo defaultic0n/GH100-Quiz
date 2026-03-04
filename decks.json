@@ -1,45 +1,12 @@
 {
   "meta": {
-    "version": "Baseline2c",
-    "decks": 4,
-    "defaultDeckId": "base"
+    "version": "2c"
   },
-  "defaultDeckId": "base",
   "decks": [
     {
-      "id": "base",
-      "name": "Main Deck",
-      "file": "cards.json",
-      "description": "Core GH-100 questions",
-      "version": "Baseline2c"
-    },
-    {
-      "id": "hard",
-      "name": "Hard Deck",
-      "file": "hard.json",
-      "description": "Hard / advanced questions",
-      "version": "Baseline2c"
-    },
-    {
-      "id": "actual",
-      "name": "Actual Test Deck",
-      "file": "Actual4Test_cards.json",
-      "description": "Questions parsed from Actual4Test.txt",
-      "version": "Baseline2c"
-    },
-    {
       "id": "shapingpixel",
-      "name": "ShapingPixel Deck",
-      "file": "ShapingPixel_cards.json",
-      "description": "Questions parsed from ShapingPixel full content (1-19).",
-      "version": "Baseline2c"
-    }
-        {
-      "id": "multisite",
-      "name": "QnAfromMultiSite",
-      "file": "QnAfromMultiSite_cards.json",
-      "description": "Questions parsed from multisite full content (1-11).",
-      "version": "Baseline2c"
+      "name": "ShapingPixel QnA",
+      "file": "deck_shapingpixel.json"
     }
   ]
 }
