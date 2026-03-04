@@ -20,16 +20,12 @@
         {
           "text": "integrating with third-party applications",
           "isCorrect": false
-        },
-        {
-          "text": "Explaination: GitHub Premium Support include assistance with installing and using Github Enterprise Server, ensuring your environment is configured correctly and any installation issues are resolved.",
-          "isCorrect": false
-        }
+        }        
       ],
       "answers": [
         "installing GitHub Enterprise Server"
       ],
-      "explanation": ""
+      "explanation": "GitHub Premium Support include assistance with installing and using Github Enterprise Server, ensuring your environment is configured correctly and any installation issues are resolved."
     },
     {
       "id": 2,
