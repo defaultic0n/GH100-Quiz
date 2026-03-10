@@ -1,0 +1,655 @@
+{
+  "title": "GH-100 GitHub Admin Mock Exam - Hard Questions",
+  "cards": [
+    {
+      "id": 1,
+      "question": "In GitHub Actions, what is the default behavior if multiple jobs are defined without the 'needs' keyword?",
+      "options": [
+        {
+          "text": "Jobs run sequentially in order of definition",
+          "isCorrect": false
+        },
+        {
+          "text": "Jobs run in parallel",
+          "isCorrect": true
+        },
+        {
+          "text": "Only the first job runs",
+          "isCorrect": false
+        },
+        {
+          "text": "Jobs require manual approval",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Jobs run in parallel"
+      ],
+      "explanation": "By default, jobs run in parallel unless dependencies are explicitly defined using 'needs'."
+    },
+    {
+      "id": 2,
+      "question": "Which setting ensures that even administrators must follow branch protection rules?",
+      "options": [
+        {
+          "text": "Require pull request reviews",
+          "isCorrect": false
+        },
+        {
+          "text": "Dismiss stale reviews",
+          "isCorrect": false
+        },
+        {
+          "text": "Include administrators",
+          "isCorrect": true
+        },
+        {
+          "text": "Require signed commits",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Include administrators"
+      ],
+      "explanation": "Enabling 'Include administrators' enforces branch protection rules for admins as well."
+    },
+    {
+      "id": 3,
+      "question": "What happens when a pull request is opened from a forked repository regarding secrets?",
+      "options": [
+        {
+          "text": "Secrets are fully accessible",
+          "isCorrect": false
+        },
+        {
+          "text": "Secrets are encrypted but accessible",
+          "isCorrect": false
+        },
+        {
+          "text": "Secrets are not accessible by default",
+          "isCorrect": true
+        },
+        {
+          "text": "Secrets are replaced with dummy values",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Secrets are not accessible by default"
+      ],
+      "explanation": "Secrets are not passed to workflows triggered from forked repositories for security reasons."
+    },
+    {
+      "id": 4,
+      "question": "Which keyword is used to prevent multiple workflow runs from executing simultaneously?",
+      "options": [
+        {
+          "text": "strategy",
+          "isCorrect": false
+        },
+        {
+          "text": "concurrency",
+          "isCorrect": true
+        },
+        {
+          "text": "parallel",
+          "isCorrect": false
+        },
+        {
+          "text": "limit",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "concurrency"
+      ],
+      "explanation": "The 'concurrency' keyword controls concurrent workflow runs."
+    },
+    {
+      "id": 5,
+      "question": "What is the main advantage of environment secrets over repository secrets?",
+      "options": [
+        {
+          "text": "They are automatically encrypted twice",
+          "isCorrect": false
+        },
+        {
+          "text": "They can require approval before deployment",
+          "isCorrect": true
+        },
+        {
+          "text": "They are globally accessible",
+          "isCorrect": false
+        },
+        {
+          "text": "They override organization secrets",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "They can require approval before deployment"
+      ],
+      "explanation": "Environment secrets can enforce required reviewers before workflows access them."
+    },
+    {
+      "id": 6,
+      "question": "Which event would trigger a workflow when code is pushed to any branch except 'main'?",
+      "options": [
+        {
+          "text": "push: branches-ignore: [main]",
+          "isCorrect": true
+        },
+        {
+          "text": "push: branches: [!main]",
+          "isCorrect": false
+        },
+        {
+          "text": "push: except: main",
+          "isCorrect": false
+        },
+        {
+          "text": "pull_request: branches-ignore: [main]",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "push: branches-ignore: [main]"
+      ],
+      "explanation": "'branches-ignore' excludes specific branches from triggering the workflow."
+    },
+    {
+      "id": 7,
+      "question": "What is the scope of an organization secret?",
+      "options": [
+        {
+          "text": "Only one repository",
+          "isCorrect": false
+        },
+        {
+          "text": "Only private repositories",
+          "isCorrect": false
+        },
+        {
+          "text": "Selected repositories within the organization",
+          "isCorrect": true
+        },
+        {
+          "text": "All GitHub users",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Selected repositories within the organization"
+      ],
+      "explanation": "Organization secrets can be scoped to selected repositories."
+    },
+    {
+      "id": 8,
+      "question": "Which permission level allows managing repository settings but not deleting the repository?",
+      "options": [
+        {
+          "text": "Read",
+          "isCorrect": false
+        },
+        {
+          "text": "Write",
+          "isCorrect": false
+        },
+        {
+          "text": "Maintain",
+          "isCorrect": true
+        },
+        {
+          "text": "Admin",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Maintain"
+      ],
+      "explanation": "Maintain allows managing settings without full administrative control like deletion."
+    },
+    {
+      "id": 9,
+      "question": "What is the effect of enabling 'Require linear history' in branch protection?",
+      "options": [
+        {
+          "text": "Forces squash merges only",
+          "isCorrect": false
+        },
+        {
+          "text": "Prevents merge commits",
+          "isCorrect": true
+        },
+        {
+          "text": "Enforces rebase merges",
+          "isCorrect": false
+        },
+        {
+          "text": "Prevents force pushes",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Prevents merge commits"
+      ],
+      "explanation": "It prevents merge commits, ensuring a linear commit history."
+    },
+    {
+      "id": 10,
+      "question": "Which token is automatically created for workflows and expires after the job completes?",
+      "options": [
+        {
+          "text": "OAuth Token",
+          "isCorrect": false
+        },
+        {
+          "text": "GITHUB_TOKEN",
+          "isCorrect": true
+        },
+        {
+          "text": "Personal Access Token",
+          "isCorrect": false
+        },
+        {
+          "text": "Deploy Key",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "GITHUB_TOKEN"
+      ],
+      "explanation": "GITHUB_TOKEN is automatically generated per workflow run and expires afterward."
+    },
+    {
+      "id": 11,
+      "question": "What does 'strategy.matrix' enable in a workflow?",
+      "options": [
+        {
+          "text": "Sequential execution",
+          "isCorrect": false
+        },
+        {
+          "text": "Conditional branching",
+          "isCorrect": false
+        },
+        {
+          "text": "Multiple job variations",
+          "isCorrect": true
+        },
+        {
+          "text": "Secret encryption",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Multiple job variations"
+      ],
+      "explanation": "Matrix allows running jobs with multiple configurations."
+    },
+    {
+      "id": 12,
+      "question": "Which feature enforces signed commits before merging?",
+      "options": [
+        {
+          "text": "Require signed commits",
+          "isCorrect": true
+        },
+        {
+          "text": "Required reviewers",
+          "isCorrect": false
+        },
+        {
+          "text": "Secret scanning",
+          "isCorrect": false
+        },
+        {
+          "text": "Code owners",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Require signed commits"
+      ],
+      "explanation": "Branch protection can require commits to be cryptographically signed."
+    },
+    {
+      "id": 13,
+      "question": "What is the main risk of using a PAT instead of GITHUB_TOKEN?",
+      "options": [
+        {
+          "text": "Short expiration",
+          "isCorrect": false
+        },
+        {
+          "text": "Lower permissions",
+          "isCorrect": false
+        },
+        {
+          "text": "Persistent credentials exposure",
+          "isCorrect": true
+        },
+        {
+          "text": "Workflow failure",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Persistent credentials exposure"
+      ],
+      "explanation": "PATs persist and may pose security risks if leaked."
+    },
+    {
+      "id": 14,
+      "question": "Which file location is required for GitHub Actions workflows?",
+      "options": [
+        {
+          "text": "/workflows/",
+          "isCorrect": false
+        },
+        {
+          "text": ".github/workflows/",
+          "isCorrect": true
+        },
+        {
+          "text": "/.actions/",
+          "isCorrect": false
+        },
+        {
+          "text": "actions.yml",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        ".github/workflows/"
+      ],
+      "explanation": "Workflows must be stored in .github/workflows directory."
+    },
+    {
+      "id": 15,
+      "question": "What happens if a required status check fails?",
+      "options": [
+        {
+          "text": "The PR auto-closes",
+          "isCorrect": false
+        },
+        {
+          "text": "Merge is blocked",
+          "isCorrect": true
+        },
+        {
+          "text": "Admin can always merge",
+          "isCorrect": false
+        },
+        {
+          "text": "Workflow restarts automatically",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Merge is blocked"
+      ],
+      "explanation": "Branch protection blocks merging if required checks fail."
+    },
+    {
+      "id": 16,
+      "question": "Which GitHub feature automatically detects exposed secrets in commits?",
+      "options": [
+        {
+          "text": "Dependabot",
+          "isCorrect": false
+        },
+        {
+          "text": "CodeQL",
+          "isCorrect": false
+        },
+        {
+          "text": "Secret scanning",
+          "isCorrect": true
+        },
+        {
+          "text": "Branch protection",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Secret scanning"
+      ],
+      "explanation": "Secret scanning detects leaked credentials in repositories."
+    },
+    {
+      "id": 17,
+      "question": "What is required to enforce review from specific users before merging?",
+      "options": [
+        {
+          "text": "CODEOWNERS file",
+          "isCorrect": true
+        },
+        {
+          "text": "Branch naming rule",
+          "isCorrect": false
+        },
+        {
+          "text": "Workflow approval",
+          "isCorrect": false
+        },
+        {
+          "text": "Signed commits",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "CODEOWNERS file"
+      ],
+      "explanation": "CODEOWNERS enforces review from designated owners."
+    },
+    {
+      "id": 18,
+      "question": "Which merge method combines all commits into one?",
+      "options": [
+        {
+          "text": "Merge commit",
+          "isCorrect": false
+        },
+        {
+          "text": "Rebase",
+          "isCorrect": false
+        },
+        {
+          "text": "Squash merge",
+          "isCorrect": true
+        },
+        {
+          "text": "Fast-forward",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Squash merge"
+      ],
+      "explanation": "Squash merge combines commits into a single commit."
+    },
+    {
+      "id": 19,
+      "question": "What does 'runs-on' specify in a job?",
+      "options": [
+        {
+          "text": "Event trigger",
+          "isCorrect": false
+        },
+        {
+          "text": "Operating system or runner type",
+          "isCorrect": true
+        },
+        {
+          "text": "Secret scope",
+          "isCorrect": false
+        },
+        {
+          "text": "Branch filter",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Operating system or runner type"
+      ],
+      "explanation": "'runs-on' defines the runner environment."
+    },
+    {
+      "id": 20,
+      "question": "Which setting prevents force pushes to a protected branch?",
+      "options": [
+        {
+          "text": "Require reviews",
+          "isCorrect": false
+        },
+        {
+          "text": "Restrict pushes",
+          "isCorrect": true
+        },
+        {
+          "text": "Require status checks",
+          "isCorrect": false
+        },
+        {
+          "text": "Disable merge",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Restrict pushes"
+      ],
+      "explanation": "Restrict pushes blocks force pushes and unauthorized changes."
+    },
+    {
+      "id": 21,
+      "question": "What is the purpose of a deploy key?",
+      "options": [
+        {
+          "text": "Authenticate a single repository",
+          "isCorrect": true
+        },
+        {
+          "text": "Access all organization repos",
+          "isCorrect": false
+        },
+        {
+          "text": "Replace PAT",
+          "isCorrect": false
+        },
+        {
+          "text": "Encrypt secrets",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Authenticate a single repository"
+      ],
+      "explanation": "Deploy keys provide SSH access to a single repository."
+    },
+    {
+      "id": 22,
+      "question": "What does 'workflow_dispatch' enable?",
+      "options": [
+        {
+          "text": "Scheduled execution",
+          "isCorrect": false
+        },
+        {
+          "text": "Manual trigger",
+          "isCorrect": true
+        },
+        {
+          "text": "Automatic PR merge",
+          "isCorrect": false
+        },
+        {
+          "text": "Secret rotation",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Manual trigger"
+      ],
+      "explanation": "workflow_dispatch allows manual workflow execution."
+    },
+    {
+      "id": 23,
+      "question": "Which GitHub feature analyzes code for security vulnerabilities?",
+      "options": [
+        {
+          "text": "CodeQL",
+          "isCorrect": true
+        },
+        {
+          "text": "Actions",
+          "isCorrect": false
+        },
+        {
+          "text": "Projects",
+          "isCorrect": false
+        },
+        {
+          "text": "Issues",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "CodeQL"
+      ],
+      "explanation": "CodeQL performs static code analysis for vulnerabilities."
+    },
+    {
+      "id": 24,
+      "question": "Which permission allows pushing code but not managing settings?",
+      "options": [
+        {
+          "text": "Read",
+          "isCorrect": false
+        },
+        {
+          "text": "Write",
+          "isCorrect": true
+        },
+        {
+          "text": "Maintain",
+          "isCorrect": false
+        },
+        {
+          "text": "Admin",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Write"
+      ],
+      "explanation": "Write permission allows pushing code without admin privileges."
+    },
+    {
+      "id": 25,
+      "question": "What is the effect of 'dismiss stale pull request approvals'?",
+      "options": [
+        {
+          "text": "Approvals remain valid after new commits",
+          "isCorrect": false
+        },
+        {
+          "text": "Approvals are reset when new commits are pushed",
+          "isCorrect": true
+        },
+        {
+          "text": "PR auto-merges",
+          "isCorrect": false
+        },
+        {
+          "text": "Reviews become optional",
+          "isCorrect": false
+        }
+      ],
+      "answers": [
+        "Approvals are reset when new commits are pushed"
+      ],
+      "explanation": "New commits invalidate previous approvals when this setting is enabled."
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+✅ BASELINE 3.0 — REGENERATION PROMPT (AUTHORITATIVE)
+
+Purpose
+Rebuild GH100‑FlashCard — Baseline 3.0 as a production‑grade, auto‑discover, multi‑deck GitHub Pages PWA, based on Baseline 2e FINAL.
+
+
+✅ NON‑NEGOTIABLE ARCHITECTURE RULES
+
+
+Static‑only GitHub Pages app
+
+No server, no APIs, no directory listing
+All paths must be relative (./file.js)
+Must work under https://<user>.github.io/<repo>/
+
+
+
+Separation of concerns
+
+index.html → HTML only
+styles.css → CSS only
+app.js → JavaScript only
+Deck files → data‑only JSON (no comments, no JS)
+
+
+
+Failure‑tolerant design
+
+One broken deck must never break the app
+Deck selector must only show successfully loaded decks
+
+
+
+
+✅ DECK DISCOVERY (CRITICAL)
+Authoritative config file
+
+Primary: decks.auto.json
+Fallback: decks.json (optional safety)
+
+App logic
+
+app.js MUST:
+
+Try decks.auto.json
+Fall back to decks.json
+Safely preload each deck file
+Skip missing / invalid / empty decks
+Populate the deck selector using only valid decks
+
+
+
+Required helper
+JavaScriptfetchDeckConfig() → tries decks.auto.json, then decks.jsonShow more lines
+
+✅ REQUIRED FILES IN OUTPUT ZIP
+The model MUST output one ZIP with exactly these files at repo root:
+index.html
+styles.css
+app.js
+service-worker.js
+manifest.json
+
+decks.auto.json
+decks.json          (fallback)
+
+cards.json          (main deck)
+hard.json           (hard deck)
+Actual4Test_cards.json
+QnAfromMultiSite_cards.json
+
+icons/icon-192.png
+icons/icon-512.png
+README.md
+
+
+✅ REQUIRED APP FEATURES
+Deck system
+
+<select id="deckSelect"> for deck switching
+Deck metadata shown in header
+Deck‑scoped progress tracking
+
+Modes
+
+Flashcard mode (flip)
+Quiz mode (single & multi‑answer)
+Shuffle questions
+Shuffle answers
+Only missed
+Reset progress (per deck)
+
+Mobile UX (MANDATORY)
+
+Bottom controls single row on mobile
+Icons instead of text on mobile
+Toolbar rendered as 2 rows on mobile
+Responsive up to ≤420px width
+
+
+✅ STATE & STORAGE
+
+Progress key format:
+<deckId>:<cardId>
+
+
+Preferences stored separately:
+
+quizMode
+shuffle
+onlyMissed
+last selected deck
+
+
+
+
+✅ SECURITY & ROBUSTNESS
+
+Proper escapeHtml() implementation (must escape & < > " ')
+No innerHTML injection of raw user data
+Defensive JSON parsing everywhere
+
+
+✅ SERVICE WORKER (MANDATORY)
+
+Cache name MUST be versioned:
+gh100-flashcards-baseline3-v1
+
+
+MUST cache:
+
+decks.auto.json
+decks.json
+
+
+MUST support:
+
+SKIP_WAITING
+Update banner prompting refresh
+
+
+
+
+✅ OUTPUT CONSTRAINTS
+
+✅ Do NOT ask clarifying questions
+✅ Do NOT omit files
+✅ Do NOT invent extra decks
+✅ Do NOT inline CSS or JS into HTML
+✅ ZIP must be upload‑ready
+
+
+✅ VALIDATION CHECKLIST (MODEL MUST SELF‑VERIFY)
+Before responding, the model must ensure:
+
+✅ At least 1 deck loads successfully
+✅ Deck selector is populated
+✅ App runs with decks.json removed
+✅ App runs with a broken deck file present
+✅ Mobile layout matches requirements
+
+
+🟢 END OF BASELINE 3.0 PROMPT

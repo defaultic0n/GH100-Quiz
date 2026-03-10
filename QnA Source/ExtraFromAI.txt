@@ -1,0 +1,371 @@
+1. An enterprise wants to prevent individual orgs from disabling required PR reviews. What should they configure?
+A.	Org-level branch protection
+B.	An enterprise policy
+C.	A CODEOWNERS file
+D.	A workflow requirement
+
+Answer: B
+Explanation: Enterprise policies override org-level settings. Setting this at the enterprise level prevents orgs from weakening the requirement.
+
+
+2. An admin needs to send logs to GitHub Support for a GHES outage. What should they generate?
+A. 	GraphQL report
+B.	A support bundle
+C.	An audit log export
+D.	A webhook payload
+
+Answer: B
+Explanation: A support bundle packages all relevant logs and diagnostics from a GHES instance in a format GitHub Support an analyze
+
+
+3. Your self-hosted runner is inside a private network. Actions jobs are failing because github.com is blocked. What should you configure?
+A.	IP allow list on GitHub
+B.	A proxy for the runner
+C.	A GitHub-hosted runner
+D.	A runner group
+
+Answer: B
+Explanation: Self-hosted runners in restricted networks must be configured with a proxy so they can reach GitHub.com to receive job assignments and download Actions
+
+
+4. Your company uses Okta. You want GitHub accounts auto-deprovisioned when employees leave. What should you configure?
+A.	SAML SSO only
+B.	Team Synchronization
+C.	SCIM provisioning
+D.	2FA enforcement
+
+Answer: C
+Explanation: SCIM automates user lifecycle management — it provisions new accounts and deprovisions them when users are removed from the IdP, like Okta.
+
+
+5. What is the key difference between Team Synchronization and SCIM?
+A.	Team Sync provisions/deprovisions GitHub accounts; SCIM manages team membership
+B.	SCIM provisions/deprovisions accounts; Team Sync manages IdP group-to-team mapping
+C.	They are identical features
+D.	Team Sync only works with Azure AD
+
+Answer: B
+Explanation: SCIM manages the user account lifecycle (create/delete). Team Sync maps IdP group memberships to GitHub teams — both can work together for full identity management.
+
+
+6. A Windows runner uses how many GitHub Actions minutes per actual minute of compute?
+A.	1×
+B.	2×
+C.	5×
+D.	10×
+
+Answer: B
+Explanation: Windows runners are billed at 2× the rate of Linux runners. macOS runners are billed at 10×. Linux is the 1× baseline.
+
+
+
+7. A team wants to publish their npm package so other internal teams can consume it in their Actions workflows. What should they use?
+A. 	GitHub Releases
+B.	GitHub Gists
+C.	GitHub Packages
+D.	A public npm registry
+
+Answer: C
+Explanation: GitHub Packages provides an internal npm registry that integrates with GitHub authentication — ideal for sharing private packages across internal teams.
+
+
+8. A developer accidentally committed an AWS secret key. It's already pushed. What is the FIRST step?
+A.	Delete the repo
+B.	Revoke the secret in AWS immediately
+C.	Run git filter-branch
+D.	Contact GitHub support
+
+Answer: B
+Explanation: The secret is already exposed — revoking it in AWS is the most urgent step to stop potential misuse. Then clean the history and rotate credentials.
+
+
+9. Which GitHub feature automatically opens PRs to fix packages with known CVEs?
+A.	Secret scanning
+B.	Code scanning
+C.	Dependabot security updates
+D.	GitHub Advisory Database
+
+Answer: C
+Explanation: Dependabot security updates automatically create pull requests to bump vulnerable dependencies to safe versions based on the GitHub Advisory Database.
+
+
+10. What is the key restriction of Enterprise Managed Users (EMUs)?
+A.	They cannot use 2FA
+B.	They cannot own personal repos or join outside orgs
+C.	They cannot be assigned team roles
+D.	They cannot access private repos
+
+Answer: B
+Explanation: EMU accounts exist solely within the managing enterprise - they have no personal GitHub identity, cannot own public repos or interact outside the enterprise boundary
+
+
+11. A team asks you to help them auto-notify Slack when new issues are opened, without writing custom code. What do you recommend?
+A.	A GitHub Action in their workflow
+B.	A GitHub App from the Marketplace
+C.	A PAT-based webhook script
+D.	A GraphQL subscription
+
+Answer: B
+Explanation: GitHub Marketplace Apps (like the official Slack GitHub app) provide pre-built integrations — no custom code required, just install and configure.
+
+
+12. A company needs GitHub deployed in their own data center for data sovereignty. Which product fits?
+A.	GitHub Enterprise Cloud
+B.	GitHub AE
+C.	GitHub Enterprise Server
+D.	GitHub Team
+
+Answer: C
+Explanation: GHES is self-hosted on the organization's own infrastructure, giving full control over data residency and the deployment environment. GitHub AE is an enterprise-grade GitHub environment that is hosted and operated by GitHub, but deployed in a dedicated, isolated cloud environment (typically Azure) rather than the shared GitHub.com infrastructure. GitHub Team is SaaS plan for small teams; no self‑hosting or sovereignty controls
+
+
+
+13. A team wants to publish their npm package so other internal teams can consume it in their Actions workflows. What should they use?
+A.	GitHub Releases
+B.	GitHub Gists
+C.	GitHub Packages
+D.	A public npm registry
+
+Answer: C
+Explanation: GitHub Packages provides an internal npm registry that integrates with GitHub authentication — ideal for sharing private packages across internal teams.
+
+
+14. You want to share a set of runners only with specific repos in your enterprise. What feature enables this?
+A.	Encrypted secrets
+B.	Runner labels
+C.	Runner groups
+D.	IP allow lists
+
+Answer: C
+Explanation: Runner groups control which organizations and repositories have access to a set of self-hosted runners, enabling controlled sharing within an enterprise.
+
+
+
+15. A developer should be able to create PRs but NOT delete branches or manage settings. What is the correct role?
+A.	Admin
+B.	Maintain
+C.	Write
+D.	Triage
+
+Answer: C
+Explanation: The Write role allows creating PRs, merging, and pushing code. Maintain adds branch management. Admin adds settings/deletion. Write is the least-privilege choice here.
+
+
+16. For an automated deployment bot, what is BETTER than using a PAT tied to a user account?
+A.	An OAuth App
+B.	A GitHub App
+C.	A deploy key
+D.	A webhook
+
+Answer: B
+Explanation: HitHub Apps authenticate as themselves with fine-grained, repo-scoped permissions and aren't tied to any user — if the user leaves, access isn't lost.
+
+
+17. An IT development team is configuring branch protection in a GitHub repository. They enable multiple rulesets that apply to the same branch. What outcome should the team expect?
+A. 	Only rulesets defined at the organization level will be enforced over repository-level rulesets
+B.	All rulesets that apply will be checked, and their combined rules will be enforced
+C.	The most recently created ruleset will be the only one enforced
+D.	Ruleset will cancel each other out, causing uncertain enforcement behaviour
+
+Answer: B
+
+
+18. A softwre enginering team in a financial enterprise relies on Dependabot to keep dependencies secure. They want to understand how Dependabot decides which security update pull requests to open. What process does Dependabot follow?
+A.	Dependabot waits untill all CVSs are manually triage before opening a pull request
+B.	Dependabot leverages the dependency graph and alerts to open pull requests for patched versions
+C.	Dependabot scans GitHub Issues and automatically proposes fixes
+D.	Dependabot compares the codebase against the GitHub Trending list to decide updates
+
+Answer: B
+
+
+19. During a code deployment, an IT engineer accidentally pushed sensitive data into a public GitHub repository. What is the first action that should be taken to minimize risk?
+A.	Immediately revoke any exposed credentials
+B.	Perform a force push to remove the sensitive data from the commit history
+C.	Create an issue in the repository to notify users
+D.	Delete the repository from GitHub
+
+Answer: A
+
+
+20. An IT security team is reviewing howsecret scanning works in private repositories on GitHub Enterprise Cloud. They want to know what extra capability this feature provides to strengthen protection against internal data leaks. Which option explains this capability?
+A.	Allow costom pattern definitions for internal secret formats
+B.	Disables any code that contains a secrets
+C.	Rewrites history to remove secrets
+D.	Revokes GitHub access tokens automatically
+
+Answer: A
+
+
+21. An enterprise administrator is tasked with enforcing a policy around forking private and internal repositories across the organization. At the enterprise level, which THREE configuration choices are available to enforce this policy?
+A.	Permit organization owners to manage the setting at the organization level
+B.	Permit all users with access to private and internal repositories to fork them
+C.	Restict repository owners from managing the setting at the repository level
+D.	Restrict forking of private and internal repositories entirely
+
+Answer: A, C, D
+
+
+22. An IT audit team is reviewing the Git activity audit log in GitHub Enterprise Cloud to ensure compliance tracking. They want to know which Git operation is not captured in the audit log. Which option reflects the missing operations?
+A.	Delete branch
+B.	Fetch
+C.	Push
+D.	Clone
+
+Answer: A
+
+
+23. A software engineering team is evaluating the benefits of GitHub Advances Security for their enterprise projects. They want to understand how this feature supports their development process. Which option best describes the benefit?
+A.	Assists organization administrators in analyzing and configuring permissions with least privilege access
+B.	Assists developers in improving and maintaining both the security and quality of their code
+C.	Assists enterprise administrator in enhancing and maintaining network security for GitHub Enterprise Server instances
+D.	Assists organization administrator in managing security tokens across the environment
+
+Answer: B
+
+
+24. An enterprise IT administrator manages multiple organization within GitHub Enterprise 
+A.	Add outside collaborators to every repository
+B.	Create organization-specific teams with custom policies
+C.	Use enterprise-level teams that inherit enterprise policies
+D.	Assign admin permissions to all team members
+
+Answer: C
+
+
+25. An IT department has subscribed to GitHub Premium Support. The operations team need to raise ticket and wants to know what kind of assistance Premium Support can provide. Which option reflects the correct area of support?
+A.	Writing scripts
+B.	Installing GitHub Enterprise Server
+C.	Setting up hardware
+D.	Integrating with third-party applications
+
+Answer: B
+
+
+26. A software engineering team in a financial enterprise relies on Dependabot to keep dependencies secure. They want to understand how Dependabot decides which security update pull requests to open. What process does Dependabot follow?
+A.	Dependabot waits until all CVEs are manually triaged before opening a pull request.
+B.	Dependabot leverage the dependency graph and alerts to open pull requests for patched versions
+C.	Dependabot scan GitHub Issues and automatically proposes fixes
+D.	Dependabot compares the codebase against the GitHub Trending list to decide updates
+
+Answer: B
+
+
+27. An enterprise IT administrator manages multiple organizations within GitHub Enterprise Cloud. To ensure consistent security policies across all team, which feature should be used?
+A.	Add outside collaborators to every repository
+B.	Create organization specific teams with custom policies
+C.	User enterprise-level teams that inherit enterprise policies
+D.	Assign admin permissions to all team members.
+
+Answer: C
+
+
+28. In a GitHub organization, which permission level is specifically designed to manage organization-wide settings, billing, and member roles, and should be granted with the most caution?
+A.	Member
+B.	Billing Manager
+C.	Owner
+D.	Outside Collaborator
+
+Answer: C
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================== CheatSheet
+
+
+
+
+
+======================FlashCards
+
+1. What is a GitHub support bundle?
+
+A.	A support bundle is a compressed archive of log files, configuration, and diagnostics from a GHES instance. Admins generate it via the Management Console or CLI and send it to GitHub Support for troubleshooting
+
+2. What is the difference between a GitHub App and a GitHub Action?
+A.	A GitHub App is a standalone integration that authenticates as itself and can access GitHub APIs. A GitHub Action is a reusable automation step within a workflow YAML file. Apps are broader integrations; Actions are workflow building blocks
+
+3. How can the GitHub API extend admin capabilities beyond the UI?
+A. The REST and GraphQL APIs let admins query and export audit logs, automate user/repo management, monitor usage metrics, and trigger workflows — going far beyond what's possible in the GitHub UI.
+
+
+4. 
+
+" },
+  { d:0, q:"What are the risks of installing apps from the GitHub Marketplace?", a:"Marketplace apps may request <strong>excessive permissions</strong>, have access to private data, introduce supply-chain vulnerabilities, and may not meet your organization's security standards — always review requested permissions and vendor trust before installing." },
+  { d:0, q:"What is the fork-and-pull model vs. the branching model?", a:"<strong>Fork-and-pull</strong>: contributors fork the repo, make changes, then open a PR back. Best for open-source. <strong>Branching</strong>: everyone works in branches of the same repo. Better for internal teams with controlled access." },
+
+  // D2 – Identity & Auth
+  { d:1, q:"What is SAML SSO in GitHub and why is it important?", a:"<strong>SAML SSO (Security Assertion Markup Language)</strong> lets users authenticate to GitHub through a corporate Identity Provider (IdP) like Okta or Azure AD, centralizing access control and enforcing enterprise security policies." },
+  { d:1, q:"What is the difference between enabling SAML SSO for a single org vs. an enterprise account?", a:"Enabling SSO for a <strong>single org</strong> only affects that org's members. Enabling it at the <strong>enterprise level</strong> applies SSO enforcement across ALL organizations in the enterprise, ensuring consistent access control." },
+  { d:1, q:"What is SCIM and how does GitHub use it?", a:"<strong>SCIM (System for Cross-domain Identity Management)</strong> is a protocol that automates user provisioning and de-provisioning. GitHub uses SCIM to sync user accounts from an IdP — so when a user is removed from AD/Okta, they're auto-deprovisioned from GitHub." },
+  { d:1, q:"What SCIM providers does GitHub support?", a:"GitHub supports <strong>Azure AD, Okta</strong>, and <strong>self-created (custom)</strong> SCIM providers via GitHub's SCIM API." },
+  { d:1, q:"What is the difference between Team Synchronization and SCIM?", a:"<strong>SCIM</strong> provisions/deprovisions users at the GitHub account level. <strong>Team Sync</strong> maps IdP groups to GitHub teams, automatically adding/removing team members — but it doesn't create/delete accounts like SCIM does." },
+  { d:1, q:"What is an Enterprise Managed User (EMU)?", a:"<strong>EMUs</strong> are GitHub accounts fully managed by the enterprise via an IdP. EMU accounts can ONLY belong to that enterprise — they cannot own personal repos, join outside orgs, or interact with public GitHub. Best for strict compliance environments." },
+  { d:1, q:"What is the purpose of 2FA requirements for an organization?", a:"Requiring <strong>2FA</strong> at the org level forces all members to have two-factor authentication enabled — anyone without 2FA is removed from the org, reducing account takeover risk." },
+
+  // D3 – Deployment & Licensing
+  { d:2, q:"What is GitHub Enterprise Cloud (GHEC)?", a:"<strong>GHEC</strong> is GitHub's SaaS enterprise offering — organizations are hosted on github.com with added enterprise features: SSO, audit logs, advanced security, compliance controls, and higher Actions minutes." },
+  { d:2, q:"What is GitHub Enterprise Server (GHES)?", a:"<strong>GHES</strong> is a self-hosted version of GitHub you deploy on your own infrastructure (on-prem or private cloud). You control the hardware, network, and data — required for air-gapped or strict data-residency environments." },
+  { d:2, q:"What is GitHub AE (Actions Everywhere)?", a:"<strong>GitHub AE</strong> is a fully managed, isolated version of GitHub hosted by GitHub in a dedicated cloud region. It offers data residency and isolation without the operational overhead of GHES." },
+  { d:2, q:"How is GitHub Actions billing structured?", a:"GitHub Actions is billed by <strong>compute minutes</strong> consumed by workflow runs. Different OS runners have different cost multipliers (Linux = 1×, Windows = 2×, macOS = 10×). Storage for artifacts/packages is billed separately." },
+  { d:2, q:"What are metered products in GitHub?", a:"<strong>Metered products</strong> are billed based on consumption rather than seat count — including Actions minutes, Packages storage, and Codespaces compute hours. Admins can view usage reports to track and control spend." },
+
+  // D4 – Access & Permissions
+  { d:3, q:"What are the organization-level roles in GitHub?", a:"GitHub org roles: <strong>Owner</strong> (full admin), <strong>Member</strong> (standard access), <strong>Billing Manager</strong> (billing only), and <strong>Outside Collaborator</strong> (non-member with explicit repo access)." },
+  { d:3, q:"What is the principle of least privilege in GitHub?", a:"Grant users the <strong>minimum permissions</strong> needed to do their job — e.g., Read instead of Write where possible. Prevents accidental deletions and limits blast radius of compromised accounts." },
+  { d:3, q:"What is the difference between an Outside Collaborator and an Org Member?", a:"An <strong>org member</strong> has baseline org-level access and can see all org repos (depending on settings). An <strong>outside collaborator</strong> is a non-member granted access only to specific repos — they can't see the full org." },
+  { d:3, q:"What are repository permission levels in GitHub?", a:"GitHub repo permissions (lowest to highest): <strong>Read → Triage → Write → Maintain → Admin</strong>. Each level adds more capabilities — Read can only view, Admin has full control including deleting the repo." },
+  { d:3, q:"What are enterprise policies vs. organization policies?", a:"<strong>Enterprise policies</strong> apply across all organizations and override org-level settings. <strong>Org policies</strong> apply within a single organization. Admins choose whether to enforce a setting enterprise-wide or leave it configurable per org." },
+  { d:3, q:"What are GitHub Teams and how do team permissions work?", a:"<strong>Teams</strong> are groups within an org that can be granted access to repos at a specific permission level. Teams can be nested (parent/child). Access to repos is granted at the team level, making management scalable." },
+
+  // D5 – Security & Compliance
+  { d:4, q:"What is the GitHub Audit Log used for?", a:"The <strong>Audit Log</strong> records all security-relevant actions: logins, permission changes, repo creations/deletions, SSO events. Admins query it via the UI, REST API, or GraphQL API for compliance reporting and incident investigation." },
+  { d:4, q:"What is secret scanning?", a:"<strong>Secret scanning</strong> automatically detects leaked credentials (API keys, tokens, passwords) committed to repos. It can block pushes containing known secret patterns and alert repository admins." },
+  { d:4, q:"What is CodeQL and code scanning?", a:"<strong>CodeQL</strong> is GitHub's semantic code analysis engine. <strong>Code scanning</strong> runs CodeQL (or third-party tools) on pull requests and pushes to find security vulnerabilities before code is merged." },
+  { d:4, q:"What is Dependabot and what are its three main features?", a:"<strong>Dependabot</strong> provides: (1) <strong>Alerts</strong> — notifies about vulnerable dependencies, (2) <strong>Security updates</strong> — auto-PRs to patch vulnerabilities, (3) <strong>Version updates</strong> — auto-PRs to keep dependencies current." },
+  { d:4, q:"What is a Personal Access Token (PAT) and when should you use a GitHub App instead?", a:"A <strong>PAT</strong> is tied to a user account and inherits that user's permissions — risky if the user leaves. A <strong>GitHub App</strong> authenticates as itself with fine-grained permissions and doesn't tie access to any single user. Prefer Apps for automated/machine access." },
+  { d:4, q:"What is the BFG Repo Cleaner used for?", a:"The <strong>BFG Repo Cleaner</strong> (or `git filter-branch`) removes sensitive data — like committed secrets or large files — from a repo's full Git history. After cleaning, a force-push rewrites history on the remote." },
+
+  // D6 – GitHub Actions
+  { d:5, q:"What is a reusable workflow in GitHub Actions?", a:"A <strong>reusable workflow</strong> is a workflow file that can be called from other workflows using `workflow_call`. It avoids duplicating CI/CD logic across repos and enables enterprise-wide standards for builds and deployments." },
+  { d:5, q:"What is the difference between GitHub-hosted and self-hosted runners?", a:"<strong>GitHub-hosted</strong>: managed by GitHub, fresh environment each run, no maintenance needed, limited customization. <strong>Self-hosted</strong>: you manage the machine, persistent state, full hardware/software control, required for private network access or specialized hardware." },
+  { d:5, q:"What are the security risks of self-hosted runners on public repos?", a:"Public repos can receive PRs from anyone — a malicious PR could trigger a workflow that runs on your self-hosted runner, potentially <strong>exfiltrating secrets, accessing internal network resources</strong>, or compromising the runner host. Avoid this setup." },
+  { d:5, q:"What is an IP allow list in the context of GitHub Actions?", a:"An <strong>IP allow list</strong> restricts which IP addresses can access your org/enterprise. GitHub-hosted runner IPs change constantly, so you must either allow GitHub's IP range, use self-hosted runners, or configure the list to allow dynamic runner IPs." },
+  { d:5, q:"What is the scope of encrypted secrets in GitHub Actions?", a:"Secrets can be scoped at three levels: <strong>Repository</strong> (one repo only), <strong>Organization</strong> (shared across multiple repos in the org), and <strong>Enterprise</strong> (shared across all orgs). Narrower scope = better security." },
+  { d:5, q:"What are runner groups and why are they used?", a:"<strong>Runner groups</strong> organize self-hosted runners and control which organizations or repos can use them. Enterprises use groups to ensure only approved teams use specialized (e.g., production) runners." },
+
+  // D7 – Packages
+  { d:6, q:"What package formats does GitHub Packages support?", a:"GitHub Packages supports: <strong>npm</strong> (JavaScript), <strong>Docker/OCI</strong> (container images), <strong>Maven</strong> (Java), <strong>Gradle</strong>, <strong>NuGet</strong> (.NET), and <strong>RubyGems</strong>." },
+  { d:6, q:"What is the difference between GitHub Packages and GitHub Releases?", a:"<strong>GitHub Packages</strong> is a package registry for distributing software artifacts (libraries, containers) to be consumed by other builds. <strong>GitHub Releases</strong> are human-facing distribution points for end-user software with release notes and attached binaries." },
+  { d:6, q:"How are GitHub Packages used in Actions workflows?", a:"Workflows authenticate to the GitHub Packages registry using <strong>GITHUB_TOKEN</strong>, then use standard package manager commands (docker push, npm publish, etc.) to publish or consume packages as part of CI/CD pipelines." },
+];
+
+const QUIZ = [
+  { d:"D1", q:"An admin needs to send logs to GitHub Support for a GHES outage. What should they generate?", opts:["A GraphQL report","A support bundle","An audit log export","A webhook payload"], ans:1, exp:"A support bundle packages all relevant logs and diagnostics from a GHES instance in a format GitHub Support can analyze." },
+  { d:"D2", q:"Your company uses Okta. You want GitHub accounts auto-deprovisioned when employees leave. What should you configure?", opts:["SAML SSO only","Team Synchronization","SCIM provisioning","2FA enforcement"], ans:2, exp:"SCIM automates user lifecycle management — it provisions new accounts and deprovisions them when users are removed from the IdP, like Okta." },
+  { d:"D2", q:"What is the key restriction of Enterprise Managed Users (EMUs)?", opts:["They cannot use 2FA","They cannot own personal repos or join outside orgs","They cannot be assigned team roles","They cannot access private repos"], ans:1, exp:"EMU accounts exist solely within the managing enterprise — they have no personal GitHub identity, cannot own public repos, or interact outside the enterprise boundary." },
+  { d:"D3", q:"A company needs GitHub deployed in their own data center for data sovereignty. Which product fits?", opts:["GitHub Enterprise Cloud","GitHub AE","GitHub Enterprise Server","GitHub Team"], ans:1, exp:"GHES is self-hosted on the organization's own infrastructure, giving full control over data residency and the deployment environment." },
+  { d:"D3", q:"A Windows runner uses how many GitHub Actions minutes per actual minute of compute?", opts:["1×","2×","5×","10×"], ans:1, exp:"Windows runners are billed at 2× the rate of Linux runners. macOS runners are billed at 10×. Linux is the 1× baseline." },
+  { d:"D4", q:"A developer should be able to create PRs but NOT delete branches or manage settings. What is the correct role?", opts:["Admin","Maintain","Write","Triage"], ans:2, exp:"The Write role allows creating PRs, merging, and pushing code. Maintain adds branch management. Admin adds settings/deletion. Write is the least-privilege choice here." },
+  { d:"D4", q:"An enterprise wants to prevent individual orgs from disabling required PR reviews. What should they configure?", opts:["Org-level branch protection","An enterprise policy","A CODEOWNERS file","A workflow requirement"], ans:1, exp:"Enterprise policies override org-level settings. Setting this at the enterprise level prevents orgs from weakening the requirement." },
+  { d:"D5", q:"A developer accidentally committed an AWS secret key. It's already pushed. What is the FIRST step?", opts:["Delete the repo","Revoke the secret in AWS immediately","Run git filter-branch","Contact GitHub support"], ans:1, exp:"The secret is already exposed — revoking it in AWS is the most urgent step to stop potential misuse. Then clean the history and rotate credentials." },
+  { d:"D5", q:"For an automated deployment bot, what is BETTER than using a PAT tied to a user account?", opts:["An OAuth App","A GitHub App","A deploy key","A webhook"], ans:1, exp:"GitHub Apps authenticate as themselves with fine-grained, repo-scoped permissions and aren't tied to any user — if the user leaves, access isn't lost." },
+  { d:"D6", q:"Your self-hosted runner is inside a private network. Actions jobs are failing because github.com is blocked. What should you configure?", opts:["IP allow list on GitHub","A proxy for the runner","A GitHub-hosted runner","A runner group"], ans:1, exp:"Self-hosted runners in restricted networks must be configured with a proxy so they can reach github.com to receive job assignments and download Actions." },
+  { d:"D6", q:"You want to share a set of runners only with specific repos in your enterprise. What feature enables this?", opts:["Encrypted secrets","Runner labels","Runner groups","IP allow lists"], ans:2, exp:"Runner groups control which organizations and repositories have access to a set of self-hosted runners, enabling controlled sharing within an enterprise." },
+  { d:"D7", q:"A team wants to publish their npm package so other internal teams can consume it in their Actions workflows. What should they use?", opts:["GitHub Releases","GitHub Gists","GitHub Packages","A public npm registry"], ans:2, exp:"GitHub Packages provides an internal npm registry that integrates with GitHub authentication — ideal for sharing private packages across internal teams." },
+  { d:"D2", q:"What is the key difference between Team Synchronization and SCIM?", opts:["Team Sync provisions/deprovisions GitHub accounts; SCIM manages team membership","SCIM provisions/deprovisions accounts; Team Sync manages IdP group-to-team mapping","They are identical features","Team Sync only works with Azure AD"], ans:1, exp:"SCIM manages the user account lifecycle (create/delete). Team Sync maps IdP group memberships to GitHub teams — both can work together for full identity management." },
+  { d:"D5", q:"Which GitHub feature automatically opens PRs to fix packages with known CVEs?", opts:["Secret scanning","Code scanning","Dependabot security updates","GitHub Advisory Database"], ans:2, exp:"Dependabot security updates automatically create pull requests to bump vulnerable dependencies to safe versions based on the GitHub Advisory Database." },
+  { d:"D1", q:"A team asks you to help them auto-notify Slack when new issues are opened, without writing custom code. What do you recommend?", opts:["A GitHub Action in their workflow","A GitHub App from the Marketplace","A PAT-based webhook script","A GraphQL subscription"], ans:1, exp:"GitHub Marketplace Apps (like the official Slack GitHub app) provide pre-built integrations — no custom code required, just install and configure." },
+];
+

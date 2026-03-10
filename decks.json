@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "version": "3.0-stable",
+    "decks": 6,
+    "defaultDeckId": "base"
+  },
+  "defaultDeckId": "base",
+  "decks": [
+    {
+      "id": "base",
+      "name": "Main Deck",
+      "file": "cards.json",
+      "version": "3.0-stable"
+    },
+    {
+      "id": "hard",
+      "name": "Hard Deck",
+      "file": "hard.json",
+      "version": "3.0-stable"
+    },
+    {
+      "id": "actual",
+      "name": "Actual Test Deck",
+      "file": "Actual4Test_cards.json",
+      "version": "3.0-stable"
+    },
+    {
+      "id": "multisite",
+      "name": "QnAfromMultiSite",
+      "file": "QnAfromMultiSite_cards.json",
+      "version": "3.0-stable"
+    },
+    {
+      "id": "shapingpixel",
+      "name": "ShapingPixel Deck",
+      "file": "ShapingPixel_cards.json",
+      "version": "3.0-stable"
+    },
+    {
+      "id": "mspractiseqna",
+      "name": "MS Practise QnA",
+      "file": "MS_Practise_QnA_cards.json",
+      "version": "3.0-stable"
+    }
+  ]
+}

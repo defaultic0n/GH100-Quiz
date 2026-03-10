@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <title>GH-100 Flashcards</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">GH-100 Flashcards</div>
+    <div class="stats">
+      <span id="statDeck">Deck</span>
+      <span class="dot">•</span>
+      <span id="statIndex">0/0</span>
+      <span class="dot">•</span>
+      <span id="statScore">0 correct</span>
+    </div>
+    <!-- ✅ NEW: Terminology link -->
+    <a href="terminology.html"
+       style="font-size:.78rem;color:#60a5fa;text-decoration:none;border:1px solid #1d4ed8;border-radius:6px;padding:.25rem .6rem;white-space:nowrap;flex-shrink:0;"
+       title="View common GH-100 terminology">
+      📖 Terms
+    </a>
+  </header>
+
+  <main class="container">
+    <section class="cardwrap" aria-live="polite">
+      <div class="card" id="card">
+        <div class="face front" id="front"></div>
+        <div class="face back" id="back"></div>
+      </div>
+    </section>
+
+    <section class="feedback" id="feedback" aria-live="polite"></section>
+
+    <section class="toolbar">
+      <div class="deckRow">
+        <label class="toggle">Deck
+          <select id="deckSelect" class="select"></select>
+        </label>
+      </div>
+
+      <div class="toolGrid">
+        <label class="toggle"><input type="checkbox" id="toggleShuffle" /> <span class="lbl" data-full="Shuffle questions">Shuffle questions</span></label>
+        <label class="toggle"><input type="checkbox" id="toggleShuffleAnswers" /> <span class="lbl" data-full="Shuffle answers">Shuffle answers</span></label>
+        <label class="toggle"><input type="checkbox" id="toggleMissed" /> <span class="lbl" data-full="Only missed">Only missed</span></label>
+        <label class="toggle"><input type="checkbox" id="toggleQuiz" /> <span class="lbl" data-full="Quiz mode">Quiz mode</span></label>
+        <button class="btn" id="btnReset" aria-label="Reset progress">Reset progress</button>
+      </div>
+    </section>
+
+    <section class="search">
+      <input id="searchBox" placeholder="Search questions or answers…" />
+      <button class="btn" id="btnClearSearch">Clear</button>
+    </section>
+
+    <footer class="footer">
+      <div class="small">Tip: Add to Home Screen for an app-like experience.</div>
+    </footer>
+  </main>
+
+  <section class="bottomstack">
+    <section class="controls">
+      <button class="btn" id="btnPrev" aria-label="Previous">◀</button>
+      <button class="btn primary" id="btnFlip">Flip</button>
+      <button class="btn primary" id="btnSubmit" style="display:none">Submit</button>
+      <button class="btn" id="btnNext" aria-label="Next">▶</button>
+    </section>
+
+    <section class="marking">
+      <button class="btn good" id="btnCorrect">I got it ✓</button>
+      <button class="btn bad" id="btnWrong">I missed ✕</button>
+    </section>
+  </section>
+
+  <div id="updateBanner" class="update-banner hidden" role="status" aria-live="polite">
+    <span>🔄 New version available</span>
+    <button id="btnUpdate" type="button">Refresh</button>
+  </div>
+
+  <script src="app.js"></script>
+  <div id="startupBanner"
+     class="update-banner hidden"
+     role="status"
+     aria-live="polite">
+  <span id="startupBannerText"></span>
+
+</body>
+</html>

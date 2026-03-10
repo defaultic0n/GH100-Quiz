@@ -1,0 +1,15 @@
+{
+  "metaVersion": "2b",
+  "validation": {
+    "actualDeckIssues": [
+      "Long option text in Actual deck Q11",
+      "Long option text in Actual deck Q16",
+      "Long option text in Actual deck Q23",
+      "Long option text in Actual deck Q28",
+      "Long option text in Actual deck Q29"
+    ],
+    "actualCards": 29,
+    "mainCards": 41,
+    "hardCards": 25
+  }
+}

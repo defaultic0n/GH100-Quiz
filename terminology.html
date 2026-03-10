@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <title>GH-100 Terminology</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #0b1220;
+      color: #e5e7eb;
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #111827;
+      border-bottom: 1px solid #1f2937;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      height: 52px;
+      gap: .75rem;
+    }
+    .brand { font-weight: 700; font-size: 1rem; color: #f9fafb; white-space: nowrap; }
+    .nav-link {
+      font-size: .8rem;
+      color: #60a5fa;
+      text-decoration: none;
+      border: 1px solid #1d4ed8;
+      border-radius: 6px;
+      padding: .25rem .65rem;
+      white-space: nowrap;
+      transition: background .15s;
+    }
+    .nav-link:hover { background: #1e3a5f; }
+
+    /* ── Search bar ── */
+    .search-bar {
+      max-width: 700px;
+      margin: 1rem auto .5rem;
+      padding: 0 1rem;
+    }
+    .search-bar input {
+      width: 100%;
+      background: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      color: #e5e7eb;
+      padding: .55rem .9rem;
+      font-size: .9rem;
+      outline: none;
+    }
+    .search-bar input:focus { border-color: #3b82f6; }
+    .search-bar input::placeholder { color: #6b7280; }
+
+    /* ── Section heading ── */
+    .section-label {
+      max-width: 700px;
+      margin: .75rem auto .4rem;
+      padding: 0 1rem;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #6b7280;
+    }
+
+    /* ── Term cards ── */
+    .cards { max-width: 700px; margin: 0 auto 2rem; padding: 0 1rem; display: flex; flex-direction: column; gap: .65rem; }
+
+    .term-card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color .15s;
+    }
+    .term-card:hover { border-color: #374151; }
+
+    .term-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .65rem 1rem;
+      cursor: pointer;
+      gap: .5rem;
+      user-select: none;
+    }
+    .term-left { display: flex; align-items: center; gap: .75rem; min-width: 0; }
+    .badge {
+      flex-shrink: 0;
+      background: #1e3a5f;
+      color: #60a5fa;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      padding: .2rem .55rem;
+      border-radius: 5px;
+      border: 1px solid #1d4ed8;
+      min-width: 2.8rem;
+      text-align: center;
+    }
+    .term-name { font-weight: 600; font-size: .95rem; color: #f3f4f6; }
+    .term-short { font-size: .82rem; color: #9ca3af; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .chevron { color: #6b7280; font-size: .75rem; flex-shrink: 0; transition: transform .2s; }
+    .term-card.open .chevron { transform: rotate(180deg); }
+
+    .term-body { display: none; border-top: 1px solid #1f2937; }
+    .term-card.open .term-body { display: block; }
+
+    .body-section { padding: .7rem 1rem; }
+    .body-section + .body-section { border-top: 1px solid #1a2332; }
+
+    .body-label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: .3rem;
+    }
+    .body-text { font-size: .88rem; color: #d1d5db; line-height: 1.55; }
+
+    .answer-box {
+      background: #0f2137;
+      border: 1px solid #1e3a5f;
+      border-radius: 7px;
+      padding: .6rem .85rem;
+      font-size: .85rem;
+      color: #bfdbfe;
+      line-height: 1.55;
+    }
+
+    /* ── No results ── */
+    .no-results { text-align: center; color: #6b7280; padding: 2.5rem 1rem; font-size: .9rem; display: none; }
+
+    /* ── Footer ── */
+    .footer { text-align: center; color: #4b5563; font-size: .75rem; padding: 1rem; }
+
+    /* ── Mobile tweaks ── */
+    @media (max-width: 480px) {
+      .term-name { font-size: .88rem; }
+      .term-short { font-size: .78rem; }
+      .badge { font-size: .68rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">📖 GH-100 Terminology</div>
+    <a class="nav-link" href="index.html">← Quiz App</a>
+  </header>
+
+  <div class="search-bar">
+    <input id="searchBox" type="search" placeholder="Search terms, abbreviations, meanings…" autocomplete="off" />
+  </div>
+
+  <div class="section-label" id="countLabel"></div>
+
+  <div class="cards" id="cardList"></div>
+  <div class="no-results" id="noResults">No terms match your search.</div>
+
+  <div class="footer">GH-100 GitHub Admin Certification · Common Terminology</div>
+
+  <script>
+    const TERMS = [
+      {
+        abbr: "EMU",
+        name: "Enterprise Managed Users",
+        meaning: "GitHub users that are fully owned and managed by the enterprise.",
+        question: "What happens when an EMU leaves your company?",
+        answer: "Their GitHub account is suspended and all access to repositories is immediately revoked. This is because EMUs are fully managed by the enterprise."
+      },
+      {
+        abbr: "SCIM",
+        name: "System for Cross-domain Identity Management",
+        meaning: "Automates user provisioning and deprovisioning. Works alongside SAML.",
+        question: "How does SCIM work with IdP for user management?",
+        answer: "When a user is removed from the IdP, SCIM automatically deactivates their GitHub account. SCIM automates user provisioning and deprovisioning when integrated with your IdP."
+      },
+      {
+        abbr: "IdP",
+        name: "Identity Provider",
+        meaning: "Used for authentication (e.g. Azure AD, Okta).",
+        question: "Which protocol does GitHub use to integrate with your IdP for authentication?",
+        answer: "GitHub supports SAML 2.0 for enterprise SSO. SAML allows users to authenticate with their corporate credentials instead of creating separate GitHub accounts."
+      },
+      {
+        abbr: "2FA",
+        name: "Two-Factor Authentication",
+        meaning: "An extra security layer that requires a second form of verification beyond a password.",
+        question: "How can you enforce 2FA for all members in your organization?",
+        answer: "You can require 2FA for all members in your organization's security settings. This adds an extra layer of security by requiring a second form of verification."
+      },
+      {
+        abbr: "API",
+        name: "Application Programming Interface",
+        meaning: "A set of rules that allows applications to communicate with each other.",
+        question: "What is the rate limit for GitHub API requests?",
+        answer: "For authenticated requests, the rate limit is 5,000 requests per hour. For unauthenticated requests, it's 60 requests per hour."
+      },
+      {
+        abbr: "CLI",
+        name: "Command Line Interface",
+        meaning: "A text-based interface to interact with software via commands in a terminal.",
+        question: "What is the primary purpose of GitHub CLI (gh)?",
+        answer: "GitHub CLI brings GitHub to your terminal, allowing you to call the GitHub API to script nearly anything you can do on GitHub from the command line."
+      },
+      {
+        abbr: "GHAS",
+        name: "GitHub Advanced Security",
+        meaning: "A set of premium security features for code scanning, secret scanning, and dependency review.",
+        question: "What security features are included in GitHub Advanced Security?",
+        answer: "Features include code scanning, secret scanning, dependency review, and code security analysis to help developers find and fix security vulnerabilities."
+      },
+      {
+        abbr: "GHE",
+        name: "GitHub Enterprise",
+        meaning: "GitHub's enterprise-tier offering with advanced security, compliance, and deployment options.",
+        question: "What are the main benefits of GitHub Enterprise?",
+        answer: "GitHub Enterprise offers advanced security, compliance, deployment options, and support features that aren't available in standard GitHub accounts."
+      },
+      {
+        abbr: "GHA",
+        name: "GitHub Actions",
+        meaning: "GitHub's CI/CD and automation platform that runs workflows triggered by repository events.",
+        question: "How can you limit the use of GitHub Actions in your organization?",
+        answer: "You can configure organization-wide policies for GitHub Actions, including which actions are allowed, approved actions, and self-hosted runner policies."
+      },
+      {
+        abbr: "GHCR",
+        name: "GitHub Container Registry",
+        meaning: "A registry for hosting and managing container images (Docker/OCI) within GitHub.",
+        question: "How is GitHub Container Registry integrated with GitHub Packages?",
+        answer: "GitHub Container Registry is fully integrated with GitHub Packages, allowing you to host and manage container images within your organization or repositories."
+      },
+      {
+        abbr: "GHES",
+        name: "GitHub Enterprise Server",
+        meaning: "A self-hosted version of GitHub that you deploy on your own infrastructure.",
+        question: "What is the main difference between GitHub Enterprise Cloud and GitHub Enterprise Server?",
+        answer: "GitHub Enterprise Server is a self-hosted version that you deploy on your own infrastructure, while GitHub Enterprise Cloud is hosted by GitHub."
+      },
+      {
+        abbr: "PR",
+        name: "Pull Request",
+        meaning: "A request to merge code changes from one branch into another, enabling code review.",
+        question: "What is the purpose of protecting branches in relation to pull requests?",
+        answer: "Branch protection settings can require pull requests before merging, require status checks to pass, and require certain types of reviews."
+      },
+      {
+        abbr: "SAML",
+        name: "Security Assertion Markup Language",
+        meaning: "An XML-based authentication protocol used for enterprise Single Sign-On.",
+        question: "What information does GitHub require from your SAML IdP for SSO configuration?",
+        answer: "GitHub requires the SSO URL, Issuer URL, and x.509 certificate from your IdP to configure SAML SSO."
+      },
+      {
+        abbr: "SSO",
+        name: "Single Sign-On",
+        meaning: "Allows users to authenticate once with corporate credentials to access multiple systems.",
+        question: "How does SSO benefit organizations using GitHub Enterprise?",
+        answer: "SSO allows members to authenticate using their corporate credentials, simplifies access management, and ensures consistent security policies across the organization."
+      },
+      {
+        abbr: "SSH",
+        name: "Secure Shell",
+        meaning: "A cryptographic network protocol for secure remote access and authentication.",
+        question: "How can you add SSH keys to GitHub for authentication?",
+        answer: "You can add SSH keys in your GitHub account settings under 'SSH and GPG keys'. This allows you to use SSH for secure authentication when pushing to repositories."
+      },
+      {
+        abbr: "TOTP",
+        name: "Time-based One-Time Password",
+        meaning: "A temporary, time-sensitive code generated by an authenticator app used for 2FA.",
+        question: "Which apps can be used to generate TOTP codes for GitHub 2FA?",
+        answer: "You can use authenticator apps like Google Authenticator, Authy, or 1Password to generate TOTP codes for GitHub's two-factor authentication."
+      },
+      {
+        abbr: "OIDC",
+        name: "OpenID Connect",
+        meaning: "An identity layer on top of OAuth 2.0 used for keyless authentication between GitHub Actions and cloud providers.",
+        question: "What is the benefit of using OIDC in GitHub Actions?",
+        answer: "OIDC allows GitHub Actions to receive short-lived tokens from cloud providers (e.g. AWS, Azure), eliminating the need to store long-lived credentials as secrets."
+      },
+      {
+        abbr: "PAT",
+        name: "Personal Access Token",
+        meaning: "A token used as an alternative to passwords for GitHub API authentication.",
+        question: "What is the main risk of using a PAT instead of GITHUB_TOKEN?",
+        answer: "PATs are persistent credentials — if leaked, they remain valid until manually revoked, posing a higher security risk than the short-lived GITHUB_TOKEN."
+      },
+      {
+        abbr: "RBAC",
+        name: "Role-Based Access Control",
+        meaning: "A method of restricting access based on defined roles assigned to users.",
+        question: "How does GitHub implement RBAC for repositories?",
+        answer: "GitHub provides predefined roles (Read, Triage, Write, Maintain, Admin) and custom repository roles to grant users specific permissions."
+      },
+      {
+        abbr: "CI/CD",
+        name: "Continuous Integration / Continuous Deployment",
+        meaning: "A software practice of automatically building, testing, and deploying code changes.",
+        question: "How does GitHub Actions support CI/CD pipelines?",
+        answer: "GitHub Actions automates build, test, and deploy workflows triggered by events like push or pull request, enabling full CI/CD pipelines directly in GitHub."
+      },
+      {
+        abbr: "CVE",
+        name: "Common Vulnerabilities and Exposures",
+        meaning: "A publicly disclosed security vulnerability assigned a unique identifier (e.g. CVE-2024-1234).",
+        question: "How does Dependabot use CVEs?",
+        answer: "Dependabot monitors the CVE database and GitHub Advisory Database to detect vulnerable dependencies in your project and automatically opens PRs to patch them."
+      },
+      {
+        abbr: "SLA",
+        name: "Service Level Agreement",
+        meaning: "A formal commitment on availability, support response time, and uptime for a service.",
+        question: "What SLA does GitHub offer for GitHub Enterprise Cloud?",
+        answer: "GitHub Enterprise Cloud offers a 99.9% monthly uptime SLA for core GitHub services."
+      }
+    ];
+
+    const cardList = document.getElementById("cardList");
+    const noResults = document.getElementById("noResults");
+    const countLabel = document.getElementById("countLabel");
+    const searchBox = document.getElementById("searchBox");
+
+    function render(filter = "") {
+      const q = filter.toLowerCase().trim();
+      cardList.innerHTML = "";
+      let count = 0;
+
+      TERMS.forEach((t, i) => {
+        const match = !q ||
+          t.abbr.toLowerCase().includes(q) ||
+          t.name.toLowerCase().includes(q) ||
+          t.meaning.toLowerCase().includes(q) ||
+          t.question.toLowerCase().includes(q) ||
+          t.answer.toLowerCase().includes(q);
+
+        if (!match) return;
+        count++;
+
+        const card = document.createElement("div");
+        card.className = "term-card";
+        card.innerHTML = `
+          <div class="term-header">
+            <div class="term-left">
+              <span class="badge">${esc(t.abbr)}</span>
+              <div>
+                <div class="term-name">${esc(t.name)}</div>
+                <div class="term-short">${esc(t.meaning)}</div>
+              </div>
+            </div>
+            <span class="chevron">▼</span>
+          </div>
+          <div class="term-body">
+            <div class="body-section">
+              <div class="body-label">Full Meaning</div>
+              <div class="body-text">${esc(t.meaning)}</div>
+            </div>
+            <div class="body-section">
+              <div class="body-label">Common Exam Question</div>
+              <div class="body-text">${esc(t.question)}</div>
+            </div>
+            <div class="body-section">
+              <div class="body-label">Answer &amp; Explanation</div>
+              <div class="answer-box">${esc(t.answer)}</div>
+            </div>
+          </div>`;
+
+        card.querySelector(".term-header").addEventListener("click", () => {
+          card.classList.toggle("open");
+        });
+
+        // Auto-expand when searching
+        if (q) card.classList.add("open");
+
+        cardList.appendChild(card);
+      });
+
+      noResults.style.display = count === 0 ? "block" : "none";
+      countLabel.textContent = q
+        ? `${count} of ${TERMS.length} terms match`
+        : `${TERMS.length} terms`;
+    }
+
+    function esc(str) {
+      return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    searchBox.addEventListener("input", () => render(searchBox.value));
+    render();
+  </script>
+</body>
+</html>
